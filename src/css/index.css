@@ -1,0 +1,209 @@
+@font-face {
+  font-family: 'Quartzo-Bold';
+  src: url('../fonts/QuartzoBold-W9lv.ttf') format('truetype');
+}
+
+/* Plus Jakarta Sans */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('../fonts/static/PlusJakartaSans-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('../fonts/static/PlusJakartaSans-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('../fonts/static/PlusJakartaSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('../fonts/static/PlusJakartaSans-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('../fonts/static/PlusJakartaSans-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('../fonts/static/PlusJakartaSans-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom font families should be added in tailwind.config.js under theme.extend.fontFamily */
+
+/* Custom CSS personalizado para WordPress */
+@layer base {
+  /* Estilos base personalizados */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply font-plus-jakarta text-gray-900 leading-relaxed;
+  }
+  
+  /* Headings */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold text-gray-900;
+  }
+  
+  h1 { @apply text-3xl md:text-4xl; }
+  h2 { @apply text-2xl md:text-3xl; }
+  h3 { @apply text-xl md:text-2xl; }
+  h4 { @apply text-lg md:text-xl; }
+  h5 { @apply text-base md:text-lg; }
+  h6 { @apply text-sm md:text-base; }
+  
+  /* Links */
+  a {
+    @apply text-theme-primary hover:text-theme-primary/80 transition-colors;
+  }
+  
+  /* Forms */
+  input, textarea, select {
+    @apply border-gray-300 rounded-md focus:border-theme-primary focus:ring focus:ring-theme-primary/20;
+  }
+  
+  button {
+    @apply bg-theme-primary text-white px-4 py-2 rounded-md hover:bg-theme-primary/90 transition-colors;
+  }
+}
+
+@layer components {
+  /* Componentes personalizados para WordPress */
+  
+  /* Navigation */
+  .main-navigation {
+    @apply bg-white;
+  }
+  
+  .main-navigation ul {
+    @apply flex list-none;
+  }
+  
+  .main-navigation a {
+    @apply text-gray-700 text-lg font-medium underline-offset-2 hover:underline px-0 py-2 transition-colors;
+  }
+  
+  /* Posts */
+  .post {
+    @apply bg-white rounded-lg shadow-sm p-6 mb-8;
+  }
+  
+  .post-title {
+    @apply text-2xl font-bold mb-4 text-gray-900;
+  }
+  
+  .post-meta {
+    @apply text-sm text-gray-600 mb-4 flex items-center space-x-4;
+  }
+  
+  .post-content {
+    @apply prose prose-lg max-w-none;
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    @apply space-y-6;
+  }
+  
+  .widget {
+    @apply bg-white rounded-lg shadow-sm p-6;
+  }
+  
+  .widget-title {
+    @apply text-lg font-semibold mb-4 text-gray-900;
+  }
+  
+  /* Buttons */
+  .btn-primary {
+    @apply bg-theme-primary text-white px-6 py-3 rounded-md hover:bg-theme-primary/90 transition-colors font-medium;
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-600 text-white px-6 py-3 rounded-md hover:bg-gray-700 transition-colors font-medium;
+  }
+  
+  /* WordPress specific */
+  .wp-caption {
+    @apply max-w-full;
+  }
+  
+  .wp-caption-text {
+    @apply text-sm text-gray-600 text-center mt-2;
+  }
+  
+  .sticky {
+    @apply border-l-4 border-theme-primary;
+  }
+  
+  /* Comments */
+  .comment {
+    @apply bg-gray-50 rounded-lg p-4 mb-4;
+  }
+  
+  .comment-author {
+    @apply font-semibold text-gray-900;
+  }
+  
+  .comment-meta {
+    @apply text-sm text-gray-600 mb-2;
+  }
+}
+
+@layer utilities {
+  /* Utilidades personalizadas */
+  .container-content {
+    @apply max-w-content mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .container-wide {
+    @apply max-w-content-wide mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* Screen reader only */
+  .sr-only {
+    @apply absolute w-px h-px p-0 -m-px overflow-hidden clip-[rect(0,0,0,0)] whitespace-nowrap border-0;
+  }
+  
+  /* WordPress alignment classes */
+  .alignleft {
+    @apply float-left mr-4 mb-2;
+  }
+  
+  .alignright {
+    @apply float-right ml-4 mb-2;
+  }
+  
+  .aligncenter {
+    @apply block mx-auto;
+  }
+}
