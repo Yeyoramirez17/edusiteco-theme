@@ -151,7 +151,10 @@ function edusiteco_scripts() {
 	}
 
 	// Main theme script
-	wp_enqueue_script( 'edusiteco-main', get_template_directory_uri() . '/assets/js/main.js', array(), _S_VERSION, true );
+	$main_js_path = get_template_directory() . '/assets/js/index.asset.php';
+    $main_js_dependencies = file_exists($main_js_path) ? require($main_js_path) : array('dependencies' => array(), 'version' => _S_VERSION);
+
+	wp_enqueue_script( 'edusiteco-main', get_template_directory_uri() . '/assets/js/index.js', $main_js_dependencies['dependencies'], $main_js_dependencies['version'], true );
 
 	// Navigation script (keep existing if exists)
 	if ( file_exists( get_template_directory() . '/js/navigation.js' ) ) {
@@ -199,3 +202,25 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+
+// Incluir walkers de navegación
+require get_template_directory() . '/inc/nav-walkers.php';
+
+// Registrar menús de navegación
+function edusiteco_register_menus() {
+    register_nav_menus(
+        array(
+            'menu-1' => esc_html__('Primary Menu', 'edusiteco'),
+        )
+    );
+}
+add_action('init', 'edusiteco_register_menus');
+
+# Front Page
+function edusiteco_enqueue_swiper() {
+    if (is_front_page()) {
+        wp_enqueue_script('swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js', array(), '12.0.0', true);
+        wp_enqueue_style('swiper-css', 'https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css', array(), '12.0.0');
+    }
+}
+add_action('wp_enqueue_scripts', 'edusiteco_enqueue_swiper');

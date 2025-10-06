@@ -1,12 +1,19 @@
+/* 
+ * Fuentes personalizadas
+ * Nota: Las rutas de las fuentes deben verificarse según la estructura del tema
+ */
+
+/* Quartzo Bold */
 @font-face {
   font-family: 'Quartzo-Bold';
   src: url('../fonts/QuartzoBold-W9lv.ttf') format('truetype');
+  font-display: swap;
 }
 
-/* Plus Jakarta Sans */
+/* Plus Jakarta Sans - Configuración completa */
 @font-face {
   font-family: 'Plus Jakarta Sans';
-  src: url('../fonts/static/PlusJakartaSans-ExtraLight.ttf') format('truetype');
+  src: url('../fonts/Plus_Jakarta_Sans/static/PlusJakartaSans-ExtraLight.ttf') format('truetype');
   font-weight: 200;
   font-style: normal;
   font-display: swap;
@@ -14,7 +21,7 @@
 
 @font-face {
   font-family: 'Plus Jakarta Sans';
-  src: url('../fonts/static/PlusJakartaSans-Light.ttf') format('truetype');
+  src: url('../fonts/Plus_Jakarta_Sans/static/PlusJakartaSans-Light.ttf') format('truetype');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -22,7 +29,7 @@
 
 @font-face {
   font-family: 'Plus Jakarta Sans';
-  src: url('../fonts/static/PlusJakartaSans-Regular.ttf') format('truetype');
+  src: url('../fonts/Plus_Jakarta_Sans/static/PlusJakartaSans-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -30,7 +37,7 @@
 
 @font-face {
   font-family: 'Plus Jakarta Sans';
-  src: url('../fonts/static/PlusJakartaSans-Medium.ttf') format('truetype');
+  src: url('../fonts/Plus_Jakarta_Sans/static/PlusJakartaSans-Medium.ttf') format('truetype');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -38,7 +45,7 @@
 
 @font-face {
   font-family: 'Plus Jakarta Sans';
-  src: url('../fonts/static/PlusJakartaSans-SemiBold.ttf') format('truetype');
+  src: url('../fonts/Plus_Jakarta_Sans/static/PlusJakartaSans-SemiBold.ttf') format('truetype');
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -46,76 +53,83 @@
 
 @font-face {
   font-family: 'Plus Jakarta Sans';
-  src: url('../fonts/static/PlusJakartaSans-Bold.ttf') format('truetype');
+  src: url('../fonts/Plus_Jakarta_Sans/static/PlusJakartaSans-Bold.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
-
+/* 
+ * Tailwind Directives - Importantes para el funcionamiento
+ * Nota: Estas directivas deben mantenerse en este orden
+ */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Custom font families should be added in tailwind.config.js under theme.extend.fontFamily */
-
-/* Custom CSS personalizado para WordPress */
+/* 
+ * Estilos base personalizados - Usando clases de Tailwind
+ * Nota: Se utilizan medidas de Tailwind (rem, px) en lugar de unidades fijas
+ */
 @layer base {
-  /* Estilos base personalizados */
   html {
     scroll-behavior: smooth;
   }
   
   body {
     @apply font-plus-jakarta text-gray-900 leading-relaxed;
+    /* Usando min-height con medidas de Tailwind */
+    min-height: max(55.25rem, 100dvh); /* 884px = 55.25rem */
   }
   
-  /* Headings */
+  /* Headings - Usando medidas responsive de Tailwind */
   h1, h2, h3, h4, h5, h6 {
     @apply font-bold text-gray-900;
   }
   
-  h1 { @apply text-3xl md:text-4xl; }
-  h2 { @apply text-2xl md:text-3xl; }
-  h3 { @apply text-xl md:text-2xl; }
-  h4 { @apply text-lg md:text-xl; }
-  h5 { @apply text-base md:text-lg; }
-  h6 { @apply text-sm md:text-base; }
+  h1 { @apply text-3xl md:text-4xl; }  /* 1.875rem - 2.25rem */
+  h2 { @apply text-2xl md:text-3xl; }  /* 1.5rem - 1.875rem */
+  h3 { @apply text-xl md:text-2xl; }   /* 1.25rem - 1.5rem */
+  h4 { @apply text-lg md:text-xl; }    /* 1.125rem - 1.25rem */
+  h5 { @apply text-base md:text-lg; }  /* 1rem - 1.125rem */
+  h6 { @apply text-sm md:text-base; }  /* 0.875rem - 1rem */
   
   /* Links */
   a {
-    @apply text-theme-primary hover:text-theme-primary/80 transition-colors;
+    @apply text-theme-primary transition-colors duration-200;
   }
   
-  /* Forms */
+  /* Forms - Usando clases de Tailwind para consistencia */
   input, textarea, select {
-    @apply border-gray-300 rounded-md focus:border-theme-primary focus:ring focus:ring-theme-primary/20;
+    @apply border border-gray-300 rounded-md focus:border-theme-primary focus:ring-2 focus:ring-theme-primary/20 focus:ring-opacity-50 transition-colors duration-200;
   }
   
   button {
-    @apply bg-theme-primary text-white px-4 py-2 rounded-md hover:bg-theme-primary/90 transition-colors;
+    @apply text-white rounded-md hover:bg-theme-primary/90 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-theme-primary/50;
   }
 }
 
+/* 
+ * Componentes personalizados para WordPress
+ * Nota: Se mantienen los estilos existentes pero usando clases de Tailwind
+ */
 @layer components {
-  /* Componentes personalizados para WordPress */
-  
-  /* Navigation */
+  /* Navigation - Compatible con el header institucional */
   .main-navigation {
     @apply bg-white;
   }
   
   .main-navigation ul {
-    @apply flex list-none;
+    @apply flex list-none m-0 p-0;
   }
   
   .main-navigation a {
-    @apply text-gray-700 text-lg font-medium underline-offset-2 hover:underline px-0 py-2 transition-colors;
+    @apply text-gray-700 text-lg font-medium underline-offset-2 hover:underline px-0 py-2 transition-colors duration-200;
   }
   
   /* Posts */
   .post {
-    @apply bg-white rounded-lg shadow-sm p-6 mb-8;
+    @apply bg-white rounded-lg shadow-sm p-6 mb-8 border border-gray-200;
   }
   
   .post-title {
@@ -127,7 +141,7 @@
   }
   
   .post-content {
-    @apply prose prose-lg max-w-none;
+    @apply prose prose-lg max-w-none prose-headings:text-gray-900 prose-p:text-gray-700 prose-a:text-theme-primary;
   }
   
   /* Sidebar */
@@ -136,38 +150,38 @@
   }
   
   .widget {
-    @apply bg-white rounded-lg shadow-sm p-6;
+    @apply bg-white rounded-lg shadow-sm p-6 border border-gray-200;
   }
   
   .widget-title {
     @apply text-lg font-semibold mb-4 text-gray-900;
   }
   
-  /* Buttons */
+  /* Buttons - Sin conflicto con los del header */
   .btn-primary {
-    @apply bg-theme-primary text-white px-6 py-3 rounded-md hover:bg-theme-primary/90 transition-colors font-medium;
+    @apply bg-theme-primary text-white px-6 py-3 rounded-md hover:bg-theme-primary/90 transition-colors duration-200 font-medium focus:outline-none focus:ring-2 focus:ring-theme-primary/50;
   }
   
   .btn-secondary {
-    @apply bg-gray-600 text-white px-6 py-3 rounded-md hover:bg-gray-700 transition-colors font-medium;
+    @apply bg-gray-600 text-white px-6 py-3 rounded-md hover:bg-gray-700 transition-colors duration-200 font-medium focus:outline-none focus:ring-2 focus:ring-gray-500/50;
   }
   
   /* WordPress specific */
   .wp-caption {
-    @apply max-w-full;
+    @apply max-w-full inline-block;
   }
   
   .wp-caption-text {
-    @apply text-sm text-gray-600 text-center mt-2;
+    @apply text-sm text-gray-600 text-center mt-2 italic;
   }
   
   .sticky {
-    @apply border-l-4 border-theme-primary;
+    @apply border-l-4 border-theme-primary bg-gray-50/50;
   }
   
   /* Comments */
   .comment {
-    @apply bg-gray-50 rounded-lg p-4 mb-4;
+    @apply bg-gray-50 rounded-lg p-4 mb-4 border border-gray-200;
   }
   
   .comment-author {
@@ -179,8 +193,11 @@
   }
 }
 
+/* 
+ * Utilidades personalizadas
+ * Nota: Se mantienen las utilidades existentes
+ */
 @layer utilities {
-  /* Utilidades personalizadas */
   .container-content {
     @apply max-w-content mx-auto px-4 sm:px-6 lg:px-8;
   }
@@ -189,12 +206,13 @@
     @apply max-w-content-wide mx-auto px-4 sm:px-6 lg:px-8;
   }
   
-  /* Screen reader only */
+  /* Screen reader only - Mejorado para accesibilidad */
   .sr-only {
-    @apply absolute w-px h-px p-0 -m-px overflow-hidden clip-[rect(0,0,0,0)] whitespace-nowrap border-0;
+    @apply absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0;
+    clip: rect(0, 0, 0, 0);
   }
   
-  /* WordPress alignment classes */
+  /* WordPress alignment classes - Sin cambios */
   .alignleft {
     @apply float-left mr-4 mb-2;
   }
@@ -204,6 +222,90 @@
   }
   
   .aligncenter {
-    @apply block mx-auto;
+    @apply block mx-auto my-2;
   }
+}
+
+/* 
+ * Estilos específicos para el header institucional
+ * Nota: Estos estilos no interfieren con los componentes de WordPress
+ * Usan medidas de Tailwind y son específicos para la estructura del header
+ */
+
+/* Underline animation para enlaces del header */
+.header-group .underline-link {
+  text-decoration: none;
+  position: relative;
+}
+
+.header-group .underline-link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px; /* 0.125rem */
+  bottom: -0.25rem; /* -4px */
+  left: 0;
+  background-color: #3366CC; /* Usar theme('colors.primary') */
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.header-group:hover .underline-link::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Submenu animations */
+.header-group .submenu {
+  display: none;
+}
+
+.header-group:hover .submenu {
+  display: block;
+}
+
+.submenu {
+  transition: all 0.3s ease-in-out;
+}
+
+/* 
+ * Responsive utilities para el header
+ * Nota: Se usan breakpoints de Tailwind
+ */
+@media (max-width: 768px) {
+  .header-mobile-menu {
+    @apply bg-primary/95 backdrop-blur-sm;
+  }
+}
+
+/* 
+ * Estados de focus para accesibilidad
+ */
+.header-group button:focus {
+  @apply outline-none ring-2 ring-primary/50 ring-offset-2;
+}
+
+/* 
+ * Dark mode support para el header institucional
+ */
+@media (prefers-color-scheme: dark) {
+  .dark .header-group .underline-link::after {
+    background-color: #60A5FA; /* Color más claro para dark mode */
+  }
+}
+
+/* 
+ * Utilidades de espaciado específicas
+ * Nota: Usando el spacing configurado en Tailwind
+ */
+.header-spacing {
+  @apply px-4 sm:px-6 lg:px-8; /* Equivalente a px-15 personalizado */
+}
+
+/* 
+ * Transiciones suaves para elementos interactivos
+ */
+.header-transition {
+  @apply transition-all duration-300 ease-in-out;
 }

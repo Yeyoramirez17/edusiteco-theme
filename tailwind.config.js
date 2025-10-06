@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: 'class',
   content: [
     './*.php',
     './template-parts/**/*.php',
@@ -12,7 +13,7 @@ module.exports = {
   ],
   theme: {
     extend: {
-      // Colores personalizados del tema
+      // Colores personalizados del tema - Combinando ambas configuraciones
       colors: {
         'theme': {
           'primary': '#005cee',
@@ -23,14 +24,24 @@ module.exports = {
           'info': '#17a2b8',
           'light': '#f8f9fa',
           'dark': '#343a40',
-        }
+        },
+        // Colores del header institucional
+        'primary': '#3366CC',
+        'background-light': '#FFFFFF',
+        'background-dark': '#1A202C',
+        'text-light': '#1A202C',
+        'text-dark': '#EDF2F7',
+        'border-light': '#E2E8F0',
+        'border-dark': '#4A5568',
+        'accent': '#FFA500',
       },
-      // Tipografía personalizada
+      // Tipografía personalizada - Combinando fuentes
       fontFamily: {
         'sans': ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen-Sans', 'Ubuntu', 'Cantarell', 'Helvetica Neue', 'sans-serif'],
         'code': ['Monaco', 'Consolas', 'Andale Mono', 'DejaVu Sans Mono', 'monospace'],
         'quartzo-bold': ['Quartzo-Bold', 'sans-serif'],
         'plus-jakarta': ['Plus Jakarta Sans', 'sans-serif'],
+        'display': ['Montserrat', 'sans-serif'], // Para el header
       },
       // Espaciado personalizado para WordPress
       spacing: {
@@ -54,6 +65,10 @@ module.exports = {
       maxWidth: {
         'content': '1200px',
         'content-wide': '1400px',
+      },
+      // Border radius personalizado
+      borderRadius: {
+        DEFAULT: '0.5rem',
       }
     },
   },

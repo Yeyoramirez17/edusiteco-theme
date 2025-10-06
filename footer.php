@@ -11,91 +11,206 @@
 
 ?>
 
-<footer id="colophon" class="edusiteco-footer flex flex-col">
-	<div class="edusiteco-footer__content flex justify-center gap-0 px-[100px] my-12">
-		<div class="edusiteco-footer__logos border-r-4 border-gray-200 px-6 w-1/3 grid grid-cols-2 grid-rows-2 gap-x-4 items-center justify-items-center py-4">
-			<a class="col-span-2 flex justify-center items-center w-full" href="http://gov.co" target="_blank">
-				<img 
-					class="max-w-32 max-h-20 w-auto h-auto object-contain"
-					src="<?php echo get_theme_file_uri("assets/img/Logo_Ministerio_de_Educación.png") ?>"
-					alt="Logo Ministerio de Educación de Colombia" 
-				/>
-			</a>
-			<a class="justify-self-end" href="http://gov.co" target="_blank">
-				<img 
-					class="max-w-16 max-h-12 w-auto h-auto object-contain"
-					src="<?php echo get_theme_file_uri("assets/img/Logo_Colombia.png") ?>" 
-					alt="Logo Colombia"
-				/>
-			</a>
-			<?php
-			if (has_custom_logo()):
-				the_custom_logo();
-			else:
-				?>
-				<a class="justify-self-start">
-					<img 
-						class="max-w-16 max-h-12 w-auto h-auto object-contain"
-						src="<?= get_theme_file_uri("assets/img/logoipsum.png") ?>" 
-						alt="<?= get_bloginfo('name') ?>" 
-					/>
-				</a>
-				<?php
-			endif;
-			?>
-		</div>
-		<div class="edusiteco-footer__info px-6 w-1/3 border-r-4 border-gray-200">
-			<h5 class="edusiteco-footer__title uppercase py-2"><?= bloginfo('name') ?></h5>
-			
-			<p class="edusiteco-footer__description">
-				<?php echo get_bloginfo('description', 'display'); ?>
-			</p>
+	</div>
+	<!-- #content -->
 
-			<p><span class="font-medium">Sede principal:</span> Colegio Antonio Nariño</p>
-			<p><span class="font-medium">Dirección:</span> Carrera 12 #10-44, Popayán, Cauca</p>
-			<p><span class="font-medium">Teléfono:</span> xx-xxxx-xxxx</p>
-			<p><span class="font-medium">Horario de atención:</span> Lunes a Viernes de xx:xx AM a xx:xx AM</p>
-
-				<div class="edusiteco-footer__social-links w-full flex justify-center gap-5 mt-4">
-					<a href="#" target="_blank" class="group" aria-label="<?php esc_attr_e( 'Facebook', 'edusiteco' ); ?>">
-						<img class="group-hover:scale-[1.2] transition-all w-8" src="<?php echo get_theme_file_uri("assets/svg/facebook.svg") ?>" alt="" />
+	<footer id="colophon" class="site-footer bg-background-light dark:bg-background-dark border-t border-border-light dark:border-border-dark">
+		
+		<!-- Sección Principal - 4 Columnas -->
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
+				
+				<!-- Columna 1 - Logos Institucionales -->
+				<div class="flex flex-col items-center space-y-4">
+					<!-- Logo Ministerio de Educación (Parte superior - más grande) -->
+					<a href="https://www.mineducacion.gov.co" target="_blank" rel="noopener noreferrer" class="block mb-2">
+						<img 
+							class="h-20 w-auto object-contain"
+							src="<?php echo get_theme_file_uri("assets/img/Logo_Ministerio_de_Educación.png") ?>"
+							alt="Logo Ministerio de Educación de Colombia" 
+						/>
 					</a>
-					<a href="#" target="_blank" class="group" aria-label="<?php esc_attr_e( 'Instagram', 'edusiteco' ); ?>">
-						<img class="group-hover:scale-[1.2] transition-all w-8" src="<?php echo get_theme_file_uri("assets/svg/instagram.svg") ?>" alt="" />
-					</a>
-					<a href="#" target="_blank" class="group" aria-label="<?php esc_attr_e( 'YouTube', 'edusiteco' ); ?>">
-						<img class="group-hover:scale-[1.2] transition-all w-8" src="<?php echo get_theme_file_uri("assets/svg/youtube.svg") ?>" alt="" />
-					</a>
-					<a href="#" target="_blank" class="group" aria-label="<?php esc_attr_e( 'X', 'edusiteco' ); ?>">
-						<img class="group-hover:scale-[1.2] transition-all w-8" src="<?php echo get_theme_file_uri("assets/svg/twitter.svg") ?>" alt="X">
-					</a>
+					
+					<!-- Base de la pirámide - Logos más pequeños alineados horizontalmente -->
+					<div class="flex items-center justify-center space-x-6 mt-2">
+						<!-- Logo Marca Colombia -->
+						<a href="https://www.colombia.co" target="_blank" rel="noopener noreferrer" class="block">
+							<img 
+								class="h-12 w-auto object-contain"
+								src="<?php echo get_theme_file_uri("assets/img/Logo_Colombia.png") ?>" 
+								alt="Logo Colombia"
+							/>
+						</a>
+						
+						<!-- Logo del Colegio -->
+						<div class="flex items-center">
+							<?php if (has_custom_logo()): ?>
+								<div class="h-12 w-auto">
+									<?php the_custom_logo(); ?>
+								</div>
+							<?php else: ?>
+								<a href="<?php echo esc_url(home_url('/')); ?>" class="block">
+									<img 
+										class="h-12 w-auto object-contain"
+										src="<?php echo get_theme_file_uri("assets/img/logoipsum.png") ?>" 
+										alt="<?php echo esc_attr(get_bloginfo('name')); ?>" 
+									/>
+								</a>
+							<?php endif; ?>
+						</div>
+					</div>
 				</div>
 
-		</div>
-		<!-- .site-info -->
-		<div class="edusiteco-footer__links px-6 w-1/3">
-			<h5 class="uppercase py-2">Enlaces de interés</h5>
-			<ul class="">
-				<li class=""><a class="text-gray-700 hover:underline text-lg" href="#">Transparencia y acceso a la información</a></li>
-				<li class=""><a class="text-gray-700 hover:underline text-lg" href="#">Participa</a></li>
-				<li class=""><a class="text-gray-700 hover:underline text-lg" href="#">Sobre la institución</a></li>
-				<li class=""><a class="text-gray-700 hover:underline text-lg" href="#">Directorio</a></li>
-				<li class=""><a class="text-gray-700 hover:underline text-lg" href="#">Sedes</a></li>
-			</ul>
-			<!-- .links -->
-		</div>
-	</div>
-	<div class="w-full h-12 flex justify-between items-center px-[100px] py-2 bg-[#4488EE]">
-		<a class="cursor-pointer" href="http://gov.co" target="_blank">
-			<img class="h-6" src="<?php echo get_theme_file_uri("assets/img/govco.png") ?>" alt="<?php echo get_bloginfo('name') ?>">
-		</a>
-		<p class="text-center text-white">Edusite &copy; <?= date('Y') ?> Todos los derechos reservados.</p>
-	</div>
-</footer>
-<!-- #colophon -->
-</div>
-<!-- #page -->
-<?php wp_footer(); ?>
-</body>
+				<!-- Columna 2 - Información Institucional -->
+				<div class="lg:pl-4">
+					<h3 class="text-lg font-semibold text-text-light dark:text-text-dark mb-4 font-display uppercase">
+						<?php echo esc_html(get_bloginfo('name')); ?>
+					</h3>
+					
+					<p class="text-text-light dark:text-text-dark text-sm leading-relaxed mb-4">
+						<?php 
+						$description = get_bloginfo('description', 'display');
+						if ($description) {
+							echo esc_html($description);
+						} else {
+							echo 'Institución Educativa comprometida con la formación integral de nuestros estudiantes, promoviendo la excelencia académica y los valores ciudadanos.';
+						}
+						?>
+					</p>
 
+					<!-- Redes Sociales -->
+					<div class="flex space-x-4 mt-6">
+						<a href="#" target="_blank" class="text-primary hover:text-primary/80 transition-colors" aria-label="<?php esc_attr_e('Facebook', 'edusiteco'); ?>">
+							<img class="w-8 h-8" src="<?php echo get_theme_file_uri("assets/svg/facebook.svg") ?>" alt="<?= esc_attr_e('Facebook', 'edusiteco') . " ". get_bloginfo('name');?>" srcset="">
+						</a>
+						<a href="#" target="_blank" class="text-primary hover:text-primary/80 transition-colors" aria-label="<?php esc_attr_e('Instagram', 'edusiteco'); ?>">
+							<img class="w-8 h-8" src="<?php echo get_theme_file_uri("assets/svg/instagram.svg") ?>" alt="<?= esc_attr_e('Instagram', 'edusiteco') . " ". get_bloginfo('name');?>" srcset="">
+						</a>
+						<a href="#" target="_blank" class="text-primary hover:text-primary/80 transition-colors" aria-label="<?php esc_attr_e('Twitter', 'edusiteco'); ?>">
+							<img class="w-8 h-8" src="<?php echo get_theme_file_uri('assets/svg/twitter.svg') ?>" alt="<?php esc_attr_e('Twitter', 'edusiteco') . ' '. get_bloginfo('name');?>" srcset="">
+						</a>
+						<a href="#" target="_blank" class="text-primary hover:text-primary/80 transition-colors" aria-label="<?php esc_attr_e('YouTube', 'edusiteco'); ?>">
+							<img
+								class="w-8 h-8"
+								src="<?php echo get_theme_file_uri('assets/svg/youtube.svg') ?>"
+								alt="<?php esc_attr_e('YouTube', 'edusiteco') . ' '. get_bloginfo('name');?>"
+								srcset=""
+							/>
+						</a>
+					</div>
+				</div>
+
+				<!-- Columna 3 - Contacto -->
+				<div class="lg:pl-4">
+					<h3 class="text-lg font-semibold text-text-light dark:text-text-dark mb-4 font-display uppercase">Contacto</h3>
+					
+					<div class="space-y-3 text-sm text-text-light dark:text-text-dark">
+						<div class="flex items-start">
+							<span class="material-icons text-primary text-base mr-2 mt-0.5">location_on</span>
+							<span>Carrera 15 #445-67<br>Barrio Centro<br>Bogotá D.C., Colombia</span>
+						</div>
+						
+						<div class="flex items-center">
+							<span class="material-icons text-primary text-base mr-2">phone</span>
+							<span>(601) 234-5678</span>
+						</div>
+						
+						<div class="flex items-center">
+							<span class="material-icons text-primary text-base mr-2">email</span>
+							<span>contacto@iesanmartin.edu.co</span>
+						</div>
+						
+						<div class="flex items-start">
+							<span class="material-icons text-primary text-base mr-2 mt-0.5">schedule</span>
+							<span>Lunes a Viernes<br>7:00 AM - 4:00 PM</span>
+						</div>
+					</div>
+				</div>
+
+				<!-- Columna 4 - Enlaces de Interés -->
+				<div class="lg:pl-4">
+					<h3 class="text-lg font-semibold text-text-light dark:text-text-dark mb-4 font-display uppercase">Enlaces de Interés</h3>
+					
+					<ul class="space-y-2 text-sm">
+						<li>
+							<a href="#" class="text-text-light dark:text-text-dark hover:text-primary transition-colors hover:underline">
+								Política de Tratamiento de Datos
+							</a>
+						</li>
+						<li>
+							<a href="#" class="text-text-light dark:text-text-dark hover:text-primary transition-colors hover:underline">
+								Mapa del Sitio
+							</a>
+						</li>
+						<li>
+							<a href="#" class="text-text-light dark:text-text-dark hover:text-primary transition-colors hover:underline">
+								PQRS
+							</a>
+						</li>
+						<li>
+							<a href="#" class="text-text-light dark:text-text-dark hover:text-primary transition-colors hover:underline">
+								Portal de Transparencia
+							</a>
+						</li>
+						<li>
+							<a href="#" class="text-text-light dark:text-text-dark hover:text-primary transition-colors hover:underline">
+								Accesibilidad
+							</a>
+						</li>
+						<li>
+							<a href="#" class="text-text-light dark:text-text-dark hover:text-primary transition-colors hover:underline">
+								Misionalidad
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<!-- Sección Legal -->
+		<div class="border-t border-border-light dark:border-border-dark py-6">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+					<!-- Copyright -->
+					<div class="text-sm text-text-light dark:text-text-dark">
+						&copy; <?php echo date('Y'); ?> <a href="<?php echo esc_url(home_url('/')); ?>" class="uppercase dark:text-text-dark font-bold"><?php echo esc_html(get_bloginfo('name')); ?> </a>. Todos los derechos reservados.
+					</div>
+					
+					<!-- Enlaces Legales -->
+					<div class="flex flex-wrap justify-center md:justify-end space-x-6 text-sm">
+						<a href="#" class="text-text-light dark:text-text-dark hover:text-primary transition-colors hover:underline">
+							Política de Privacidad
+						</a>
+						<a href="#" class="text-text-light dark:text-text-dark hover:text-primary transition-colors hover:underline">
+							Términos y Condiciones
+						</a>
+						<a href="#" class="text-text-light dark:text-text-dark hover:text-primary transition-colors hover:underline">
+							Protección de Datos
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Barra Inferior - GOV.CO -->
+		<div class="bg-primary py-3">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="flex justify-center">
+					<a href="https://www.gov.co" target="_blank" rel="noopener noreferrer" class="flex items-center">
+						<img 
+							class="h-6 w-auto"
+							src="<?php echo get_theme_file_uri("assets/img/govco.png") ?>" 
+							alt="Portal Gobierno de Colombia"
+						/>
+					</a>
+				</div>
+			</div>
+		</div>
+	</footer><!-- #colophon -->
+
+</div><!-- #page -->
+
+<?php wp_footer(); ?>
+
+</body>
 </html>
