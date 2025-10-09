@@ -85,6 +85,9 @@ function edusiteco_setup() {
 	// Add theme support for selective refresh for widgets.
 	add_theme_support( 'customize-selective-refresh-widgets' );
 
+	// Add theme support for block templates. This is key for hybrid themes.
+	add_theme_support( 'block-templates' );
+
 	/**
 	 * Add support for core custom logo.
 	 *
@@ -224,3 +227,140 @@ function edusiteco_enqueue_swiper() {
     }
 }
 add_action('wp_enqueue_scripts', 'edusiteco_enqueue_swiper');
+
+/**
+ * Devuelve los datos de los hitos históricos.
+ * En un proyecto real, estos datos vendrían de un Custom Post Type,
+ * campos personalizados (ACF Repeater) o un bloque personalizado.
+ *
+ * @return array
+ */
+function edusiteco_get_hitos_historia() {
+    return array(
+        array(
+            'año' => '1965',
+            'titulo' => __('Fundación del Colegio', 'edusiteco'),
+            'descripcion' => __('Iniciamos con 35 estudiantes y 4 profesores en el barrio La Soledad, Bogotá.', 'edusiteco'),
+            'icono' => '🏛️'
+        ),
+        array(
+            'año' => '1978',
+            'titulo' => __('Primera Promoción', 'edusiteco'),
+            'descripcion' => __('Graduamos nuestra primera promoción de bachilleres, marcando el inicio de nuestra tradición.', 'edusiteco'),
+            'icono' => '🎓'
+        ),
+        array(
+            'año' => '1992',
+            'titulo' => __('Nueva Sede', 'edusiteco'),
+            'descripcion' => __('Nos trasladamos a nuestra sede actual en el barrio El Recuerdo con instalaciones modernas.', 'edusiteco'),
+            'icono' => '🏫'
+        ),
+        array(
+            'año' => '2005',
+            'titulo' => __('Certificación de Calidad', 'edusiteco'),
+            'descripcion' => __('Obtenemos la certificación ISO 9001 por nuestros procesos educativos y de gestión.', 'edusiteco'),
+            'icono' => '⭐'
+        ),
+        array(
+            'año' => '2018',
+            'titulo' => __('Modernización Tecnológica', 'edusiteco'),
+            'descripcion' => __('Implementación de laboratorios de tecnología y robótica en el proceso educativo.', 'edusiteco'),
+            'icono' => '💻'
+        ),
+        array(
+            'año' => '2023',
+            'titulo' => __('Expansión Deportiva', 'edusiteco'),
+            'descripcion' => __('Inauguración de nuevas canchas y espacios deportivos para nuestros estudiantes.', 'edusiteco'),
+            'icono' => '⚽'
+        )
+    );
+}
+
+/**
+ * Devuelve los datos de los logros destacados.
+ *
+ * @return array
+ */
+function edusiteco_get_logros_historia() {
+    return array(
+        array('titulo' => __('Premio Excelencia', 'edusiteco'), 'descripcion' => __('Reconocimiento del Ministerio de Educación (2019)', 'edusiteco'), 'icono' => '🏆', 'color' => 'from-yellow-400 to-yellow-500'),
+        array('titulo' => __('Certificación Verde', 'edusiteco'), 'descripcion' => __('Primer colegio certificado ambientalmente', 'edusiteco'), 'icono' => '🌱', 'color' => 'from-green-400 to-green-500'),
+        array('titulo' => __('Olimpiadas Matemáticas', 'edusiteco'), 'descripcion' => __('15 medallas en competencias internacionales', 'edusiteco'), 'icono' => '📚', 'color' => 'from-blue-400 to-blue-500'),
+        array('titulo' => __('Deportes', 'edusiteco'), 'descripcion' => __('Campeones intercolegiales 2022-2023', 'edusiteco'), 'icono' => '⚽', 'color' => 'from-red-400 to-red-500')
+    );
+}
+
+/**
+ * Devuelve los datos ficticios de los valores.
+ * Se usa como fallback si el CPT 'valor' no tiene entradas.
+ *
+ * @return array
+ */
+function edusiteco_get_valores_ficticios() {
+    return array(
+        array(
+            'icono' => '🤝',
+            'titulo' => __('Respeto', 'edusiteco'),
+            'descripcion' => __('Promovemos relaciones basadas en la empatía, tolerancia y reconocimiento mutuo.', 'edusiteco')
+        ),
+        array(
+            'icono' => '✅',
+            'titulo' => __('Responsabilidad', 'edusiteco'),
+            'descripcion' => __('Asumimos compromisos con disciplina, honestidad y sentido del deber.', 'edusiteco')
+        ),
+        array(
+            'icono' => '💡',
+            'titulo' => __('Excelencia', 'edusiteco'),
+            'descripcion' => __('Buscamos la superación constante en todos los aspectos de nuestra labor educativa.', 'edusiteco')
+        ),
+        // Puedes añadir los demás valores aquí si lo deseas
+    );
+}
+
+
+// Funciones para personalizar los símbolos institucionales
+function edusiteco_simbolos_customize_register($wp_customize) {
+    // Sección para Símbolos Institucionales
+    $wp_customize->add_section('simbolos_institucionales', array(
+        'title' => __('Símbolos Institucionales', 'edusiteco'),
+        'priority' => 40,
+    ));
+
+    // Hero Section
+    $wp_customize->add_setting('simbolos_hero_image');
+    $wp_customize->add_setting('simbolos_subtitle', array(
+        'default' => 'Emblemas que nos identifican y nos unen como comunidad educativa'
+    ));
+
+    // Escudo
+    $wp_customize->add_setting('escudo_image');
+    $wp_customize->add_setting('escudo_alt', array('default' => 'Escudo del Colegio San Martín'));
+    $wp_customize->add_setting('escudo_title', array('default' => 'Escudo Institucional'));
+    $wp_customize->add_setting('escudo_description');
+
+    // Bandera
+    $wp_customize->add_setting('bandera_image');
+    $wp_customize->add_setting('bandera_alt', array('default' => 'Bandera del Colegio San Martín'));
+    $wp_customize->add_setting('bandera_title', array('default' => 'Bandera Institucional'));
+    $wp_customize->add_setting('bandera_description');
+
+    // Himno
+    $wp_customize->add_setting('himno_title', array('default' => 'Nuestro Himno'));
+    $wp_customize->add_setting('himno_audio_url');
+    $wp_customize->add_setting('himno_audio_label', array('default' => 'Audio del Himno del Colegio San Martín'));
+    $wp_customize->add_setting('himno_letra');
+
+    // Lema
+    $wp_customize->add_setting('lema_title', array('default' => 'Nuestro Lema'));
+    $wp_customize->add_setting('lema_text', array('default' => 'Saber, Honor y Disciplina'));
+    $wp_customize->add_setting('lema_explicacion');
+
+    // Frase Final
+    $wp_customize->add_setting('simbolos_frase_final', array(
+        'default' => 'Nuestros símbolos reflejan la historia, el orgullo y los valores que nos inspiran cada día.'
+    ));
+
+    // Controles para upload de imágenes...
+    // (Aquí irían los controles para cada setting)
+}
+add_action('customize_register', 'edusiteco_simbolos_customize_register');
