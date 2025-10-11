@@ -33,12 +33,12 @@ class Custom_Nav_Walker extends Walker_Nav_Menu
             $output .= '<span class="material-icons text-sm ml-1 group-hover:rotate-180 transition-transform duration-200">expand_more</span>';
             $output .= '</a>';
             // Submenú MEJORADO - MEJOR ESPACIADO Y DISEÑO
-            $output .= '<div class="submenu absolute z-50 left-0 w-64 p-3 rounded-lg shadow-xl bg-background-light dark:bg-background-dark ring-1 ring-black ring-opacity-5 border border-border-light dark:border-border-dark opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-1 transition-all duration-200">';
-            $output .= '<div class="space-y-1">';
+            $output .= '<div class="submenu group absolute z-50 left-0 w-64 p-3 rounded-lg shadow-xl bg-background-light dark:bg-background-dark ring-1 ring-black ring-opacity-5 border border-border-light dark:border-border-dark opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-1 transition-all duration-200">';
+            $output .= '<div class="space-y-0">';
         } else {
             // Elemento sin hijos - MEJORADO ESPACIADO
-            $output .= $indent . '<div class="header-group">';
-            $output .= '<a href="' . esc_url($item->url) . '" class="text-text-light dark:text-text-dark text-md font-semibold hover:text-primary transition-colors px-3 py-2 rounded-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2">';
+            $output .= $indent . '<div class="header-group ">';
+            $output .= '<a href="' . esc_url($item->url) . '" class="text-text-light dark:text-text-dark text-md font-semibold hover:text-primary transition-colors rounded-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2">';
             $output .= '<span>' . apply_filters('the_title', $item->title, $item->ID) . '</span>';
             $output .= '</a>';
             $output .= '</div>';

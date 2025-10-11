@@ -133,6 +133,10 @@
   transition: all 0.3s ease-in-out;
 }
 
+.submenu a:hover {
+  background-color: #f3f4f6; /* gray-100 */
+}
+
 /* 
  * Responsive utilities para el header
  * Nota: Se usan breakpoints de Tailwind
@@ -634,4 +638,36 @@ audio:focus {
     .comunicado-card {
         margin-bottom: 1.5rem;
     }
+}
+
+/**************************/
+/* Paginación Comunicados */
+/**************************/
+.comunicados-paginacion {
+    @apply py-4 flex justify-start;
+}
+
+.comunicados-paginacion .nav-links a {
+    @apply flex items-center text-slate-600 hover:text-blue-600 transition-colors duration-300;
+}
+
+.comunicados-paginacion .nav-previous a::before {
+    content: '←';
+    background-color: #64748b;
+    color: white;
+    @apply w-6 h-6 rounded-full mr-2 flex items-center justify-center font-bold text-lg leading-none transition-colors duration-300;
+}
+
+.comunicados-paginacion .nav-previous a:hover::before {
+    background-color: #3b82f6;
+}
+.comunicados-paginacion .nav-next a::after {
+    content: '→';
+    background-color: #64748b; 
+    color: white;
+    @apply w-6 h-6 rounded-full ml-2 flex items-center justify-center font-bold text-lg leading-none transition-colors duration-300;
+}
+
+.comunicados-paginacion .nav-next a:hover::after {
+    background-color: #3b82f6;
 }

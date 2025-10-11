@@ -42,8 +42,16 @@ get_header();
 			?>
 		</div>
 
-		<div class="mt-12">
-			<?php the_posts_navigation(); ?>
+		<div class="mt-4 mb-4">
+			<?php
+			$archive_title = is_post_type_archive() ? post_type_archive_title('', false) : get_the_archive_title();
+			the_posts_navigation(array(
+				'prev_text' => __( $archive_title . ' Anteriores', 'edusiteco' ),
+				'next_text' => __( $archive_title . ' Siguientes', 'edusiteco'),
+				'aria_label' => esc_attr($archive_title),
+				'class'      => ($archive_title && $archive_title == 'Comunicados') ? 'comunicados-paginacion' : '',
+			));
+			?>
 		</div>
 
 	<?php else:
