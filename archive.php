@@ -6,24 +6,29 @@
  *
  * @package edusiteco
  */
-
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
+<main id="primary" class="site-main lg:max-w-[80%] mx-auto">
 
-		<?php if ( have_posts() ) : ?>
+	<?php if (have_posts()): ?>
 
-			<header class="page-header">
-				<?php
-				the_archive_title( '<h1 class="page-title">', '</h1>' );
-				the_archive_description( '<div class="archive-description">', '</div>' );
-				?>
-			</header><!-- .page-header -->
+		<header class="page-header my-8">
+			<?php
+			if (is_post_type_archive()) {
+				echo '<h1 class="page-title text-3xl font-bold text-gray-900 mb-4">' . post_type_archive_title('', false) . '</h1>';
+			} else {
+				the_archive_title('<h1 class="page-title text-3xl font-bold text-gray-900 mb-4">', '</h1>');
+			}
+			the_archive_description('<div class="archive-description text-gray-600 leading-relaxed">', '</div>');
+			?>
+		</header>
+		<!-- .page-header -->
 
+		<div class="comunicado-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 			<?php
 			/* Start the Loop */
-			while ( have_posts() ) :
+			while (have_posts()):
 				the_post();
 
 				/*
@@ -31,21 +36,24 @@ get_header();
 				 * If you want to override this in a child theme, then include a file
 				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
 				 */
-				get_template_part( 'template-parts/content', get_post_type() );
+				get_template_part('template-parts/content', get_post_type());
 
 			endwhile;
+			?>
+		</div>
 
-			the_posts_navigation();
+		<div class="mt-12">
+			<?php the_posts_navigation(); ?>
+		</div>
 
-		else :
+	<?php else:
 
-			get_template_part( 'template-parts/content', 'none' );
+		get_template_part('template-parts/content', 'none');
 
-		endif;
-		?>
+	endif;
+	?>
 
-	</main><!-- #main -->
+</main>
+<!-- #main -->
 
-<?php
-get_sidebar();
-get_footer();
+<?php get_footer(); ?>

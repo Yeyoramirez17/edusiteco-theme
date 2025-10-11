@@ -1,7 +1,9 @@
-/* 
- * Fuentes personalizadas
- * Nota: Las rutas de las fuentes deben verificarse según la estructura del tema
- */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*@import "./menu.css";*/
+/* @import './page-directory.css'; */
 
 /* Quartzo Bold */
 @font-face {
@@ -60,15 +62,6 @@
 }
 
 /* 
- * Tailwind Directives - Importantes para el funcionamiento
- * Nota: Estas directivas deben mantenerse en este orden
- */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-@import "./menu.css";
-
-/* 
  * Estilos base personalizados - Usando clases de Tailwind
  * Nota: Se utilizan medidas de Tailwind (rem, px) en lugar de unidades fijas
  */
@@ -95,136 +88,6 @@
   h5 { @apply text-base md:text-lg; }  /* 1rem - 1.125rem */
   h6 { @apply text-sm md:text-base; }  /* 0.875rem - 1rem */
   
-  /* Links */
-  a {
-    @apply text-theme-primary transition-colors duration-200;
-  }
-  
-  /* Forms - Usando clases de Tailwind para consistencia */
-  input, textarea, select {
-    @apply border border-gray-300 rounded-md focus:border-theme-primary focus:ring-2 focus:ring-theme-primary/20 focus:ring-opacity-50 transition-colors duration-200;
-  }
-  
-  button {
-    @apply text-white rounded-md hover:bg-theme-primary/90 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-theme-primary/50;
-  }
-}
-
-/* 
- * Componentes personalizados para WordPress
- * Nota: Se mantienen los estilos existentes pero usando clases de Tailwind
- */
-@layer components {
-  /* Navigation - Compatible con el header institucional */
-  .main-navigation {
-    @apply bg-white;
-  }
-  
-  .main-navigation ul {
-    @apply flex list-none m-0 p-0;
-  }
-  
-  .main-navigation a {
-    @apply text-gray-700 text-lg font-medium underline-offset-2 hover:underline px-0 py-2 transition-colors duration-200;
-  }
-  
-  /* Posts */
-  .post {
-    @apply bg-white rounded-lg shadow-sm p-6 mb-8 border border-gray-200;
-  }
-  
-  .post-title {
-    @apply text-2xl font-bold mb-4 text-gray-900;
-  }
-  
-  .post-meta {
-    @apply text-sm text-gray-600 mb-4 flex items-center space-x-4;
-  }
-  
-  .post-content {
-    @apply prose prose-lg max-w-none prose-headings:text-gray-900 prose-p:text-gray-700 prose-a:text-theme-primary;
-  }
-  
-  /* Sidebar */
-  .sidebar {
-    @apply space-y-6;
-  }
-  
-  .widget {
-    @apply bg-white rounded-lg shadow-sm p-6 border border-gray-200;
-  }
-  
-  .widget-title {
-    @apply text-lg font-semibold mb-4 text-gray-900;
-  }
-  
-  /* Buttons - Sin conflicto con los del header */
-  .btn-primary {
-    @apply bg-theme-primary text-white px-6 py-3 rounded-md hover:bg-theme-primary/90 transition-colors duration-200 font-medium focus:outline-none focus:ring-2 focus:ring-theme-primary/50;
-  }
-  
-  .btn-secondary {
-    @apply bg-gray-600 text-white px-6 py-3 rounded-md hover:bg-gray-700 transition-colors duration-200 font-medium focus:outline-none focus:ring-2 focus:ring-gray-500/50;
-  }
-  
-  /* WordPress specific */
-  .wp-caption {
-    @apply max-w-full inline-block;
-  }
-  
-  .wp-caption-text {
-    @apply text-sm text-gray-600 text-center mt-2 italic;
-  }
-  
-  .sticky {
-    @apply border-l-4 border-theme-primary bg-gray-50/50;
-  }
-  
-  /* Comments */
-  .comment {
-    @apply bg-gray-50 rounded-lg p-4 mb-4 border border-gray-200;
-  }
-  
-  .comment-author {
-    @apply font-semibold text-gray-900;
-  }
-  
-  .comment-meta {
-    @apply text-sm text-gray-600 mb-2;
-  }
-}
-
-/* 
- * Utilidades personalizadas
- * Nota: Se mantienen las utilidades existentes
- */
-@layer utilities {
-  .container-content {
-    @apply max-w-content mx-auto px-4 sm:px-6 lg:px-8;
-  }
-  
-  .container-wide {
-    @apply max-w-content-wide mx-auto px-4 sm:px-6 lg:px-8;
-  }
-  
-  /* Screen reader only - Mejorado para accesibilidad */
-  .sr-only {
-    @apply absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0;
-    clip: rect(0, 0, 0, 0);
-  }
-  
-  /* WordPress alignment classes - Sin cambios */
-  .alignleft {
-    @apply float-left mr-4 mb-2;
-  }
-  
-  .alignright {
-    @apply float-right ml-4 mb-2;
-  }
-  
-  .aligncenter {
-    @apply block mx-auto my-2;
-  }
 }
 
 /* 
@@ -431,5 +294,344 @@ audio:focus {
     .grid-cols-3 {
         grid-template-columns: 1fr;
         gap: 1.5rem;
+    }
+}
+
+
+/* ===== VARIABLES Y CONFIGURACIÓN ===== */
+:root {
+    --primary-color: #1e40af;
+    --primary-dark: #1e3a8a;
+    --secondary-color: #64748b;
+    --accent-color: #f59e0b;
+    --light-bg: #f8fafc;
+    --dark-text: #1e293b;
+    --light-text: #64748b;
+    --border-color: #e2e8f0;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== CLASES AGRUPADAS TAILWIND ===== */
+
+/* Hero Section */
+.hero-directorio {
+    @apply bg-gradient-to-r from-blue-900 to-blue-700 text-white py-20 px-4 relative overflow-hidden;
+}
+
+.hero-content {
+    @apply max-w-6xl mx-auto text-center relative z-10;
+}
+
+.hero-title {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight;
+}
+
+.hero-subtitle {
+    @apply text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed;
+}
+
+.hero-pattern {
+    @apply absolute inset-0 opacity-10;
+}
+
+/* Secciones generales */
+.section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16;
+}
+
+.section-title {
+    @apply text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900;
+}
+
+.section-subtitle {
+    @apply text-lg md:text-xl text-center mb-12 text-gray-600 max-w-3xl mx-auto;
+}
+
+/* Tarjetas de equipo directivo */
+.directivo-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16;
+}
+
+.directivo-card {
+    @apply bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 overflow-hidden;
+}
+
+.directivo-card-inner {
+    @apply p-6 text-center;
+}
+
+.directivo-image-container {
+    @apply w-32 h-32 mx-auto mb-6 relative;
+}
+
+.directivo-image {
+    @apply w-full h-full rounded-full object-cover border-4 border-blue-100;
+}
+
+.directivo-placeholder {
+    @apply w-full h-full rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-white text-4xl font-bold;
+}
+
+.directivo-name {
+    @apply text-xl font-bold text-gray-900 mb-2;
+}
+
+.directivo-cargo {
+    @apply text-blue-600 font-semibold mb-3 text-lg;
+}
+
+.directivo-desc {
+    @apply text-gray-600 mb-4 text-sm leading-relaxed;
+}
+
+.directivo-contactos {
+    @apply flex justify-center space-x-4 pt-4 border-t border-gray-100;
+}
+
+.contacto-btn {
+    @apply flex items-center justify-center w-10 h-10 rounded-full bg-blue-50 text-blue-600 hover:bg-blue-100 transition-colors duration-200;
+}
+
+/* Sección de coordinaciones */
+.coordinaciones-section {
+    @apply bg-gray-50 py-16;
+}
+
+.coordinaciones-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6;
+}
+
+.coordinacion-card {
+    @apply bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 p-6 border border-gray-200;
+}
+
+.coordinacion-icon {
+    @apply w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 mb-4;
+}
+
+.coordinacion-title {
+    @apply text-lg font-semibold text-gray-900 mb-2;
+}
+
+.coordinacion-responsable {
+    @apply text-gray-600 mb-1 text-sm;
+}
+
+.coordinacion-contacto {
+    @apply text-blue-600 text-sm hover:text-blue-700 transition-colors;
+}
+
+/* Tabla de áreas (versión móvil) */
+.areas-table-container {
+    @apply bg-white rounded-xl shadow-md overflow-hidden;
+}
+
+.areas-table {
+    @apply w-full;
+}
+
+.areas-table-header {
+    @apply bg-blue-50 text-blue-900 font-semibold;
+}
+
+.areas-table-row {
+    @apply border-b border-gray-200 hover:bg-gray-50 transition-colors;
+}
+
+.areas-table-cell {
+    @apply px-6 py-4 text-sm;
+}
+
+/* Sección de contactos generales */
+.contactos-section {
+    @apply bg-gradient-to-br from-blue-50 to-indigo-100 py-16;
+}
+
+.contactos-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
+}
+
+.contacto-item {
+    @apply bg-white rounded-xl shadow-md p-6 text-center hover:shadow-lg transition-shadow duration-300;
+}
+
+.contacto-icon {
+    @apply w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mx-auto mb-4;
+}
+
+.contacto-title {
+    @apply text-lg font-semibold text-gray-900 mb-2;
+}
+
+.contacto-info {
+    @apply text-gray-600 mb-4;
+}
+
+.contacto-link {
+    @apply inline-flex items-center text-blue-600 hover:text-blue-700 font-medium transition-colors;
+}
+
+.cta-button {
+    @apply inline-flex items-center px-8 py-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl;
+}
+
+/* Filtros y búsqueda */
+.filtros-section {
+    @apply bg-white py-8 border-b border-gray-200;
+}
+
+.filtros-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.filtros-grid {
+    @apply grid grid-cols-1 md:grid-cols-3 gap-4;
+}
+
+.search-input {
+    @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200;
+}
+
+.filter-select {
+    @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white transition-all duration-200;
+}
+
+/* Estados vacíos */
+.empty-state {
+    @apply text-center py-12;
+}
+
+.empty-state-icon {
+    @apply w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center text-gray-400 mx-auto mb-4;
+}
+
+.empty-state-text {
+    @apply text-gray-500 text-lg;
+}
+
+/* Animaciones */
+.fade-in-up {
+    @apply opacity-0 transform translate-y-8;
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.stagger-delay > * {
+    animation-delay: calc(var(--index) * 0.1s);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .mobile-stack {
+        @apply flex flex-col space-y-4;
+    }
+    
+    .mobile-full {
+        @apply w-full;
+    }
+    
+    .mobile-text-center {
+        @apply text-center;
+    }
+}
+
+/* Modo oscuro */
+@media (prefers-color-scheme: dark) {
+    .dark-mode-override {
+        @apply bg-gray-900 text-white;
+    }
+    
+    .dark-card {
+        @apply bg-gray-800 border-gray-700 text-white;
+    }
+}
+
+/* ===== ESTILOS ESPECÍFICOS ===== */
+
+/* Hero background pattern */
+.hero-pattern svg {
+    @apply w-full h-full;
+}
+
+/* Badges y etiquetas */
+.badge-primary {
+    @apply inline-block bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full;
+}
+
+.badge-secondary {
+    @apply inline-block bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded-full;
+}
+
+/* Loading states */
+.skeleton {
+    @apply bg-gray-200 animate-pulse rounded;
+}
+
+.skeleton-text {
+    @apply h-4 bg-gray-200 animate-pulse rounded;
+}
+
+/* Tooltips */
+.tooltip {
+    @apply invisible absolute;
+}
+
+.has-tooltip:hover .tooltip {
+    @apply visible z-50;
+}
+
+/* Print styles */
+@media print {
+    .no-print {
+        @apply hidden;
+    }
+    
+    .print-break {
+        page-break-after: always;
+    }
+}
+
+/* Agregar al final del index.css */
+
+/* Estilos específicos para comunicados */
+.line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Mejoras de animación para tarjetas de comunicados */
+.group:hover .group-hover\:scale-105 {
+    transform: scale(1.05);
+}
+
+/* Estilos para el efecto de gradiente en imágenes */
+.bg-gradient-to-t {
+    background-image: linear-gradient(to top, var(--tw-gradient-stops));
+}
+
+.from-black\/20 {
+    --tw-gradient-from: rgb(0 0 0 / 0.2);
+    --tw-gradient-to: rgb(0 0 0 / 0);
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+/* Responsive improvements para comunicados */
+@media (max-width: 768px) {
+    .comunicado-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .comunicado-card {
+        margin-bottom: 1.5rem;
     }
 }

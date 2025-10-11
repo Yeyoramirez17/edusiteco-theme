@@ -364,3 +364,108 @@ function edusiteco_simbolos_customize_register($wp_customize) {
     // (Aquí irían los controles para cada setting)
 }
 add_action('customize_register', 'edusiteco_simbolos_customize_register');
+
+// ============================
+// Registrar CPT: Comunicados
+// ============================
+function edusite_register_comunicados_cpt() {
+    $labels = [
+        'name'               => 'Comunicados',
+        'singular_name'      => 'Comunicado',
+        'menu_name'          => 'Comunicados',
+        'name_admin_bar'     => 'Comunicado',
+        'add_new'            => 'Agregar nuevo',
+        'add_new_item'       => 'Agregar nuevo comunicado',
+        'new_item'           => 'Nuevo comunicado',
+        'edit_item'          => 'Editar comunicado',
+        'view_item'          => 'Ver comunicado',
+        'all_items'          => 'Todos los comunicados',
+        'search_items'       => 'Buscar comunicados',
+        'not_found'          => 'No se encontraron comunicados.',
+        'not_found_in_trash' => 'No hay comunicados en la papelera.',
+    ];
+
+    $args = [
+        'labels'             => $labels,
+        'description'        => 'Comunicados oficiales del colegio dirigidos a la comunidad educativa: avisos institucionales, convocatorias, eventos, circulares y documentos (PDF/archivos).',
+        'public'             => true,
+        'has_archive'        => true,
+        'rewrite'            => ['slug' => 'comunicados'],
+        'menu_icon'          => 'dashicons-megaphone',
+        'supports'           => ['title', 'editor', 'thumbnail', 'excerpt'],
+        'show_in_rest'       => true, // compatible con el editor de bloques
+    ];
+
+    register_post_type('comunicado', $args);
+}
+add_action('init', 'edusite_register_comunicados_cpt');
+
+// ============================
+// Metaboxes para Comunicados
+// ============================
+
+function edusite_add_comunicado_metaboxes() {
+    add_meta_box(
+        'comunicado_detalles',
+        'Detalles del Comunicado',
+        'edusite_render_comunicado_metabox',
+        'comunicado',
+        'normal',
+        'high'
+    );
+}
+add_action('add_meta_boxes', 'edusite_add_comunicado_metaboxes');
+
+function edusite_render_comunicado_metabox($post) {
+    // Recuperar valores guardados
+    $fecha_evento = get_post_meta($post->ID, '_fecha_evento', true);
+    $pdf_url = get_post_meta($post->ID, '_pdf_url', true);
+
+    wp_nonce_field('guardar_comunicado_detalles', 'comunicado_detalles_nonce');
+    ?>
+        <div style="margin-top: 10px;">
+            <label for="fecha_evento" style="display:block; font-weight:600;">📅 Fecha del evento:</label>
+            <input 
+                type="date" 
+                id="fecha_evento" 
+                name="fecha_evento" 
+                value="<?php echo esc_attr($fecha_evento); ?>" 
+                style="width:100%; max-width:300px; margin-top:4px;"
+            />
+
+            <hr style="margin:20px 0;">
+
+            <label for="pdf_url" style="display:block; font-weight:600;">📎 Archivo PDF (opcional):</label>
+            <input 
+                type="url" id="pdf_url" 
+                name="pdf_url" value="<?php echo esc_attr($pdf_url); ?>" 
+                placeholder="https://ejemplo.com/archivo.pdf" 
+                style="width:100%; margin-top:4px;"
+            />
+            <p style="color:#666;">Puedes subir el archivo en la Biblioteca de medios y pegar aquí su URL.</p>
+        </div>
+    <?php
+}
+
+// Guardar los campos personalizados
+function edusite_guardar_comunicado_detalles($post_id) {
+    if (!isset($_POST['comunicado_detalles_nonce']) ||
+        !wp_verify_nonce($_POST['comunicado_detalles_nonce'], 'guardar_comunicado_detalles')) {
+        return;
+    }
+
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
+    if (!current_user_can('edit_post', $post_id)) return;
+
+    // Guardar fecha
+    if (isset($_POST['fecha_evento'])) {
+        update_post_meta($post_id, '_fecha_evento', sanitize_text_field($_POST['fecha_evento']));
+    }
+
+    // Guardar PDF
+    if (isset($_POST['pdf_url'])) {
+        update_post_meta($post_id, '_pdf_url', esc_url_raw($_POST['pdf_url']));
+    }
+}
+add_action('save_post', 'edusite_guardar_comunicado_detalles');
+

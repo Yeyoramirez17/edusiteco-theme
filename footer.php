@@ -80,18 +80,53 @@
 
 					<!-- Redes Sociales -->
 					<div class="flex space-x-4 mt-6">
-						<a href="#" target="_blank" class="text-primary hover:text-primary/80 transition-colors" aria-label="<?php esc_attr_e('Facebook', 'edusiteco'); ?>">
-							<img class="w-8 h-8" src="<?php echo get_theme_file_uri("assets/svg/facebook.svg") ?>" alt="<?= esc_attr_e('Facebook', 'edusiteco') . " ". get_bloginfo('name');?>" srcset="">
+						<a 
+							href="#" target="_blank" 
+							class="group" 
+							aria-label="<?php esc_attr_e('Facebook', 'edusiteco'); ?>"
+							title="<?php esc_attr_e('Cuenta de Facebook', 'edusiteco') ?>"
+						>
+							<img 
+								class="w-8 h-8 transition-transform duration-300 group-hover:scale-110" 
+								src="<?php echo get_theme_file_uri("assets/svg/facebook.svg") ?>" 
+								alt="<?= esc_attr_e('Facebook', 'edusiteco') . " ". get_bloginfo('name');?>" 
+								srcset=""
+							/>
 						</a>
-						<a href="#" target="_blank" class="text-primary hover:text-primary/80 transition-colors" aria-label="<?php esc_attr_e('Instagram', 'edusiteco'); ?>">
-							<img class="w-8 h-8" src="<?php echo get_theme_file_uri("assets/svg/instagram.svg") ?>" alt="<?= esc_attr_e('Instagram', 'edusiteco') . " ". get_bloginfo('name');?>" srcset="">
+						<a 
+							href="#" 
+							target="_blank" 
+							class="group" 
+							aria-label="<?php esc_attr_e('Instagram', 'edusiteco'); ?>"
+							title="<?php esc_attr_e('Cuenta de Instagram', 'edusiteco'); ?>"
+						>
+							<img 
+								class="w-8 h-8 transition-transform duration-300 group-hover:scale-110" 
+								src="<?php echo get_theme_file_uri("assets/svg/instagram.svg") ?>" 
+								alt="<?= esc_attr_e('Instagram', 'edusiteco') . " ". get_bloginfo('name');?>" srcset=""
+							/>
 						</a>
-						<a href="#" target="_blank" class="text-primary hover:text-primary/80 transition-colors" aria-label="<?php esc_attr_e('Twitter', 'edusiteco'); ?>">
-							<img class="w-8 h-8" src="<?php echo get_theme_file_uri('assets/svg/twitter.svg') ?>" alt="<?php esc_attr_e('Twitter', 'edusiteco') . ' '. get_bloginfo('name');?>" srcset="">
+						<a 
+							href="#" 
+							target="_blank" 
+							class="group" 
+							aria-label="<?php esc_attr_e('Twitter', 'edusiteco'); ?>"
+							title="<?php esc_attr_e('Cuenta de Twitter' ,'edusiteco') ?>"
+						>
+							<img 
+								class="w-8 h-8 transition-transform duration-300 group-hover:scale-110" 
+								src="<?php echo get_theme_file_uri('assets/svg/twitter.svg') ?>" 
+								alt="<?php esc_attr_e('Twitter', 'edusiteco') . ' '. get_bloginfo('name');?>" srcset=""
+							/>
 						</a>
-						<a href="#" target="_blank" class="text-primary hover:text-primary/80 transition-colors" aria-label="<?php esc_attr_e('YouTube', 'edusiteco'); ?>">
+						<a 
+							href="#" 
+							target="_blank" 
+							class="group" aria-label="<?php esc_attr_e('YouTube', 'edusiteco'); ?>" 
+							title="<?php esc_attr_e('Canal de YouTube', 'edusiteco' ) ?>"
+						>
 							<img
-								class="w-8 h-8"
+								class="w-8 h-8 transition-transform duration-300 group-hover:scale-110"
 								src="<?php echo get_theme_file_uri('assets/svg/youtube.svg') ?>"
 								alt="<?php esc_attr_e('YouTube', 'edusiteco') . ' '. get_bloginfo('name');?>"
 								srcset=""
@@ -104,14 +139,14 @@
 				<div class="lg:pl-4">
 					<h3 class="text-lg font-semibold text-text-light dark:text-text-dark mb-4 font-display uppercase">Contacto</h3>
 					
-					<div class="space-y-3 text-sm text-text-light dark:text-text-dark">
+					<div class="space-y-3 text-base text-text-light dark:text-text-dark">
 						<div class="flex items-start">
-							<span class="material-icons text-primary text-base mr-2 mt-0.5">location_on</span>
+							<span class="material-icons text-primary text-lg mr-2 mt-0.5">location_on</span>
 							<span>Carrera 15 #445-67<br>Barrio Centro<br>Bogotá D.C., Colombia</span>
 						</div>
 						
 						<div class="flex items-center">
-							<span class="material-icons text-primary text-base mr-2">phone</span>
+							<span class="material-icons text-primary text-lg mr-2">phone</span>
 							<span>(601) 234-5678</span>
 						</div>
 						
@@ -131,34 +166,52 @@
 				<div class="lg:pl-4">
 					<h3 class="text-lg font-semibold text-text-light dark:text-text-dark mb-4 font-display uppercase">Enlaces de Interés</h3>
 					
-					<ul class="space-y-2 text-sm">
+					<ul class="space-y-2 text-base">
 						<li>
-							<a href="#" class="text-text-light dark:text-text-dark hover:text-primary transition-colors hover:underline">
+							<a 
+								href="#" 
+								class="text-text-light dark:text-text-dark hover:text-primary transition-colors hover:underline underline-offset-2"
+							>
 								Política de Tratamiento de Datos
 							</a>
 						</li>
 						<li>
-							<a href="#" class="text-text-light dark:text-text-dark hover:text-primary transition-colors hover:underline">
+							<a 
+								href="#" 
+								class="text-text-light dark:text-text-dark hover:text-primary transition-colors hover:underline underline-offset-2"
+							>
 								Mapa del Sitio
 							</a>
 						</li>
 						<li>
-							<a href="#" class="text-text-light dark:text-text-dark hover:text-primary transition-colors hover:underline">
+							<a 
+								href="#" 
+								class="text-text-light dark:text-text-dark hover:text-primary transition-colors hover:underline underline-offset-2"
+							>
 								PQRS
 							</a>
 						</li>
 						<li>
-							<a href="#" class="text-text-light dark:text-text-dark hover:text-primary transition-colors hover:underline">
+							<a 
+								href="#" 
+								class="text-text-light dark:text-text-dark hover:text-primary transition-colors hover:underline underline-offset-2"
+							>
 								Portal de Transparencia
 							</a>
 						</li>
 						<li>
-							<a href="#" class="text-text-light dark:text-text-dark hover:text-primary transition-colors hover:underline">
+							<a 
+								href="#" 
+								class="text-text-light dark:text-text-dark hover:text-primary transition-colors hover:underline underline-offset-2"
+							>
 								Accesibilidad
 							</a>
 						</li>
 						<li>
-							<a href="#" class="text-text-light dark:text-text-dark hover:text-primary transition-colors hover:underline">
+							<a 
+								href="#" 
+								class="text-text-light dark:text-text-dark hover:text-primary transition-colors hover:underline underline-offset-2"
+							>
 								Misionalidad
 							</a>
 						</li>
@@ -173,7 +226,7 @@
 				<div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
 					<!-- Copyright -->
 					<div class="text-sm text-text-light dark:text-text-dark">
-						&copy; <?php echo date('Y'); ?> <a href="<?php echo esc_url(home_url('/')); ?>" class="uppercase dark:text-text-dark font-bold"><?php echo esc_html(get_bloginfo('name')); ?> </a>. Todos los derechos reservados.
+						&copy; <?php echo date('Y'); ?> <a href="<?php echo esc_url(home_url('/')); ?>" class="uppercase dark:text-text-dark font-bold hover:underline underline-offset-1"><?php echo esc_html(get_bloginfo('name')); ?> </a>. Todos los derechos reservados.
 					</div>
 					
 					<!-- Enlaces Legales -->

@@ -28,7 +28,7 @@ class Custom_Nav_Walker extends Walker_Nav_Menu
         if ($has_children) {
             // Elemento con hijos - MEJORADO ESPACIADO
             $output .= $indent . '<div class="relative header-group group">';
-            $output .= '<a href="' . esc_url($item->url) . '" class="text-text-light dark:text-text-dark inline-flex items-center text-sm font-semibold underline-link hover:text-primary transition-colors px-3 py-2 rounded-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2" aria-haspopup="true" aria-expanded="false">';
+            $output .= '<a href="' . esc_url($item->url) . '" class="text-text-light dark:text-text-dark inline-flex items-center text-md font-semibold  hover:text-primary transition-colors px-3 py-2 rounded-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2" aria-haspopup="true" aria-expanded="false">';
             $output .= '<span>' . apply_filters('the_title', $item->title, $item->ID) . '</span>';
             $output .= '<span class="material-icons text-sm ml-1 group-hover:rotate-180 transition-transform duration-200">expand_more</span>';
             $output .= '</a>';
@@ -38,7 +38,7 @@ class Custom_Nav_Walker extends Walker_Nav_Menu
         } else {
             // Elemento sin hijos - MEJORADO ESPACIADO
             $output .= $indent . '<div class="header-group">';
-            $output .= '<a href="' . esc_url($item->url) . '" class="text-text-light dark:text-text-dark text-sm font-semibold hover:text-primary transition-colors px-3 py-2 rounded-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2">';
+            $output .= '<a href="' . esc_url($item->url) . '" class="text-text-light dark:text-text-dark text-md font-semibold hover:text-primary transition-colors px-3 py-2 rounded-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2">';
             $output .= '<span>' . apply_filters('the_title', $item->title, $item->ID) . '</span>';
             $output .= '</a>';
             $output .= '</div>';
