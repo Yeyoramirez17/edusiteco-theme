@@ -5,15 +5,18 @@
             placeholder="<?php echo esc_attr__('Buscar...', 'edusiteco'); ?>" value="<?php echo get_search_query(); ?>"
             name="s" />
         <div class="absolute inset-y-0 right-0 flex items-center pr-3">
-            <button type="submit"
-                class="search-submit p-1 text-gray-400 dark:text-gray-300 hover:bg-gray-300 transition-colors">
+            <button 
+                type="submit"
+                class="search-submit bg-transparent p-1 text-gray-400 dark:text-gray-300 transition-colors"
+                aria-label="Buscar"
+            >
                 <svg class="h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#F4F4F4">
                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                     <g id="SVGRepo_iconCarrier">
                         <path
                             d="M11 6C13.7614 6 16 8.23858 16 11M16.6588 16.6549L21 21M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z"
-                            stroke="#303D42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
                     </g>
                 </svg>
             </button>

@@ -15,12 +15,14 @@ get_header();
 
 		<header class="page-header my-8">
 			<?php
+			$class = "";
+			
 			if (is_post_type_archive()) {
-				echo '<h1 class="page-title text-3xl font-bold text-gray-900 mb-4">' . post_type_archive_title('', false) . '</h1>';
+				echo '<h1 class="page-title text-3xl font-bold text-gray-900 dark:text-text-dark mb-4">' . post_type_archive_title('', false) . '</h1>';
 			} else {
-				the_archive_title('<h1 class="page-title text-3xl font-bold text-gray-900 mb-4">', '</h1>');
+				the_archive_title('<h1 class="page-title text-3xl font-bold text-gray-900 dark:text-text-dark mb-4">', '</h1>');
 			}
-			the_archive_description('<div class="archive-description text-gray-600 leading-relaxed">', '</div>');
+			the_archive_description('<div class="archive-description text-gray-600 dark:text-text-dark leading-relaxed">', '</div>');
 			?>
 		</header>
 		<!-- .page-header -->

@@ -81,9 +81,8 @@ get_header();
 				<?php
 				// Query para los últimos 4 comunicados
 				$comunicados = new WP_Query(array(
-					'post_type' => 'post',
+					'post_type' => 'comunicado',
 					'posts_per_page' => 4,
-					'category_name' => 'comunicados'
 				));
 
 				if ($comunicados->have_posts()):
@@ -94,8 +93,28 @@ get_header();
 							class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow border border-border-light dark:border-border-dark">
 							<?php if (has_post_thumbnail()): ?>
 								<div class="h-48 overflow-hidden">
-									<img src="<?php the_post_thumbnail_url('medium'); ?>" alt="<?php the_title(); ?>"
-										class="w-full h-full object-cover">
+									<img 
+										src="<?php the_post_thumbnail_url('medium'); ?>" alt="<?php the_title(); ?>"
+										class="w-full h-full object-cover"
+									/>
+								</div>
+							<?php else: ?>
+								<div class="h-48 relative overflow-hidden">
+									<!-- Fondo con SVG -->
+									<div class="h-full bg-primary text-white/10 transition-transform duration-500 group-hover:scale-105">
+										<svg viewBox="0 0 1000 500" fill="currentColor" class="w-full h-full">
+											<circle cx="200" cy="100" r="80" opacity="0.1" />
+											<circle cx="800" cy="150" r="120" opacity="0.05" />
+											<circle cx="400" cy="400" r="100" opacity="0.08" />
+										</svg>
+									</div>
+									<!-- Texto superpuesto -->
+									<div class="absolute inset-0 flex items-center justify-center p-4 text-white">
+										<div class="text-center">
+											<span class="block text-lg font-semibold">Comunicado</span>
+											<span class="block text-sm opacity-80 uppercase font-bold"><?php echo get_bloginfo('name'); ?></span>
+										</div>
+									</div>
 								</div>
 							<?php endif; ?>
 
@@ -130,23 +149,27 @@ get_header();
 					?>
 					<!-- Comunicados de ejemplo cuando no hay posts -->
 					<?php for ($i = 1; $i <= 4; $i++): ?>
-						<article
-							class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow border border-border-light dark:border-border-dark">
+						<article class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow border border-border-light dark:border-border-dark">
 							<div class="h-48 bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
 								<span class="text-gray-400 dark:text-gray-500 material-icons text-4xl">article</span>
 							</div>
 							<div class="p-6">
-								<h3 class="text-xl font-semibold text-text-light dark:text-text-dark mb-2">Comunicado Importante
-									<?php echo $i; ?></h3>
+								<h3 class="text-xl font-semibold text-text-light dark:text-text-dark mb-2">
+									Comunicado Importante <?php echo $i; ?>
+								</h3>
 								<div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-3">
 									<span class="material-icons text-xs mr-1">event</span>
 									<time><?php echo date('j M Y'); ?></time>
 								</div>
-								<p class="text-text-light dark:text-text-dark text-sm">Información relevante sobre actividades y
-									anuncios de la institución educativa.</p>
-								<a href="#"
-									class="inline-block mt-4 text-primary hover:text-primary/80 font-semibold text-sm transition-colors">Leer
-									más →</a>
+								<p class="text-text-light dark:text-text-dark text-sm">
+									Información relevante sobre actividades y anuncios de la institución educativa.
+								</p>
+								<a 
+									href="#"
+									class="inline-block mt-4 text-primary hover:text-primary/80 font-semibold text-sm transition-colors"
+								>
+									Leer más →
+								</a>
 							</div>
 						</article>
 					<?php endfor; ?>
@@ -154,8 +177,10 @@ get_header();
 			</div>
 
 			<div class="text-center">
-				<a href="<?php echo get_permalink(get_option('page_for_posts')); ?>"
-					class="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-lg font-semibold transition-colors inline-flex items-center">
+				<a 
+					href="<?php echo get_post_type_archive_link('comunicado'); ?>"
+					class="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-lg font-semibold transition-colors inline-flex items-center"
+				>
 					Ver todos los comunicados
 					<span class="material-icons ml-2">arrow_forward</span>
 				</a>
@@ -271,16 +296,19 @@ get_header();
 	<section id="about" class="py-16 bg-background-light dark:bg-background-dark">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<div class="text-center mb-12">
-				<h2 class="text-3xl lg:text-4xl font-bold text-text-light dark:text-text-dark font-display mb-4">Nuestra
-					Institución</h2>
-				<p class="text-lg text-text-light dark:text-text-dark max-w-2xl mx-auto">Comprometidos con la excelencia
-					educativa y la formación integral</p>
+				<h2 class="text-3xl lg:text-4xl font-bold text-text-light dark:text-text-dark font-display mb-4">
+					Nuestra Institución
+				</h2>
+				<p class="text-lg text-text-light dark:text-text-dark max-w-2xl mx-auto">
+					Comprometidos con la excelencia educativa y la formación integral
+				</p>
 			</div>
 
 			<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
 				<div>
-					<h3 class="text-2xl font-bold text-text-light dark:text-text-dark mb-6 font-display">Nuestra
-						Historia</h3>
+					<h3 class="text-2xl font-bold text-text-light dark:text-text-dark mb-6 font-display">
+						Nuestra Historia
+					</h3>
 					<p class="text-text-light dark:text-text-dark mb-4 leading-relaxed">
 						Fundada en 1985, nuestra institución ha sido pionera en la educación de calidad, formando
 						generaciones de profesionales y ciudadanos comprometidos con el desarrollo del país.
@@ -297,8 +325,7 @@ get_header();
 
 			<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 				<!-- Misión -->
-				<div
-					class="text-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md border border-border-light dark:border-border-dark">
+				<div class="text-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md border border-border-light dark:border-border-dark">
 					<div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
 						<span class="material-icons text-white">flag</span>
 					</div>
@@ -310,8 +337,7 @@ get_header();
 				</div>
 
 				<!-- Visión -->
-				<div
-					class="text-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md border border-border-light dark:border-border-dark">
+				<div class="text-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md border border-border-light dark:border-border-dark">
 					<div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-4">
 						<span class="material-icons text-white">visibility</span>
 					</div>
@@ -353,18 +379,19 @@ get_header();
 	</section>
 
 	<!-- Formulario de Contacto -->
-	<section class="py-12 px-4 md:px-8 bg-gradient-to-br from-blue-50 to-indigo-50">
+	<section class="py-12 px-4 md:px-8 bg-gray-50 dark:bg-gray-900">
 		<div class="max-w-6xl mx-auto">
 			<div class="text-center mb-10">
-				<h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Contáctanos</h2>
-				<p class="text-lg text-gray-600 max-w-2xl mx-auto">¿Tienes preguntas? Estamos aquí para ayudarte. Ponte
-					en contacto con nosotros fácilmente.</p>
+				<h2 class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-text-dark mb-4">Contáctanos</h2>
+				<p class="text-lg text-gray-600 dark:text-text-dark max-w-2xl mx-auto">
+					¿Tienes preguntas? Estamos aquí para ayudarte. Ponte en contacto con nosotros fácilmente.
+				</p>
 			</div>
 
-			<div class="flex flex-col lg:flex-row gap-8">
+			<div class="flex flex-col lg:flex-row gap-12">
 				<!-- Información de contacto -->
-				<div class="lg:w-2/5 bg-white rounded-xl shadow-md p-6">
-					<h3 class="text-xl font-bold text-blue-600 mb-6">Información de Contacto</h3>
+				<div class="lg:w-2/5 rounded-xl shadow-md p-6 bg-background-light dark:bg-gray-800 border border-border-light dark:border-border-dark">
+					<h3 class="text-xl font-bold text-blue-600 mb-6 dark:text-text-dark">Información de Contacto</h3>
 
 					<div class="space-y-5">
 						<div class="flex items-start">
@@ -372,9 +399,9 @@ get_header();
 								<span class="material-icons text-blue-600 text-lg">location_on</span>
 							</div>
 							<div class="ml-4">
-								<h4 class="font-semibold text-gray-800">Dirección</h4>
-								<p class="text-gray-600 text-sm">Carrera 15 #45-67, Barrio Centro</p>
-								<p class="text-gray-600 text-sm">Bogotá D.C., Colombia</p>
+								<h4 class="font-semibold text-gray-800 dark:text-text-dark">Dirección</h4>
+								<p class="text-gray-600 dark:text-text-dark text-sm">Carrera 15 #45-67, Barrio Centro</p>
+								<p class="text-gray-600 dark:text-text-dark text-sm">Bogotá D.C., Colombia</p>
 							</div>
 						</div>
 
@@ -383,8 +410,8 @@ get_header();
 								<span class="material-icons text-blue-600 text-lg">phone</span>
 							</div>
 							<div class="ml-4">
-								<h4 class="font-semibold text-gray-800">Teléfono</h4>
-								<p class="text-gray-600 text-sm">(601) 234-5678</p>
+								<h4 class="font-semibold text-gray-800 dark:text-text-dark">Teléfono</h4>
+								<p class="text-gray-600 dark:text-text-dark text-sm">(601) 234-5678</p>
 							</div>
 						</div>
 
@@ -393,8 +420,8 @@ get_header();
 								<span class="material-icons text-blue-600 text-lg">email</span>
 							</div>
 							<div class="ml-4">
-								<h4 class="font-semibold text-gray-800">Correo Electrónico</h4>
-								<p class="text-gray-600 text-sm">contacto@iesanmartin.edu.co</p>
+								<h4 class="font-semibold text-gray-800 dark:text-text-dark">Correo Electrónico</h4>
+								<p class="text-gray-600 dark:text-text-dark text-sm">contacto@iesanmartin.edu.co</p>
 							</div>
 						</div>
 
@@ -403,58 +430,82 @@ get_header();
 								<span class="material-icons text-blue-600 text-lg">schedule</span>
 							</div>
 							<div class="ml-4">
-								<h4 class="font-semibold text-gray-800">Horario de Atención</h4>
-								<p class="text-gray-600 text-sm">Lunes a Viernes: 7:00 AM - 4:00 PM</p>
+								<h4 class="font-semibold text-gray-800 dark:text-text-dark">Horario de Atención</h4>
+								<p class="text-gray-600 dark:text-text-dark text-sm">Lunes a Viernes: 7:00 AM - 4:00 PM</p>
 							</div>
 						</div>
 					</div>
 
 					<!-- Mapa de ubicación (placeholder) -->
-					<div class="mt-8 bg-gray-200 rounded-lg h-40 flex items-center justify-center">
+					<div class="mt-8 bg-gray-200 dark:text-text-dark rounded-lg h-40 flex items-center justify-center">
 						<p class="text-gray-500">Mapa de ubicación</p>
 					</div>
 				</div>
 
 				<!-- Formulario de contacto -->
-				<div class="lg:w-3/5 bg-white rounded-xl shadow-md p-6">
-					<h3 class="text-xl font-bold text-blue-600 mb-6">Envíanos un Mensaje</h3>
+				<div class="lg:w-3/5 bg-white dark:bg-gray-800 rounded-xl p-6 border dark:border-border-dark shadow-lg">
+					<h3 class="mb-6 pl-8 text-xl font-bold text-blue-600 dark:text-text-dark">Envíanos un Mensaje</h3>
 
-					<form class="space-y-4">
+					<form class="space-y-4 px-8 flex flex-col gap-2">
+						
 						<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 							<div>
-								<label class="block text-sm font-medium text-gray-700 mb-1" for="name">Nombre Completo
-									*</label>
+								<label class="block text-sm font-medium text-gray-700 dark:text-text-dark mb-1" for="name">
+									Nombre Completo*
+								</label>
 								<input
 									class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-									id="name" name="name" type="text" placeholder="Tu nombre completo" required>
+									id="name" 
+									name="name" 
+									type="text" 
+									placeholder="Tu nombre completo" 
+									required
+								/>
 							</div>
 							<div>
-								<label class="block text-sm font-medium text-gray-700 mb-1" for="email">Correo
-									Electrónico *</label>
+								<label class="block text-sm font-medium text-gray-700 dark:text-text-dark mb-1" for="email">
+									Correo Electrónico *
+								</label>
 								<input
 									class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-									id="email" name="email" type="email" placeholder="tu@email.com" required>
+									id="email" 
+									name="email" 
+									type="email" 
+									placeholder="tu@email.com" 
+									required
+								/>
 							</div>
 						</div>
 
 						<div>
-							<label class="block text-sm font-medium text-gray-700 mb-1" for="subject">Asunto *</label>
+							<label class="block text-sm font-medium text-gray-700 dark:text-text-dark mb-1" for="subject">Asunto *</label>
 							<input
 								class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-								id="subject" name="subject" type="text" placeholder="Asunto de tu consulta" required>
+								id="subject" 
+								name="subject" 
+								type="text" 
+								placeholder="Asunto de tu consulta" 
+								required
+							/>
 						</div>
 
 						<div>
-							<label class="block text-sm font-medium text-gray-700 mb-1" for="message">Mensaje *</label>
+							<label class="block text-sm font-medium text-gray-700 dark:text-text-dark mb-1" for="message">Mensaje *</label>
 							<textarea
 								class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-								id="message" name="message" rows="4" placeholder="Escribe tu mensaje aquí..."
-								required></textarea>
-							<p class="mt-1 text-xs text-gray-500">0/500 caracteres</p>
+								id="message" 
+								name="message" 
+								rows="4" 
+								placeholder="Escribe tu mensaje aquí..."
+								required
+							></textarea>
+							<p class="mt-1 text-xs text-gray-500 dark:text-text-dark">0/500 caracteres</p>
 						</div>
 
-						<button type="submit"
-							class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-lg transition duration-300">
+						<button 
+							type="submit"
+							class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-lg transition duration-300"
+						>
 							Enviar Mensaje
 						</button>
 					</form>

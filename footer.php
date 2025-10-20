@@ -28,6 +28,7 @@
 							class="h-20 w-auto object-contain"
 							src="<?php echo get_theme_file_uri("assets/img/Logo_Ministerio_de_Educación.png") ?>"
 							alt="Logo Ministerio de Educación de Colombia" 
+							title="Logo Ministerio de Educación de Colombia"
 						/>
 					</a>
 					
@@ -39,6 +40,7 @@
 								class="h-12 w-auto object-contain"
 								src="<?php echo get_theme_file_uri("assets/img/Logo_Colombia.png") ?>" 
 								alt="Logo Colombia"
+								title="Logo Colombia"
 							/>
 						</a>
 						
@@ -53,7 +55,7 @@
 									<img 
 										class="h-12 w-auto object-contain"
 										src="<?php echo get_theme_file_uri("assets/img/logoipsum.png") ?>" 
-										alt="<?php echo esc_attr(get_bloginfo('name')); ?>" 
+										alt="<?php echo "Logo " . esc_attr(get_bloginfo('name')); ?>" 
 									/>
 								</a>
 							<?php endif; ?>
@@ -246,7 +248,7 @@
 		</div>
 
 		<!-- Barra Inferior - GOV.CO -->
-		<div class="bg-primary py-3">
+		<div class="bg-gov-top py-3">
 			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				<div class="flex justify-center">
 					<a href="https://www.gov.co" target="_blank" rel="noopener noreferrer" class="flex items-center">
@@ -259,7 +261,8 @@
 				</div>
 			</div>
 		</div>
-	</footer><!-- #colophon -->
+	</footer>
+	<!-- #colophon -->
 
 </div><!-- #page -->
 

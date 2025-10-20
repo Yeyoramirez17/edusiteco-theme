@@ -1,70 +1,68 @@
-[![Build Status](https://travis-ci.org/Automattic/_s.svg?branch=master)](https://travis-ci.org/Automattic/_s)
+# Edusiteco - Tema de WordPress para Instituciones Educativas
 
-_s
-===
+## Descripción
 
-Hi. I'm a starter theme called `_s`, or `underscores`, if you like. I'm a theme meant for hacking so don't use me as a Parent Theme. Instead try turning me into the next, most awesome, WordPress theme out there. That's what I'm here for.
+Edusiteco es un tema de WordPress diseñado específicamente para instituciones educativas en Colombia. Su desarrollo sigue las directrices y estándares técnicos del gobierno colombiano (Normas ITA), asegurando accesibilidad, usabilidad y una correcta presentación de la información.
 
-My ultra-minimal CSS might make me look like theme tartare but that means less stuff to get in your way when you're designing your awesome theme. Here are some of the other more interesting things you'll find here:
+Este tema proporciona una base sólida y personalizable para que colegios, escuelas y otras entidades educativas puedan construir su sitio web de manera profesional.
 
-* A modern workflow with a pre-made command-line interface to turn your project into a more pleasant experience.
-* A just right amount of lean, well-commented, modern, HTML5 templates.
-* A custom header implementation in `inc/custom-header.php`. Just add the code snippet found in the comments of `inc/custom-header.php` to your `header.php` template.
-* Custom template tags in `inc/template-tags.php` that keep your templates clean and neat and prevent code duplication.
-* Some small tweaks in `inc/template-functions.php` that can improve your theming experience.
-* A script at `js/navigation.js` that makes your menu a toggled dropdown on small screens (like your phone), ready for CSS artistry. It's enqueued in `functions.php`.
-* 2 sample layouts in `sass/layouts/` made using CSS Grid for a sidebar on either side of your content. Just uncomment the layout of your choice in `sass/style.scss`.
-Note: `.no-sidebar` styles are automatically loaded.
-* Smartly organized starter CSS in `style.css` that will help you to quickly get your design off the ground.
-* Full support for `WooCommerce plugin` integration with hooks in `inc/woocommerce.php`, styling override woocommerce.css with product gallery features (zoom, swipe, lightbox) enabled.
-* Licensed under GPLv2 or later. :) Use it to make something cool.
+## Características Principales
 
-Installation
----------------
+*   **Diseño Adaptable:** Totalmente responsive, se adapta a cualquier dispositivo (móviles, tabletas y computadores).
+*   **Personalizable:** Opciones de personalización a través del Customizer de WordPress.
+*   **Plantillas de Página:** Incluye plantillas predefinidas para páginas comunes como:
+    *   Historia
+    *   Misión y Visión
+    *   Directorio Institucional
+    *   Símbolos Institucionales
+*   **Optimizado para SEO:** Estructura de código amigable para los motores de búsqueda.
+*   **Desarrollo Moderno:** Utiliza Tailwind CSS para un diseño rápido y mantenible.
 
-### Requirements
+## Requisitos
 
-`_s` requires the following dependencies:
+Para instalar y desarrollar este tema, necesitarás:
 
-- [Node.js](https://nodejs.org/)
-- [Composer](https://getcomposer.org/)
+*   Una instalación de WordPress (versión 5.0 o superior).
+*   [Node.js](https://nodejs.org/) (versión 18.x o superior).
+*   [Composer](https://getcomposer.org/).
 
-### Quick Start
+## Instrucciones de Instalación y Desarrollo
 
-Clone or download this repository, change its name to something else (like, say, `megatherium-is-awesome`), and then you'll need to do a six-step find and replace on the name in all the templates.
+Sigue estos pasos para levantar el proyecto en un entorno de desarrollo local:
 
-1. Search for `'_s'` (inside single quotations) to capture the text domain and replace with: `'megatherium-is-awesome'`.
-2. Search for `_s_` to capture all the functions names and replace with: `megatherium_is_awesome_`.
-3. Search for `Text Domain: _s` in `style.css` and replace with: `Text Domain: megatherium-is-awesome`.
-4. Search for <code>&nbsp;_s</code> (with a space before it) to capture DocBlocks and replace with: <code>&nbsp;Megatherium_is_Awesome</code>.
-5. Search for `_s-` to capture prefixed handles and replace with: `megatherium-is-awesome-`.
-6. Search for `_S_` (in uppercase) to capture constants and replace with: `MEGATHERIUM_IS_AWESOME_`.
+1.  **Clonar el Repositorio:**
+    Clona este repositorio en el directorio `wp-content/themes/` de tu instalación de WordPress.
+    ```bash
+    git clone https://github.com/Yeyoramirez17/edusiteco-theme.git
+    ```
 
-Then, update the stylesheet header in `style.css`, the links in `footer.php` with your own information and rename `_s.pot` from `languages` folder to use the theme's slug. Next, update or delete this readme.
+2.  **Instalar Dependencias de PHP:**
+    Navega hasta el directorio del tema y ejecuta Composer para instalar las dependencias de PHP.
+    ```bash
+    cd wp-content/themes/edusiteco
+    composer install
+    ```
 
-### Setup
+3.  **Instalar Dependencias de Node.js:**
+    Instala los paquetes de npm necesarios para el frontend.
+    ```bash
+    npm install
+    ```
 
-To start using all the tools that come with `_s`  you need to install the necessary Node.js and Composer dependencies :
+4.  **Compilar los Assets (CSS y JS):**
+    El proyecto utiliza Tailwind CSS y `@wordpress/scripts`. Compila los assets con los siguientes comandos:
+    
+    *   Para compilar los archivos para producción:
+        ```bash
+        npm run build
+        ```
 
-```sh
-$ composer install
-$ npm install
-```
+    *   Para compilar automáticamente mientras desarrollas:
+        ```bash
+        npm run dev
+        ```
 
-### Available CLI commands
+5.  **Activar el Tema:**
+    Ve al panel de administración de WordPress (`Apariencia > Temas`) y activa el tema "Edusiteco".
 
-`_s` comes packed with CLI commands tailored for WordPress theme development :
-
-- `composer lint:wpcs` : checks all PHP files against [PHP Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/php/).
-- `composer lint:php` : checks all PHP files for syntax errors.
-- `composer make-pot` : generates a .pot file in the `languages/` directory.
-- `npm run compile:css` : compiles SASS files to css.
-- `npm run compile:rtl` : generates an RTL stylesheet.
-- `npm run watch` : watches all SASS files and recompiles them to css when they change.
-- `npm run lint:scss` : checks all SASS files against [CSS Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/css/).
-- `npm run lint:js` : checks all JavaScript files against [JavaScript Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/javascript/).
-- `npm run bundle` : generates a .zip archive for distribution, excluding development and system files.
-
-Now you're ready to go! The next step is easy to say, but harder to do: make an awesome WordPress theme. :)
-
-Good luck!
+¡Listo! Ahora puedes empezar a personalizar el tema y añadir contenido.

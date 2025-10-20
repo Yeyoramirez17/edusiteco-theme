@@ -7,33 +7,42 @@ module.exports = {
     './inc/**/*.php',
     './src/js/**/*.js',
     './assets/js/**/*.js',
-    // Si tienes páginas Gutenberg personalizadas
+    // Para páginas Gutenberg personalizadas
     './blocks/**/*.php',
     './patterns/**/*.php'
   ],
   theme: {
     extend: {
-      // Colores personalizados del tema - Combinando ambas configuraciones
       colors: {
-        'theme': {
-          'primary': '#005cee',
-          'secondary': '#6c757d',
-          'success': '#28a745',
-          'danger': '#dc3545',
-          'warning': '#ffc107',
-          'info': '#17a2b8',
-          'light': '#f8f9fa',
-          'dark': '#343a40',
-        },
-        // Colores del header institucional
+        'gov-top': "#0943B5",
         'primary': '#3366CC',
         'background-light': '#FFFFFF',
-        'background-dark': '#1A202C',
-        'text-light': '#1A202C',
-        'text-dark': '#EDF2F7',
-        'border-light': '#E2E8F0',
-        'border-dark': '#4A5568',
-        'accent': '#FFA500',
+        'background-dark' : '#1A202C',
+        'text-light'      : '#1A202C',
+        'text-dark'       : '#EDF2F7',
+        'border-light'    : '#E2E8F0',
+        'border-dark'     : '#4A5568',
+        'accent'          : '#FFA500',
+        // Custom
+        'dark-slate-gray': '#36453b',
+        'dim-gray': '#596869',
+        'ebony'   : '#515751',
+        'ivory'   : '#f5f9e9',
+        'sage'    : '#c2c1a5',
+        
+        'keppel': {
+          50: 'hsl(var(--keppel-50) / <alpha-value>)',
+          100: 'hsl(var(--keppel-100) / <alpha-value>)',
+          200: 'hsl(var(--keppel-200) / <alpha-value>)',
+          300: 'hsl(var(--keppel-300) / <alpha-value>)',
+          400: 'hsl(var(--keppel-400) / <alpha-value>)',
+          500: 'hsl(var(--keppel-500) / <alpha-value>)',
+          600: 'hsl(var(--keppel-600) / <alpha-value>)',
+          700: 'hsl(var(--keppel-700) / <alpha-value>)',
+          800: 'hsl(var(--keppel-800) / <alpha-value>)',
+          900: 'hsl(var(--keppel-900) / <alpha-value>)',
+          950: 'hsl(var(--keppel-950) / <alpha-value>)',
+        }
       },
       // Tipografía personalizada - Combinando fuentes
       fontFamily: {
@@ -41,7 +50,7 @@ module.exports = {
         'code': ['Monaco', 'Consolas', 'Andale Mono', 'DejaVu Sans Mono', 'monospace'],
         'quartzo-bold': ['Quartzo-Bold', 'sans-serif'],
         'plus-jakarta': ['Plus Jakarta Sans', 'sans-serif'],
-        'display': ['Montserrat', 'sans-serif'], // Para el header
+        'display': ['Montserrat', 'sans-serif'],
       },
       // Espaciado personalizado para WordPress
       spacing: {
@@ -79,65 +88,7 @@ module.exports = {
     // Plugin personalizado para WordPress
     function({ addComponents, theme }) {
       addComponents({
-        // Estilos para contenido de WordPress
-        '.wp-content': {
-          '& h1, & h2, & h3, & h4, & h5, & h6': {
-            marginTop: theme('spacing.8'),
-            marginBottom: theme('spacing.4'),
-            fontWeight: theme('fontWeight.bold'),
-          },
-          '& p': {
-            marginBottom: theme('spacing.4'),
-          },
-          '& ul, & ol': {
-            marginBottom: theme('spacing.4'),
-            paddingLeft: theme('spacing.6'),
-          },
-          '& blockquote': {
-            borderLeft: `4px solid ${theme('colors.theme.primary')}`,
-            paddingLeft: theme('spacing.4'),
-            marginLeft: theme('spacing.4'),
-            fontStyle: 'italic',
-          }
-        },
-        // Botones de WordPress
-        '.wp-block-button__link': {
-          display: 'inline-block',
-          padding: `${theme('spacing.3')} ${theme('spacing.6')}`,
-          backgroundColor: theme('colors.theme.primary'),
-          color: 'white',
-          textDecoration: 'none',
-          borderRadius: theme('borderRadius.md'),
-          fontWeight: theme('fontWeight.medium'),
-          '&:hover': {
-            backgroundColor: theme('colors.theme.primary') + 'dd',
-          }
-        },
-        // Alineaciones de WordPress
-        '.alignleft': {
-          float: 'left',
-          marginRight: theme('spacing.4'),
-          marginBottom: theme('spacing.2'),
-        },
-        '.alignright': {
-          float: 'right',
-          marginLeft: theme('spacing.4'),
-          marginBottom: theme('spacing.2'),
-        },
-        '.aligncenter': {
-          display: 'block',
-          margin: '0 auto',
-        },
-        '.alignwide': {
-          maxWidth: theme('maxWidth.content-wide'),
-          marginLeft: 'auto',
-          marginRight: 'auto',
-        },
-        '.alignfull': {
-          width: '100vw',
-          maxWidth: 'none',
-          marginLeft: 'calc(50% - 50vw)',
-        },
+        // TODO
       })
     }
   ],
@@ -145,6 +96,4 @@ module.exports = {
   corePlugins: {
     preflight: true, // Mantener el reset de CSS de Tailwind
   },
-  // Prefijo para evitar conflictos (opcional)
-  // prefix: 'tw-',
 }
