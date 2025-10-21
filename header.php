@@ -37,8 +37,16 @@
 						/>
 					</a>
 					<div class="hidden md:flex items-center space-x-6">
-						<a class="text-white text-sm font-medium hover:underline" href="#">Transparencia</a>
-						<a class="text-white text-sm font-medium hover:underline" href="#">Participa</a>
+						<?php
+						// Obtener el enlace a la página de transparencia
+						$transparency_page = get_page_by_path('transparencia-y-acceso-a-la-informacion-publica');
+						$transparency_url  = $transparency_page ? get_permalink($transparency_page->ID) : '#';
+
+						$participes_page = get_page_by_path('participa');
+						$participes_url  = $transparency_page ? get_permalink($participes_page->ID) : '#';
+						?>
+						<a class="text-white text-sm font-medium hover:underline" href="<?php echo esc_url($transparency_url); ?>">Transparencia</a>
+						<a class="text-white text-sm font-medium hover:underline" href="<?php echo esc_url($participes_url);   ?>" target="_blank" rel="noopener noreferrer">Participa</a>
 					</div>
 					<div class="md:hidden">
 						<button class="text-white p-2 bg-gray-100 hover:bg-gray-300 transition-colors" id="mobile-menu-button">
@@ -55,9 +63,9 @@
 			<div class="hidden md:hidden bg-gov-top backdrop-blur-sm" id="mobile-menu">
 				<div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
 					<a class="text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-white/10"
-						href="#">Transparencia</a>
+						href="<?php echo esc_url($transparency_url); ?>">Transparencia</a>
 					<a class="text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-white/10"
-						href="#">Participa</a>
+						href="https://www.gov.co/participa/" target="_blank" rel="noopener noreferrer">Participa</a>
 					<a class="text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-white/10"
 						href="#">Directorio</a>
 				</div>

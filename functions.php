@@ -469,3 +469,8 @@ function edusite_guardar_comunicado_detalles($post_id) {
 }
 add_action('save_post', 'edusite_guardar_comunicado_detalles');
 
+
+/**
+ * Creación de páginas por defecto
+ */
+require_once get_template_directory() . '/inc/default-pages.php';
