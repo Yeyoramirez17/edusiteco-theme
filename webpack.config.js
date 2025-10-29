@@ -11,7 +11,6 @@ module.exports = {
   entry: {
     index: './src/js/index.js',
     'custom-admin': './src/js/custom-admin.js',
-    'customizer-palette': './src/js/customizer-palette.js',
     // Agrega aquí cualquier otro archivo JS que necesites compilar
   }
 };

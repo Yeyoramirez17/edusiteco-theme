@@ -179,10 +179,7 @@ function edusiteco_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'edusiteco_scripts' );
 
-/**
- * Implement the Custom Header feature.
- */
-require get_template_directory() . '/inc/custom-header.php';
+
 
 /**
  * Custom template tags for this theme.
@@ -197,7 +194,7 @@ require get_template_directory() . '/inc/template-functions.php';
 /**
  * Customizer additions.
  */
-require get_template_directory() . '/inc/customizer.php';
+require get_template_directory() . '/inc/edusiteco-customizer-color.php';
 
 /**
  * Load Jetpack compatibility file.
@@ -477,6 +474,6 @@ add_action('save_post', 'edusite_guardar_comunicado_detalles');
 require_once get_template_directory() . '/inc/default-pages.php';
 
 /**
- * Palette Theme
+ * Tipografia
  */
-require_once get_template_directory() . '/inc/palette-theme.php';
+#require_once get_template_directory() . '/inc/edusiteco-typography.php';
