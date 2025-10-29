@@ -58,18 +58,32 @@
   font-display: swap;
 }
 
-:root{
-    /* CSS HEX */
+:root {
+    /* Colores base antiguos */
     --dark-slate-gray: #36453bff;
-    --dim-gray:        #596869ff;
+    --dim-gray: #596869ff;
     --ebony: #515751ff;
     --ivory: #f5f9e9ff;
-    --sage:  #c2c1a5ff;
+    --sage: #c2c1a5ff;
+    
+    /* NUEVA PALETA DE COLORES - Modo Claro */
+    /* Valores en HSL para mejor manipulación */
+    --color-brand-primary: 199 100% 33%;    /* #0367A6 */
+    --color-brand-secondary: 193 95% 28%;   /* #03658C */
+    --color-brand-accent: 81 44% 39%;       /* #6C8C3B */
+    --color-brand-warning: 27 97% 49%;      /* #F28705 */
+    --color-brand-danger: 24 95% 44%;       /* #D96907 */
 }
-/* 
- * Estilos base personalizados - Usando clases de Tailwind
- * Nota: Se utilizan medidas de Tailwind (rem, px) en lugar de unidades fijas
- */
+
+/* Modo Oscuro - Colores ajustados para mejor contraste */
+.dark {
+    --color-brand-primary: 199 100% 45%;    /* Más claro para legibilidad */
+    --color-brand-secondary: 193 95% 40%;   /* Más claro para legibilidad */
+    --color-brand-accent: 81 44% 55%;       /* Más claro para legibilidad */
+    --color-brand-warning: 27 97% 60%;      /* Más claro para legibilidad */
+    --color-brand-danger: 24 95% 58%;       /* Más claro para legibilidad */
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -77,52 +91,44 @@
   
   body {
     @apply font-plus-jakarta text-gray-900 leading-relaxed;
-    /* Usando min-height con medidas de Tailwind */
-    min-height: max(55.25rem, 100dvh); /* 884px = 55.25rem */
+    min-height: max(55.25rem, 100dvh);
   }
   
-  /* Headings - Usando medidas responsive de Tailwind */
   h1, h2, h3, h4, h5, h6 {
     @apply font-bold text-gray-900;
   }
   
-  h1 { @apply text-3xl md:text-4xl; }  /* 1.875rem - 2.25rem */
-  h2 { @apply text-2xl md:text-3xl; }  /* 1.5rem - 1.875rem */
-  h3 { @apply text-xl md:text-2xl; }   /* 1.25rem - 1.5rem */
-  h4 { @apply text-lg md:text-xl; }    /* 1.125rem - 1.25rem */
-  h5 { @apply text-base md:text-lg; }  /* 1rem - 1.125rem */
-  h6 { @apply text-sm md:text-base; }  /* 0.875rem - 1rem */
-  
+  h1 { @apply text-3xl md:text-4xl; }
+  h2 { @apply text-2xl md:text-3xl; }
+  h3 { @apply text-xl md:text-2xl; }
+  h4 { @apply text-lg md:text-xl; }
+  h5 { @apply text-base md:text-lg; }
+  h6 { @apply text-sm md:text-base; }
 }
 
+/* Ejemplos de uso de los nuevos colores */
 .header-group .underline-link::after {
   content: '';
   position: absolute;
   width: 100%;
   transform: scaleX(0);
-  height: 2px; /* 0.125rem */
-  bottom: -0.25rem; /* -4px */
+  height: 2px;
+  bottom: -0.25rem;
   left: 0;
-  background-color: #3366CC; /* Usar theme('colors.primary') */
+  /* Usar el nuevo color primario */
+  background-color: hsl(var(--color-brand-primary));
   transform-origin: bottom right;
   transition: transform 0.25s ease-out;
 }
 
 .submenu a:hover {
-  background-color: #f3f4f6; /* gray-100 */
+  background-color: #f3f4f6;
 }
 
 .header-group button:focus {
-  @apply outline-none ring-2 ring-primary/50 ring-offset-2;
-}
-
-/* 
- * Dark mode support para el header institucional
- */
-@media (prefers-color-scheme: dark) {
-  .dark .header-group .underline-link::after {
-    background-color: #60A5FA; /* Color más claro para dark mode */
-  }
+  @apply outline-none ring-2 ring-offset-2;
+  /* Usar el nuevo color primario con opacidad */
+  ring-color: hsl(var(--color-brand-primary) / 0.5);
 }
 
 .header-transition {
@@ -130,356 +136,366 @@
 }
 
 @keyframes fade-in-up {
-        from {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-    
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes fade-in-left {
-        from {
-            opacity: 0;
-            transform: translateX(-30px);
-        }
-        to {
-            opacity: 1;
-            transform: translateX(0);
-        }
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
+
 @keyframes fade-in-right {
-    from {
-        opacity: 0;
-        transform: translateX(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
-    
+
 @keyframes slide-in-top {
-    from {
-        opacity: 0;
-        transform: translateY(-50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    }
-    
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes slide-in-bottom {
-    from {
-        opacity: 0;
-        transform: translateY(50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-    
+
 @keyframes fade-in-delayed {
-    0% {
-        opacity: 0;
-    }
-    50% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
-    
+
 .animate-fade-in-up {
-    animation: fade-in-up 0.8s ease-out forwards;
+  animation: fade-in-up 0.8s ease-out forwards;
 }
-    
+
 .animate-fade-in-left {
-    animation: fade-in-left 0.8s ease-out forwards;
+  animation: fade-in-left 0.8s ease-out forwards;
 }
-    
+
 .animate-fade-in-right {
-    animation: fade-in-right 0.8s ease-out forwards;
+  animation: fade-in-right 0.8s ease-out forwards;
 }
-    
+
 .animate-slide-in-top {
-    animation: slide-in-top 0.8s ease-out forwards;
+  animation: slide-in-top 0.8s ease-out forwards;
 }
-    
+
 .animate-slide-in-bottom {
-    animation: slide-in-bottom 0.8s ease-out forwards;
+  animation: slide-in-bottom 0.8s ease-out forwards;
 }
-    
+
 .animate-fade-in-delayed {
-    animation: fade-in-delayed 1.2s ease-out forwards;
+  animation: fade-in-delayed 1.2s ease-out forwards;
 }
-    
-/* Asegurar que los elementos animados sean visibles */
+
 .animate-fade-in-up,
 .animate-fade-in-left,
 .animate-fade-in-right,
 .animate-slide-in-top,
 .animate-slide-in-bottom {
-    opacity: 0;
+  opacity: 0;
 }
 
-/* Animaciones suaves */
 .site-main section {
-    scroll-margin-top: 2rem;
+  scroll-margin-top: 2rem;
 }
 
-/* Mejoras de accesibilidad */
 audio:focus {
-    outline: 2px solid #3b82f6;
-    outline-offset: 2px;
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
 }
 
-/* Transiciones para modo oscuro */
 .site-main * {
-    transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
 }
 
-/* Responsive improvements */
 @media (max-width: 768px) {
-    .grid-cols-3 {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
+  .grid-cols-3 {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
 }
 
-/* Agregar al final del index.css */
-
-/* Estilos específicos para comunicados */
 .line-clamp-3 {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 @media (max-width: 768px) {
-    .comunicado-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-    
-    .comunicado-card {
-        margin-bottom: 1.5rem;
-    }
+  .comunicado-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .comunicado-card {
+    margin-bottom: 1.5rem;
+  }
 }
 
-/**************************/
-/* Paginación Comunicados */
-/**************************/
 .comunicados-paginacion {
-    @apply py-4 flex justify-start;
+  @apply py-4 flex justify-start;
 }
 
 .comunicados-paginacion .nav-links .nav-next a,
 .comunicados-paginacion .nav-links .nav-previous a {
-    @apply flex items-center text-slate-600 dark:text-text-dark hover:text-blue-600 transition-colors duration-300;
+  @apply flex items-center text-slate-600 dark:text-text-dark hover:text-blue-600 transition-colors duration-300;
 }
 
 .comunicados-paginacion .nav-previous a::before {
-    content: '←';
-    background-color: #64748b;
-    color: white;
-    @apply w-6 h-6 rounded-full mr-2 flex items-center justify-center font-bold text-lg leading-none transition-colors duration-300;
+  content: '←';
+  background-color: #64748b;
+  color: white;
+  @apply w-6 h-6 rounded-full mr-2 flex items-center justify-center font-bold text-lg leading-none transition-colors duration-300;
 }
 
 .comunicados-paginacion .nav-next a::after {
-    content: '→';
-    background-color: #64748b; 
-    color: white;
-    @apply w-8 h-8 rounded-full ml-2 flex items-center justify-center font-bold text-lg leading-none transition-colors duration-300;
+  content: '→';
+  background-color: #64748b;
+  color: white;
+  @apply w-8 h-8 rounded-full ml-2 flex items-center justify-center font-bold text-lg leading-none transition-colors duration-300;
 }
 
 .comunicados-paginacion .nav-previous a:hover::before,
 .comunicados-paginacion .nav-next a:hover::after {
-    background-color: #3b82f6;
-
-    @apply dark:text-text-dark;
+  /* Usar el nuevo color primario */
+  background-color: hsl(var(--color-brand-primary));
+  @apply dark:text-text-dark;
 }
-/*********************/
-/* Página directorio */
-/*********************/
 
-/* Hero Section */
+/* Página directorio */
 .hero-directorio {
-    @apply bg-gradient-to-r from-blue-900 to-blue-700 text-white py-20 px-4 relative overflow-hidden;
+  /* Usar gradiente con los nuevos colores */
+  background: linear-gradient(to right, 
+    hsl(var(--color-brand-primary)), 
+    hsl(var(--color-brand-secondary))
+  );
+  @apply text-white py-20 px-4 relative overflow-hidden;
 }
 
 .hero-content {
-    @apply max-w-6xl mx-auto text-center relative z-10;
+  @apply max-w-6xl mx-auto text-center relative z-10;
 }
 
 .hero-title {
-    @apply text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight;
+  @apply text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight;
 }
 
 .hero-subtitle {
-    @apply text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed;
+  @apply text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed;
 }
 
 .hero-pattern {
-    @apply absolute inset-0 opacity-10;
+  @apply absolute inset-0 opacity-10;
 }
 
-/* Secciones generales */
 .section-container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16;
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16;
 }
 
 .section-title {
-    @apply text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900;
+  @apply text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900;
 }
 
 .section-subtitle {
-    @apply text-lg md:text-xl text-center mb-12 text-gray-600 max-w-3xl mx-auto;
+  @apply text-lg md:text-xl text-center mb-12 text-gray-600 max-w-3xl mx-auto;
 }
 
-/* Tarjetas de equipo directivo */
 .directivo-grid {
-    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16;
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16;
 }
 
 .directivo-card {
-    @apply bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 overflow-hidden;
+  @apply bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 overflow-hidden;
 }
 
 .directivo-card-inner {
-    @apply p-6 text-center;
+  @apply p-6 text-center;
 }
 
 .directivo-image-container {
-    @apply w-32 h-32 mx-auto mb-6 relative;
+  @apply w-32 h-32 mx-auto mb-6 relative;
 }
 
 .directivo-placeholder {
-    @apply w-full h-full rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-white text-4xl font-bold;
+  @apply w-full h-full rounded-full flex items-center justify-center text-white text-4xl font-bold;
+  /* Usar gradiente con los nuevos colores */
+  background: linear-gradient(to bottom right, 
+    hsl(var(--color-brand-primary)), 
+    hsl(var(--color-brand-secondary))
+  );
 }
 
 .directivo-name {
-    @apply text-xl font-bold text-gray-900 mb-2;
+  @apply text-xl font-bold text-gray-900 mb-2;
 }
 
 .directivo-cargo {
-    @apply text-blue-600 font-semibold mb-3 text-lg;
+  @apply font-semibold mb-3 text-lg;
+  /* Usar el nuevo color primario */
+  color: hsl(var(--color-brand-primary));
 }
 
 .directivo-desc {
-    @apply text-gray-600 mb-4 text-sm leading-relaxed;
+  @apply text-gray-600 mb-4 text-sm leading-relaxed;
 }
 
 .directivo-contactos {
-    @apply flex justify-center space-x-4 pt-4 border-t border-gray-100;
+  @apply flex justify-center space-x-4 pt-4 border-t border-gray-100;
 }
 
 .contacto-btn {
-    @apply flex items-center justify-center w-10 h-10 rounded-full bg-blue-50 text-blue-600 hover:bg-blue-100 transition-colors duration-200;
+  @apply flex items-center justify-center w-10 h-10 rounded-full transition-colors duration-200;
+  background-color: hsl(var(--color-brand-primary) / 0.1);
+  color: hsl(var(--color-brand-primary));
 }
 
-/* Sección de coordinaciones */
+.contacto-btn:hover {
+  background-color: hsl(var(--color-brand-primary) / 0.2);
+}
+
 .coordinaciones-section {
-    @apply bg-gray-50 py-16;
+  @apply bg-gray-50 py-16;
 }
 
 .coordinaciones-grid {
-    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6;
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6;
 }
 
 .coordinacion-card {
-    @apply bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 p-6 border border-gray-200;
+  @apply bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 p-6 border border-gray-200;
 }
 
 .coordinacion-icon {
-    @apply w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 mb-4;
+  @apply w-12 h-12 rounded-lg flex items-center justify-center mb-4;
+  background-color: hsl(var(--color-brand-primary) / 0.1);
+  color: hsl(var(--color-brand-primary));
 }
 
-/* Sección de contactos generales */
 .contactos-section {
-    @apply bg-gradient-to-br from-blue-50 to-indigo-100 py-16;
+  background: linear-gradient(to bottom right, 
+    hsl(var(--color-brand-primary) / 0.1), 
+    hsl(var(--color-brand-accent) / 0.1)
+  );
+  @apply py-16;
 }
 
 .contactos-grid {
-    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
 }
 
 .contacto-item {
-    @apply bg-white rounded-xl shadow-md p-6 text-center hover:shadow-lg transition-shadow duration-300;
+  @apply bg-white rounded-xl shadow-md p-6 text-center hover:shadow-lg transition-shadow duration-300;
 }
 
 .contacto-icon {
-    @apply w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mx-auto mb-4;
+  @apply w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4;
+  background-color: hsl(var(--color-brand-primary) / 0.1);
+  color: hsl(var(--color-brand-primary));
 }
 
 .cta-button {
-    @apply inline-flex items-center px-8 py-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl;
+  @apply inline-flex items-center px-8 py-4 text-white font-semibold rounded-lg transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl;
+  background-color: hsl(var(--color-brand-primary));
 }
-/*********************/
-/* Página directorio */
-/*********************/
+
+.cta-button:hover {
+  background-color: hsl(var(--color-brand-secondary));
+}
+
 .animate-fade-in-up {
-    animation: fade-in-up 0.6s ease-out forwards;
-    opacity: 0;
+  animation: fade-in-up 0.6s ease-out forwards;
+  opacity: 0;
 }
 
 .animate-float {
-    animation: float 6s ease-in-out infinite;
+  animation: float 6s ease-in-out infinite;
 }
 
 .animation-delay-100 {
-    animation-delay: 0.1s;
+  animation-delay: 0.1s;
 }
 
 .animation-delay-200 {
-    animation-delay: 0.2s;
+  animation-delay: 0.2s;
 }
 
 .animation-delay-300 {
-    animation-delay: 0.3s;
+  animation-delay: 0.3s;
 }
 
 .animation-delay-400 {
-    animation-delay: 0.4s;
+  animation-delay: 0.4s;
 }
 
 .animation-delay-1000 {
-    animation-delay: 1s;
+  animation-delay: 1s;
 }
 
 .animation-delay-2000 {
-    animation-delay: 2s;
+  animation-delay: 2s;
 }
 
-/* Mejoras de accesibilidad */
 .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
-/* Reduce motion para usuarios que lo prefieren */
 @media (prefers-reduced-motion: reduce) {
-    .animate-fade-in-up,
-    .animate-float,
-    .animate-bounce,
-    .contacto-btn,
-    .cta-button,
-    .scroll-button,
-    .transform {
-        animation: none;
-        transition: none;
-    }
+  .animate-fade-in-up,
+  .animate-float,
+  .animate-bounce,
+  .contacto-btn,
+  .cta-button,
+  .scroll-button,
+  .transform {
+    animation: none;
+    transition: none;
+  }
 }

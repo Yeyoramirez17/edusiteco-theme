@@ -45,11 +45,15 @@
     "build:css": "npx tailwindcss -i ./src/css/index.css -o ./assets/css/index.css --minify",
     "watch:css": "npx tailwindcss -i ./src/css/index.css -o ./assets/css/index.css --watch",
     "dev:css": "npx tailwindcss -i ./src/css/index.css -o ./assets/css/index.css --watch --source-map",
-    "build:js": "wp-scripts build src/js/index.js --output-path=assets/js",
-    "watch:js": "wp-scripts start src/js/index.js --output-path=assets/js",
+
+    "build:js": "wp-scripts build",
+    "watch:js": "wp-scripts start",
+
     "watch": "npm run watch:css",
+    
     "dev": "npm-run-all --parallel dev:css watch:js",
     "build": "npm run build:css && npm run build:js",
+
     "compile:rtl": "rtlcss assets/css/base.css assets/css/base-rtl.css",
     "lint:js": "wp-scripts lint-js 'src/js/*.js'",
     "clean": "Remove-Item -Recurse -Force assets/css/*, assets/js/* -ErrorAction SilentlyContinue",

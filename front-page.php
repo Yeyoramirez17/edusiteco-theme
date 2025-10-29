@@ -27,11 +27,11 @@ get_header();
 									académica y valores</p>
 								<div class="flex flex-col sm:flex-row gap-4">
 									<a href="#admissions"
-										class="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-lg font-semibold text-lg transition-colors text-center">
+										class="bg-brand-primary hover:bg-brand-secondary text-white px-8 py-3 rounded-lg font-semibold text-lg transition-colors text-center">
 										Admisiones
 									</a>
 									<a href="#about"
-										class="bg-white hover:bg-gray-100 text-primary px-8 py-3 rounded-lg font-semibold text-lg transition-colors text-center">
+										class="bg-white hover:bg-gray-100 text-brand-primary px-8 py-3 rounded-lg font-semibold text-lg transition-colors text-center">
 										Conoce más
 									</a>
 								</div>
@@ -51,7 +51,7 @@ get_header();
 								<p class="text-xl lg:text-2xl mb-8">Programas académicos innovadores y docentes
 									altamente calificados</p>
 								<a href="#programs"
-									class="bg-accent hover:bg-accent/90 text-white px-8 py-3 rounded-lg font-semibold text-lg transition-colors inline-block">
+									class="bg-brand-warning hover:bg-brand-danger text-white px-8 py-3 rounded-lg font-semibold text-lg transition-colors inline-block">
 									Nuestros Programas
 								</a>
 							</div>
@@ -101,7 +101,7 @@ get_header();
 							<?php else: ?>
 								<div class="h-48 relative overflow-hidden">
 									<!-- Fondo con SVG -->
-									<div class="h-full bg-primary text-white/10 transition-transform duration-500 group-hover:scale-105">
+									<div class="h-full bg-brand-primary text-white/10 transition-transform duration-500 group-hover:scale-105">
 										<svg viewBox="0 0 1000 500" fill="currentColor" class="w-full h-full">
 											<circle cx="200" cy="100" r="80" opacity="0.1" />
 											<circle cx="800" cy="150" r="120" opacity="0.05" />
@@ -120,7 +120,7 @@ get_header();
 
 							<div class="p-6">
 								<h3 class="text-xl font-semibold text-text-light dark:text-text-dark mb-2 line-clamp-2">
-									<a href="<?php the_permalink(); ?>" class="hover:text-primary transition-colors">
+									<a href="<?php the_permalink(); ?>" class="hover:text-brand-primary transition-colors">
 										<?php the_title(); ?>
 									</a>
 								</h3>
@@ -137,7 +137,7 @@ get_header();
 								</p>
 
 								<a href="<?php the_permalink(); ?>"
-									class="inline-block mt-4 text-primary hover:text-primary/80 font-semibold text-sm transition-colors">
+									class="inline-block mt-4 text-brand-primary hover:text-brand-secondary font-semibold text-sm transition-colors">
 									Leer más →
 								</a>
 							</div>
@@ -166,7 +166,7 @@ get_header();
 								</p>
 								<a 
 									href="#"
-									class="inline-block mt-4 text-primary hover:text-primary/80 font-semibold text-sm transition-colors"
+									class="inline-block mt-4 text-brand-primary hover:text-brand-secondary font-semibold text-sm transition-colors"
 								>
 									Leer más →
 								</a>
@@ -179,7 +179,7 @@ get_header();
 			<div class="text-center">
 				<a 
 					href="<?php echo get_post_type_archive_link('comunicado'); ?>"
-					class="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-lg font-semibold transition-colors inline-flex items-center"
+					class="bg-brand-primary hover:bg-brand-secondary text-white px-8 py-3 rounded-lg font-semibold transition-colors inline-flex items-center"
 				>
 					Ver todos los comunicados
 					<span class="material-icons ml-2">arrow_forward</span>
@@ -202,27 +202,27 @@ get_header();
 				<!-- Sede Principal -->
 				<div
 					class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden border border-border-light dark:border-border-dark">
-					<div class="h-48 bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center">
+					<div class="h-48 bg-gradient-to-br from-brand-primary to-brand-secondary flex items-center justify-center">
 						<span class="text-white material-icons text-6xl">school</span>
 					</div>
 					<div class="p-6">
 						<h3 class="text-xl font-semibold text-text-light dark:text-text-dark mb-3">Sede Principal</h3>
 						<div class="space-y-2 text-sm text-text-light dark:text-text-dark">
 							<div class="flex items-start">
-								<span class="material-icons text-primary text-base mr-2 mt-0.5">location_on</span>
+								<span class="material-icons text-brand-primary text-base mr-2 mt-0.5">location_on</span>
 								<span>Carrera 15 #445-67, Barrio Centro, Bogotá D.C.</span>
 							</div>
 							<div class="flex items-center">
-								<span class="material-icons text-primary text-base mr-2">phone</span>
+								<span class="material-icons text-brand-primary text-base mr-2">phone</span>
 								<span>(601) 234-5678</span>
 							</div>
 							<div class="flex items-center">
-								<span class="material-icons text-primary text-base mr-2">schedule</span>
+								<span class="material-icons text-brand-primary text-base mr-2">schedule</span>
 								<span>7:00 AM - 4:00 PM</span>
 							</div>
 						</div>
 						<a href="#"
-							class="mt-4 inline-flex items-center text-primary hover:text-primary/80 font-semibold transition-colors">
+							class="mt-4 inline-flex items-center text-brand-primary hover:text-brand-secondary font-semibold transition-colors">
 							Ver más información
 							<span class="material-icons ml-1 text-sm">chevron_right</span>
 						</a>
@@ -232,27 +232,27 @@ get_header();
 				<!-- Sede Norte -->
 				<div
 					class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden border border-border-light dark:border-border-dark">
-					<div class="h-48 bg-gradient-to-br from-accent to-orange-500 flex items-center justify-center">
+					<div class="h-48 bg-gradient-to-br from-brand-warning to-brand-danger flex items-center justify-center">
 						<span class="text-white material-icons text-6xl">location_city</span>
 					</div>
 					<div class="p-6">
 						<h3 class="text-xl font-semibold text-text-light dark:text-text-dark mb-3">Sede Norte</h3>
 						<div class="space-y-2 text-sm text-text-light dark:text-text-dark">
 							<div class="flex items-start">
-								<span class="material-icons text-primary text-base mr-2 mt-0.5">location_on</span>
+								<span class="material-icons text-brand-primary text-base mr-2 mt-0.5">location_on</span>
 								<span>Calle 100 #45-20, Usaquén, Bogotá D.C.</span>
 							</div>
 							<div class="flex items-center">
-								<span class="material-icons text-primary text-base mr-2">phone</span>
+								<span class="material-icons text-brand-primary text-base mr-2">phone</span>
 								<span>(601) 234-5679</span>
 							</div>
 							<div class="flex items-center">
-								<span class="material-icons text-primary text-base mr-2">schedule</span>
+								<span class="material-icons text-brand-primary text-base mr-2">schedule</span>
 								<span>7:00 AM - 4:00 PM</span>
 							</div>
 						</div>
 						<a href="#"
-							class="mt-4 inline-flex items-center text-primary hover:text-primary/80 font-semibold transition-colors">
+							class="mt-4 inline-flex items-center text-brand-primary hover:text-brand-secondary font-semibold transition-colors">
 							Ver más información
 							<span class="material-icons ml-1 text-sm">chevron_right</span>
 						</a>
@@ -262,27 +262,27 @@ get_header();
 				<!-- Sede Sur -->
 				<div
 					class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden border border-border-light dark:border-border-dark">
-					<div class="h-48 bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center">
+					<div class="h-48 bg-gradient-to-br from-brand-accent to-brand-accent flex items-center justify-center">
 						<span class="text-white material-icons text-6xl">apartment</span>
 					</div>
 					<div class="p-6">
 						<h3 class="text-xl font-semibold text-text-light dark:text-text-dark mb-3">Sede Sur</h3>
 						<div class="space-y-2 text-sm text-text-light dark:text-text-dark">
 							<div class="flex items-start">
-								<span class="material-icons text-primary text-base mr-2 mt-0.5">location_on</span>
+								<span class="material-icons text-brand-primary text-base mr-2 mt-0.5">location_on</span>
 								<span>Diagonal 45 Sur #25-80, Rafael Uribe, Bogotá D.C.</span>
 							</div>
 							<div class="flex items-center">
-								<span class="material-icons text-primary text-base mr-2">phone</span>
+								<span class="material-icons text-brand-primary text-base mr-2">phone</span>
 								<span>(601) 234-5680</span>
 							</div>
 							<div class="flex items-center">
-								<span class="material-icons text-primary text-base mr-2">schedule</span>
+								<span class="material-icons text-brand-primary text-base mr-2">schedule</span>
 								<span>7:00 AM - 4:00 PM</span>
 							</div>
 						</div>
 						<a href="#"
-							class="mt-4 inline-flex items-center text-primary hover:text-primary/80 font-semibold transition-colors">
+							class="mt-4 inline-flex items-center text-brand-primary hover:text-brand-secondary font-semibold transition-colors">
 							Ver más información
 							<span class="material-icons ml-1 text-sm">chevron_right</span>
 						</a>
@@ -326,7 +326,7 @@ get_header();
 			<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 				<!-- Misión -->
 				<div class="text-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md border border-border-light dark:border-border-dark">
-					<div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+					<div class="w-16 h-16 bg-brand-primary rounded-full flex items-center justify-center mx-auto mb-4">
 						<span class="material-icons text-white">flag</span>
 					</div>
 					<h3 class="text-xl font-semibold text-text-light dark:text-text-dark mb-4">Misión</h3>
@@ -338,7 +338,7 @@ get_header();
 
 				<!-- Visión -->
 				<div class="text-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md border border-border-light dark:border-border-dark">
-					<div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-4">
+					<div class="w-16 h-16 bg-brand-warning rounded-full flex items-center justify-center mx-auto mb-4">
 						<span class="material-icons text-white">visibility</span>
 					</div>
 					<h3 class="text-xl font-semibold text-text-light dark:text-text-dark mb-4">Visión</h3>
@@ -351,25 +351,25 @@ get_header();
 				<!-- Valores -->
 				<div
 					class="text-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md border border-border-light dark:border-border-dark">
-					<div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+					<div class="w-16 h-16 bg-brand-accent rounded-full flex items-center justify-center mx-auto mb-4">
 						<span class="material-icons text-white">favorite</span>
 					</div>
 					<h3 class="text-xl font-semibold text-text-light dark:text-text-dark mb-4">Valores</h3>
 					<ul class="text-text-light dark:text-text-dark text-sm space-y-2 text-left">
 						<li class="flex items-center">
-							<span class="material-icons text-primary text-sm mr-2">check_circle</span>
+							<span class="material-icons text-brand-primary text-sm mr-2">check_circle</span>
 							Respeto y tolerancia
 						</li>
 						<li class="flex items-center">
-							<span class="material-icons text-primary text-sm mr-2">check_circle</span>
+							<span class="material-icons text-brand-primary text-sm mr-2">check_circle</span>
 							Responsabilidad
 						</li>
 						<li class="flex items-center">
-							<span class="material-icons text-primary text-sm mr-2">check_circle</span>
+							<span class="material-icons text-brand-primary text-sm mr-2">check_circle</span>
 							Honestidad
 						</li>
 						<li class="flex items-center">
-							<span class="material-icons text-primary text-sm mr-2">check_circle</span>
+							<span class="material-icons text-brand-primary text-sm mr-2">check_circle</span>
 							Excelencia
 						</li>
 					</ul>
@@ -391,12 +391,12 @@ get_header();
 			<div class="flex flex-col lg:flex-row gap-12">
 				<!-- Información de contacto -->
 				<div class="lg:w-2/5 rounded-xl shadow-md p-6 bg-background-light dark:bg-gray-800 border border-border-light dark:border-border-dark">
-					<h3 class="text-xl font-bold text-blue-600 mb-6 dark:text-text-dark">Información de Contacto</h3>
+					<h3 class="text-xl font-bold text-brand-primary mb-6 dark:text-text-dark">Información de Contacto</h3>
 
 					<div class="space-y-5">
 						<div class="flex items-start">
-							<div class="flex-shrink-0 bg-blue-100 p-2 rounded-lg">
-								<span class="material-icons text-blue-600 text-lg">location_on</span>
+							<div class="flex-shrink-0 bg-brand-primary/10 p-2 rounded-lg">
+								<span class="material-icons text-brand-primary text-lg">location_on</span>
 							</div>
 							<div class="ml-4">
 								<h4 class="font-semibold text-gray-800 dark:text-text-dark">Dirección</h4>
@@ -406,8 +406,8 @@ get_header();
 						</div>
 
 						<div class="flex items-start">
-							<div class="flex-shrink-0 bg-blue-100 p-2 rounded-lg">
-								<span class="material-icons text-blue-600 text-lg">phone</span>
+							<div class="flex-shrink-0 bg-brand-primary/10 p-2 rounded-lg">
+								<span class="material-icons text-brand-primary text-lg">phone</span>
 							</div>
 							<div class="ml-4">
 								<h4 class="font-semibold text-gray-800 dark:text-text-dark">Teléfono</h4>
@@ -416,8 +416,8 @@ get_header();
 						</div>
 
 						<div class="flex items-start">
-							<div class="flex-shrink-0 bg-blue-100 p-2 rounded-lg">
-								<span class="material-icons text-blue-600 text-lg">email</span>
+							<div class="flex-shrink-0 bg-brand-primary/10 p-2 rounded-lg">
+								<span class="material-icons text-brand-primary text-lg">email</span>
 							</div>
 							<div class="ml-4">
 								<h4 class="font-semibold text-gray-800 dark:text-text-dark">Correo Electrónico</h4>
@@ -426,8 +426,8 @@ get_header();
 						</div>
 
 						<div class="flex items-start">
-							<div class="flex-shrink-0 bg-blue-100 p-2 rounded-lg">
-								<span class="material-icons text-blue-600 text-lg">schedule</span>
+							<div class="flex-shrink-0 bg-brand-primary/10 p-2 rounded-lg">
+								<span class="material-icons text-brand-primary text-lg">schedule</span>
 							</div>
 							<div class="ml-4">
 								<h4 class="font-semibold text-gray-800 dark:text-text-dark">Horario de Atención</h4>
@@ -444,7 +444,7 @@ get_header();
 
 				<!-- Formulario de contacto -->
 				<div class="lg:w-3/5 bg-white dark:bg-gray-800 rounded-xl p-6 border dark:border-border-dark shadow-lg">
-					<h3 class="mb-6 pl-8 text-xl font-bold text-blue-600 dark:text-text-dark">Envíanos un Mensaje</h3>
+					<h3 class="mb-6 pl-8 text-xl font-bold text-brand-primary dark:text-text-dark">Envíanos un Mensaje</h3>
 
 					<form class="space-y-4 px-8 flex flex-col gap-2">
 						
@@ -454,7 +454,7 @@ get_header();
 									Nombre Completo*
 								</label>
 								<input
-									class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+									class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-brand-primary"
 									id="name" 
 									name="name" 
 									type="text" 
@@ -467,7 +467,7 @@ get_header();
 									Correo Electrónico *
 								</label>
 								<input
-									class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+									class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-brand-primary"
 									id="email" 
 									name="email" 
 									type="email" 
@@ -480,7 +480,7 @@ get_header();
 						<div>
 							<label class="block text-sm font-medium text-gray-700 dark:text-text-dark mb-1" for="subject">Asunto *</label>
 							<input
-								class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+								class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-brand-primary"
 								id="subject" 
 								name="subject" 
 								type="text" 
@@ -492,7 +492,7 @@ get_header();
 						<div>
 							<label class="block text-sm font-medium text-gray-700 dark:text-text-dark mb-1" for="message">Mensaje *</label>
 							<textarea
-								class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+								class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-brand-primary"
 								id="message" 
 								name="message" 
 								rows="4" 
@@ -504,7 +504,7 @@ get_header();
 
 						<button 
 							type="submit"
-							class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-lg transition duration-300"
+							class="w-full bg-brand-primary hover:bg-brand-secondary text-white font-medium py-3 px-4 rounded-lg transition duration-300"
 						>
 							Enviar Mensaje
 						</button>

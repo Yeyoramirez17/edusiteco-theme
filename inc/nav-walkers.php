@@ -28,7 +28,7 @@ class Custom_Nav_Walker extends Walker_Nav_Menu
         if ($has_children) {
             // Elemento con hijos - MEJORADO ESPACIADO
             $output .= $indent . '<div class="relative header-group group">';
-            $output .= '<a href="' . esc_url($item->url) . '" class="text-text-light dark:text-text-dark inline-flex items-center text-md font-semibold  hover:text-primary transition-colors px-3 py-2 rounded-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2" aria-haspopup="true" aria-expanded="false">';
+            $output .= '<a href="' . esc_url($item->url) . '" class="text-text-light dark:text-text-dark inline-flex items-center text-md font-semibold hover:text-brand-primary transition-colors px-3 py-2 rounded-sm focus:outline-none focus:ring-2 focus:ring-brand-primary/50 focus:ring-offset-2" aria-haspopup="true" aria-expanded="false">';
             $output .= '<span>' . apply_filters('the_title', $item->title, $item->ID) . '</span>';
             $output .= '<span class="material-icons text-sm ml-1 group-hover:rotate-180 transition-transform duration-200">expand_more</span>';
             $output .= '</a>';
@@ -37,8 +37,8 @@ class Custom_Nav_Walker extends Walker_Nav_Menu
             $output .= '<div class="space-y-0">';
         } else {
             // Elemento sin hijos - MEJORADO ESPACIADO
-            $output .= $indent . '<div class="header-group ">';
-            $output .= '<a href="' . esc_url($item->url) . '" class="text-text-light dark:text-text-dark text-md font-semibold hover:text-primary transition-colors rounded-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2">';
+            $output .= $indent . '<div class="header-group">';
+            $output .= '<a href="' . esc_url($item->url) . '" class="text-text-light dark:text-text-dark text-md font-semibold hover:text-brand-primary transition-colors rounded-sm focus:outline-none focus:ring-2 focus:ring-brand-primary/50 focus:ring-offset-2">';
             $output .= '<span>' . apply_filters('the_title', $item->title, $item->ID) . '</span>';
             $output .= '</a>';
             $output .= '</div>';
@@ -89,7 +89,7 @@ class Mobile_Nav_Walker extends Walker_Nav_Menu
             $output .= '<a href="' . esc_url($item->url) . '" class="flex-1 pl-4 pr-4 py-3.5 text-base font-medium text-text-light dark:text-text-dark hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">';
             $output .= apply_filters('the_title', $item->title, $item->ID);
             $output .= '</a>';
-            $output .= '<button class="mobile-toggle flex-shrink-0 px-4 py-3.5 text-text-light dark:text-text-dark hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors" onclick="this.classList.toggle(\'text-primary\'); this.classList.toggle(\'rotate-180\'); this.parentNode.nextElementSibling.classList.toggle(\'hidden\')">';
+            $output .= '<button class="mobile-toggle flex-shrink-0 px-4 py-3.5 text-text-light dark:text-text-dark hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors" onclick="this.classList.toggle(\'text-brand-primary\'); this.classList.toggle(\'rotate-180\'); this.parentNode.nextElementSibling.classList.toggle(\'hidden\')">';
             $output .= '<span class="material-icons text-sm transition-transform duration-200">expand_more</span>';
             $output .= '</button>';
             $output .= '</div>';
@@ -147,7 +147,7 @@ function edusiteco_default_menu(): void
 {
     ?>
     <div class="relative header-group group">
-        <a href="#" class="text-text-light dark:text-text-dark inline-flex items-center text-sm font-semibold underline-link hover:text-primary transition-colors px-3 py-2 rounded-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2">
+        <a href="#" class="text-text-light dark:text-text-dark inline-flex items-center text-sm font-semibold underline-link hover:text-brand-primary transition-colors px-3 py-2 rounded-sm focus:outline-none focus:ring-2 focus:ring-brand-primary/50 focus:ring-offset-2">
             <span>La Institución</span>
             <span class="material-icons text-sm ml-1 group-hover:rotate-180 transition-transform duration-200">expand_more</span>
         </a>
@@ -160,7 +160,7 @@ function edusiteco_default_menu(): void
         </div>
     </div>
     <div class="relative header-group group">
-        <a href="#" class="text-text-light dark:text-text-dark inline-flex items-center text-sm font-semibold underline-link hover:text-primary transition-colors px-3 py-2 rounded-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2">
+        <a href="#" class="text-text-light dark:text-text-dark inline-flex items-center text-sm font-semibold underline-link hover:text-brand-primary transition-colors px-3 py-2 rounded-sm focus:outline-none focus:ring-2 focus:ring-brand-primary/50 focus:ring-offset-2">
             <span>Sedes</span>
             <span class="material-icons text-sm ml-1 group-hover:rotate-180 transition-transform duration-200">expand_more</span>
         </a>
@@ -172,12 +172,12 @@ function edusiteco_default_menu(): void
         </div>
     </div>
     <div class="header-group">
-        <a class="text-text-light dark:text-text-dark text-sm font-semibold underline-link hover:text-primary transition-colors px-3 py-2 rounded-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2" href="#">
+        <a class="text-text-light dark:text-text-dark text-sm font-semibold underline-link hover:text-brand-primary transition-colors px-3 py-2 rounded-sm focus:outline-none focus:ring-2 focus:ring-brand-primary/50 focus:ring-offset-2" href="#">
             <span>Comunicados</span>
         </a>
     </div>
     <div class="relative header-group group">
-        <a href="#" class="text-text-light dark:text-text-dark inline-flex items-center text-sm font-semibold underline-link hover:text-primary transition-colors px-3 py-2 rounded-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2">
+        <a href="#" class="text-text-light dark:text-text-dark inline-flex items-center text-sm font-semibold underline-link hover:text-brand-primary transition-colors px-3 py-2 rounded-sm focus:outline-none focus:ring-2 focus:ring-brand-primary/50 focus:ring-offset-2">
             <span>Normativa</span>
             <span class="material-icons text-sm ml-1 group-hover:rotate-180 transition-transform duration-200">expand_more</span>
         </a>
@@ -200,7 +200,7 @@ function edusiteco_default_mobile_menu()
             <a href="#" class="flex-1 pl-4 pr-4 py-3.5 text-base font-medium text-text-light dark:text-text-dark hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
                 La Institución
             </a>
-            <button class="mobile-toggle flex-shrink-0 px-4 py-3.5 text-text-light dark:text-text-dark hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors" onclick="this.classList.toggle('text-primary'); this.classList.toggle('rotate-180'); this.parentNode.nextElementSibling.classList.toggle('hidden')">
+            <button class="mobile-toggle flex-shrink-0 px-4 py-3.5 text-text-light dark:text-text-dark hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors" onclick="this.classList.toggle('text-brand-primary'); this.classList.toggle('rotate-180'); this.parentNode.nextElementSibling.classList.toggle('hidden')">
                 <span class="material-icons text-sm transition-transform duration-200">expand_more</span>
             </button>
         </div>
@@ -215,7 +215,7 @@ function edusiteco_default_mobile_menu()
             <a href="#" class="flex-1 pl-4 pr-4 py-3.5 text-base font-medium text-text-light dark:text-text-dark hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
                 Sedes
             </a>
-            <button class="mobile-toggle flex-shrink-0 px-4 py-3.5 text-text-light dark:text-text-dark hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors" onclick="this.classList.toggle('text-primary'); this.classList.toggle('rotate-180'); this.parentNode.nextElementSibling.classList.toggle('hidden')">
+            <button class="mobile-toggle flex-shrink-0 px-4 py-3.5 text-text-light dark:text-text-dark hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors" onclick="this.classList.toggle('text-brand-primary'); this.classList.toggle('rotate-180'); this.parentNode.nextElementSibling.classList.toggle('hidden')">
                 <span class="material-icons text-sm transition-transform duration-200">expand_more</span>
             </button>
         </div>
@@ -232,7 +232,7 @@ function edusiteco_default_mobile_menu()
             <a href="#" class="flex-1 pl-4 pr-4 py-3.5 text-base font-medium text-text-light dark:text-text-dark hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
                 Normativa
             </a>
-            <button class="mobile-toggle flex-shrink-0 px-4 py-3.5 text-text-light dark:text-text-dark hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors" onclick="this.classList.toggle('text-primary'); this.classList.toggle('rotate-180'); this.parentNode.nextElementSibling.classList.toggle('hidden')">
+            <button class="mobile-toggle flex-shrink-0 px-4 py-3.5 text-text-light dark:text-text-dark hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors" onclick="this.classList.toggle('text-brand-primary'); this.classList.toggle('rotate-180'); this.parentNode.nextElementSibling.classList.toggle('hidden')">
                 <span class="material-icons text-sm transition-transform duration-200">expand_more</span>
             </button>
         </div>
@@ -244,7 +244,7 @@ function edusiteco_default_mobile_menu()
     <?php
 }
 
-/// CSS adicional para mejorar la experiencia CON MEJOR ESPACIADO Y SOBRESCRIBIENDO CONFLICTOS
+// CSS adicional para mejorar la experiencia CON MEJOR ESPACIADO Y SOBRESCRIBIENDO CONFLICTOS
 function edusiteco_nav_styles() {
     ?>
     <style>
@@ -252,7 +252,7 @@ function edusiteco_nav_styles() {
     
     /* 1. Asegurar que los submenús sean visibles con hover */
     .header-group .submenu {
-        display: block !important; /* Sobrescribir display: none del index.css */
+        display: block !important;
         pointer-events: none;
     }
     
@@ -261,7 +261,7 @@ function edusiteco_nav_styles() {
         pointer-events: auto;
     }
     
-    /* 2. Mejor transición para el submenú - más específica */
+    /* 2. Mejor transición para el submenú */
     .header-group .submenu {
         transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease !important;
     }
@@ -269,7 +269,7 @@ function edusiteco_nav_styles() {
     /* 3. Asegurar que los enlaces del submenú sean clickeables */
     .submenu a {
         pointer-events: auto;
-        display: block !important; /* Prevenir cualquier display: none */
+        display: block !important;
     }
     
     /* 4. Mejorar el espaciado entre elementos del submenú */
@@ -278,8 +278,8 @@ function edusiteco_nav_styles() {
     }
     
     /* 5. Estados hover mejorados para móvil */
-    .mobile-toggle.text-primary {
-        color: #3B82F6 !important;
+    .mobile-toggle.text-brand-primary {
+        color: hsl(var(--color-brand-primary)) !important;
     }
     
     .mobile-toggle.rotate-180 {
@@ -289,7 +289,7 @@ function edusiteco_nav_styles() {
     /* 6. Mejoras adicionales de espaciado */
     .header-group a {
         padding: 0.5rem 0.75rem;
-        display: inline-flex !important; /* Sobrescribir posibles display: block */
+        display: inline-flex !important;
     }
     
     .submenu a {
@@ -307,9 +307,7 @@ function edusiteco_nav_styles() {
         border-bottom: none !important;
     }
     
-    /* 9. SOBRESCRIBIR ESPECÍFICAMENTE LOS ESTILOS PROBLEMÁTICOS DEL INDEX.CSS */
-    
-    /* Prevenir que el underline animation del index.css interfiera */
+    /* 9. SOBRESCRIBIR underline animation usando color personalizable */
     .header-group .underline-link {
         position: relative !important;
         text-decoration: none !important;
@@ -323,7 +321,7 @@ function edusiteco_nav_styles() {
         height: 2px !important;
         bottom: -0.25rem !important;
         left: 0 !important;
-        background-color: #3366CC !important;
+        background-color: hsl(var(--color-brand-primary)) !important;
         transform-origin: bottom right !important;
         transition: transform 0.25s ease-out !important;
     }
@@ -346,7 +344,7 @@ function edusiteco_nav_styles() {
         transform: translateY(0) !important;
     }
     
-    /* 11. Prevenir interferencias de animaciones del index.css */
+    /* 11. Prevenir interferencias de animaciones */
     .header-group,
     .header-group *,
     .submenu,
@@ -354,7 +352,7 @@ function edusiteco_nav_styles() {
         animation: none !important;
     }
     
-    /* 12. Estilos específicos para móvil sin interferencias */
+    /* 12. Estilos específicos para móvil */
     @media (max-width: 768px) {
         .header-group .submenu {
             display: none !important;
@@ -362,11 +360,6 @@ function edusiteco_nav_styles() {
         
         .header-group:hover .submenu {
             display: none !important;
-        }
-        
-        /* Los submenús móviles se controlan por JavaScript, no por hover */
-        .mobile-submenu.active {
-            display: block !important;
         }
     }
     </style>

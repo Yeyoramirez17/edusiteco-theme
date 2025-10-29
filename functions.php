@@ -157,7 +157,8 @@ function edusiteco_scripts() {
 	$main_js_path = get_template_directory() . '/assets/js/index.asset.php';
     $main_js_dependencies = file_exists($main_js_path) ? require($main_js_path) : array('dependencies' => array(), 'version' => _S_VERSION);
 
-	wp_enqueue_script( 'edusiteco-main', get_template_directory_uri() . '/assets/js/index.js', $main_js_dependencies['dependencies'], $main_js_dependencies['version'], true );
+	wp_enqueue_script( 'edusiteco-index-scripts', get_template_directory_uri() . '/assets/js/index.js', $main_js_dependencies['dependencies'], $main_js_dependencies['version'], true );
+	wp_enqueue_script( 'edusiteco-custom-admin', get_template_directory_uri() . '/assets/js/custom-admin.js', array(), $main_js_dependencies['version'], true );
 
 	// Navigation script (keep existing if exists)
 	if ( file_exists( get_template_directory() . '/js/navigation.js' ) ) {
@@ -474,3 +475,8 @@ add_action('save_post', 'edusite_guardar_comunicado_detalles');
  * Creación de páginas por defecto
  */
 require_once get_template_directory() . '/inc/default-pages.php';
+
+/**
+ * Palette Theme
+ */
+require_once get_template_directory() . '/inc/palette-theme.php';

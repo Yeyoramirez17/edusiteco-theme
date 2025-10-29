@@ -143,22 +143,22 @@
 					
 					<div class="space-y-3 text-base text-text-light dark:text-text-dark">
 						<div class="flex items-start">
-							<span class="material-icons text-primary text-lg mr-2 mt-0.5">location_on</span>
+							<span class="material-icons text-brand-primary text-2xl mr-2 mt-0.5">location_on</span>
 							<span>Carrera 15 #445-67<br>Barrio Centro<br>Bogotá D.C., Colombia</span>
 						</div>
 						
 						<div class="flex items-center">
-							<span class="material-icons text-primary text-lg mr-2">phone</span>
+							<span class="material-icons text-brand-primary text-2xl mr-2">phone</span>
 							<span>(601) 234-5678</span>
 						</div>
 						
 						<div class="flex items-center">
-							<span class="material-icons text-primary text-base mr-2">email</span>
+							<span class="material-icons text-brand-primary text-2xl mr-2">email</span>
 							<span>contacto@iesanmartin.edu.co</span>
 						</div>
 						
 						<div class="flex items-start">
-							<span class="material-icons text-primary text-base mr-2 mt-0.5">schedule</span>
+							<span class="material-icons text-brand-primary text-2xl mr-2 mt-0.5">schedule</span>
 							<span>Lunes a Viernes<br>7:00 AM - 4:00 PM</span>
 						</div>
 					</div>
@@ -172,7 +172,7 @@
 						<li>
 							<a 
 								href="#" 
-								class="text-text-light dark:text-text-dark hover:text-primary transition-colors hover:underline underline-offset-2"
+								class="text-text-light dark:text-text-dark hover:text-brand-primary transition-colors hover:underline underline-offset-2"
 							>
 								Política de Tratamiento de Datos
 							</a>
@@ -180,7 +180,7 @@
 						<li>
 							<a 
 								href="#" 
-								class="text-text-light dark:text-text-dark hover:text-primary transition-colors hover:underline underline-offset-2"
+								class="text-text-light dark:text-text-dark hover:text-brand-primary transition-colors hover:underline underline-offset-2"
 							>
 								Mapa del Sitio
 							</a>
@@ -188,7 +188,7 @@
 						<li>
 							<a 
 								href="#" 
-								class="text-text-light dark:text-text-dark hover:text-primary transition-colors hover:underline underline-offset-2"
+								class="text-text-light dark:text-text-dark hover:text-brand-primary transition-colors hover:underline underline-offset-2"
 							>
 								PQRS
 							</a>
@@ -196,7 +196,7 @@
 						<li>
 							<a 
 								href="#" 
-								class="text-text-light dark:text-text-dark hover:text-primary transition-colors hover:underline underline-offset-2"
+								class="text-text-light dark:text-text-dark hover:text-brand-primary transition-colors hover:underline underline-offset-2"
 							>
 								Portal de Transparencia
 							</a>
@@ -204,17 +204,9 @@
 						<li>
 							<a 
 								href="#" 
-								class="text-text-light dark:text-text-dark hover:text-primary transition-colors hover:underline underline-offset-2"
+								class="text-text-light dark:text-text-dark hover:text-brand-primary transition-colors hover:underline underline-offset-2"
 							>
 								Accesibilidad
-							</a>
-						</li>
-						<li>
-							<a 
-								href="#" 
-								class="text-text-light dark:text-text-dark hover:text-primary transition-colors hover:underline underline-offset-2"
-							>
-								Misionalidad
 							</a>
 						</li>
 					</ul>
@@ -228,18 +220,18 @@
 				<div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
 					<!-- Copyright -->
 					<div class="text-sm text-text-light dark:text-text-dark">
-						&copy; <?php echo date('Y'); ?> <a href="<?php echo esc_url(home_url('/')); ?>" class="uppercase dark:text-text-dark font-bold hover:underline underline-offset-1"><?php echo esc_html(get_bloginfo('name')); ?> </a>. Todos los derechos reservados.
+						&copy; <?php echo date('Y'); ?> <a href="<?php echo esc_url(home_url('/')); ?>" class="uppercase dark:text-text-dark font-bold hover:text-brand-primary hover:underline underline-offset-1"><?php echo esc_html(get_bloginfo('name')); ?> </a>. Todos los derechos reservados.
 					</div>
 					
 					<!-- Enlaces Legales -->
 					<div class="flex flex-wrap justify-center md:justify-end space-x-6 text-sm">
-						<a href="#" class="text-text-light dark:text-text-dark hover:text-primary transition-colors hover:underline">
+						<a href="#" class="text-text-light dark:text-text-dark hover:text-brand-primary transition-colors hover:underline">
 							Política de Privacidad
 						</a>
-						<a href="#" class="text-text-light dark:text-text-dark hover:text-primary transition-colors hover:underline">
+						<a href="#" class="text-text-light dark:text-text-dark hover:text-brand-primary transition-colors hover:underline">
 							Términos y Condiciones
 						</a>
-						<a href="#" class="text-text-light dark:text-text-dark hover:text-primary transition-colors hover:underline">
+						<a href="#" class="text-text-light dark:text-text-dark hover:text-brand-primary transition-colors hover:underline">
 							Protección de Datos
 						</a>
 					</div>

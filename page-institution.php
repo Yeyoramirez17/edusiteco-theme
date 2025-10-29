@@ -20,11 +20,11 @@ get_header();
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in-delayed">
                 <a href="#historia"
-                    class="bg-primary text-white font-semibold py-3 px-8 rounded-full hover:bg-yellow-600 transition-all duration-300 transform hover:scale-105">
+                    class="bg-brand-primary text-white font-semibold py-3 px-8 rounded-full hover:bg-brand-secondary transition-all duration-300 transform hover:scale-105">
                     Nuestra Historia
                 </a>
                 <a href="#instalaciones"
-                    class="bg-transparent border-2 border-white text-white font-semibold py-3 px-8 rounded-full hover:bg-white hover:text-primary transition-all duration-300 transform hover:scale-105">
+                    class="bg-transparent border-2 border-white text-white font-semibold py-3 px-8 rounded-full hover:bg-white hover:text-brand-primary transition-all duration-300 transform hover:scale-105">
                     Conoce Nuestras Instalaciones
                 </a>
             </div>
@@ -63,7 +63,7 @@ get_header();
                         </p>
                     </div>
                     <a href="#"
-                        class="mt-6 inline-block bg-accent-blue text-white font-semibold py-3 px-8 rounded-full hover:bg-blue-700 transition-all duration-300 transform hover:scale-105">
+                        class="mt-6 inline-block bg-brand-primary text-white font-semibold py-3 px-8 rounded-full hover:bg-brand-secondary transition-all duration-300 transform hover:scale-105">
                         Historia Completa
                     </a>
                 </div>
@@ -76,17 +76,17 @@ get_header();
 
                     <div class="absolute -bottom-8 -left-8 grid grid-cols-3 gap-4 w-full max-w-sm">
                         <div
-                            class="bg-accent-blue text-white p-4 rounded-lg shadow-lg text-center transform hover:scale-110 transition-transform duration-300">
+                            class="bg-brand-primary text-white p-4 rounded-lg shadow-lg text-center transform hover:scale-110 transition-transform duration-300">
                             <p class="text-lg font-bold">1996</p>
                             <p class="text-sm">Fundación</p>
                         </div>
                         <div
-                            class="bg-accent-blue text-white p-4 rounded-lg shadow-lg text-center transform hover:scale-110 transition-transform duration-300">
+                            class="bg-brand-secondary text-white p-4 rounded-lg shadow-lg text-center transform hover:scale-110 transition-transform duration-300">
                             <p class="text-lg font-bold">2000+</p>
                             <p class="text-sm">Egresados</p>
                         </div>
                         <div
-                            class="bg-accent-blue text-white p-4 rounded-lg shadow-lg text-center transform hover:scale-110 transition-transform duration-300">
+                            class="bg-brand-accent text-white p-4 rounded-lg shadow-lg text-center transform hover:scale-110 transition-transform duration-300">
                             <p class="text-lg font-bold">3</p>
                             <p class="text-sm">Sedes</p>
                         </div>
@@ -211,7 +211,7 @@ get_header();
                 <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 text-center border border-border-light dark:border-border-dark transform hover:scale-105 transition-all duration-300 animate-fade-in-up"
                     style="animation-delay: 0.1s">
                     <div
-                        class="w-20 h-20 bg-gradient-to-br from-primary to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 transform hover:rotate-12 transition-transform duration-300">
+                        class="w-20 h-20 bg-gradient-to-br from-brand-primary to-brand-secondary rounded-full flex items-center justify-center mx-auto mb-4 transform hover:rotate-12 transition-transform duration-300">
                         <span class="material-icons text-white text-3xl">shield</span>
                     </div>
                     <h3 class="text-xl font-semibold text-text-light dark:text-text-dark mb-3">Escudo</h3>
@@ -224,7 +224,7 @@ get_header();
                 <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 text-center border border-border-light dark:border-border-dark transform hover:scale-105 transition-all duration-300 animate-fade-in-up"
                     style="animation-delay: 0.2s">
                     <div
-                        class="w-20 h-20 bg-gradient-to-br from-accent to-orange-500 rounded-full flex items-center justify-center mx-auto mb-4 transform hover:rotate-12 transition-transform duration-300">
+                        class="w-20 h-20 bg-gradient-to-br from-brand-warning to-brand-danger rounded-full flex items-center justify-center mx-auto mb-4 transform hover:rotate-12 transition-transform duration-300">
                         <span class="material-icons text-white text-3xl">flag</span>
                     </div>
                     <h3 class="text-xl font-semibold text-text-light dark:text-text-dark mb-3">Bandera</h3>
@@ -237,7 +237,7 @@ get_header();
                 <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 text-center border border-border-light dark:border-border-dark transform hover:scale-105 transition-all duration-300 animate-fade-in-up"
                     style="animation-delay: 0.3s">
                     <div
-                        class="w-20 h-20 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4 transform hover:rotate-12 transition-transform duration-300">
+                        class="w-20 h-20 bg-gradient-to-br from-brand-accent to-brand-accent rounded-full flex items-center justify-center mx-auto mb-4 transform hover:rotate-12 transition-transform duration-300">
                         <span class="material-icons text-white text-3xl">music_note</span>
                     </div>
                     <h3 class="text-xl font-semibold text-text-light dark:text-text-dark mb-3">Himno</h3>
@@ -250,7 +250,7 @@ get_header();
                 <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 text-center border border-border-light dark:border-border-dark transform hover:scale-105 transition-all duration-300 animate-fade-in-up"
                     style="animation-delay: 0.4s">
                     <div
-                        class="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 transform hover:rotate-12 transition-transform duration-300">
+                        class="w-20 h-20 bg-gradient-to-br from-brand-secondary to-brand-primary rounded-full flex items-center justify-center mx-auto mb-4 transform hover:rotate-12 transition-transform duration-300">
                         <span class="material-icons text-white text-3xl">format_quote</span>
                     </div>
                     <h3 class="text-xl font-semibold text-text-light dark:text-text-dark mb-3">Lema</h3>
@@ -263,78 +263,76 @@ get_header();
     </section>
 
     <!-- Filosofía Institucional Mejorada -->
-    <section class="py-16 md:py-24 bg-accent-blue text-white">
+    <section class="py-16 md:py-24 bg-gradient-to-br from-brand-primary to-brand-secondary text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-3xl lg:text-4xl font-bold font-display mb-4 animate-fade-in-up">
                 Nuestra Filosofía Institucional
             </h2>
-            <p class="max-w-3xl mx-auto mb-12 text-xl text-gray-500 animate-fade-in-up" style="animation-delay: 0.1s">
+            <p class="max-w-3xl mx-auto mb-12 text-xl text-white/90 animate-fade-in-up" style="animation-delay: 0.1s">
                 Los principios que guían nuestra formación de ciudadanos íntegros
             </p>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Misión -->
-                <div class="bg-blue-700/50 dark:bg-blue-900/50 p-8 rounded-xl backdrop-blur-sm border border-blue-600/30 transform hover:scale-105 transition-all duration-500 animate-fade-in-up"
+                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/20 transform hover:scale-105 transition-all duration-500 animate-fade-in-up"
                     style="animation-delay: 0.2s">
-                    <div class="bg-primary rounded-full p-4 mb-4 inline-block transform hover:rotate-12 transition-transform duration-300">
+                    <div class="bg-white/20 rounded-full p-4 mb-4 inline-block transform hover:rotate-12 transition-transform duration-300">
                         <img 
-                            class="w-8"
+                            class="w-8 brightness-0 invert"
                             src="<?php echo get_theme_file_uri('assets/svg/target.svg'); ?>" 
                             alt="<?php echo esc_attr_e('Misión', 'edusiteco') ?>" 
                         />
                     </div>
                     <h3 class="text-2xl font-bold mb-4">Misión</h3>
-                    <p class="text-white leading-relaxed">
+                    <p class="text-white/90 leading-relaxed">
                         Formar ciudadanos competentes, críticos y creativos mediante una educación integral que combine
                         excelencia académica con valores humanos, contribuyendo al desarrollo social y cultural.
                     </p>
                 </div>
 
                 <!-- Visión -->
-                <div class="bg-blue-700/50 dark:bg-blue-900/50 p-8 rounded-xl backdrop-blur-sm border border-blue-600/30 transform hover:scale-105 transition-all duration-500 animate-fade-in-up"
+                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/20 transform hover:scale-105 transition-all duration-500 animate-fade-in-up"
                     style="animation-delay: 0.3s">
-                    <div
-                        class="bg-primary text-white rounded-full p-4 mb-4 inline-block transform hover:rotate-12 transition-transform duration-300">
+                    <div class="bg-white/20 rounded-full p-4 mb-4 inline-block transform hover:rotate-12 transition-transform duration-300">
                         <img 
-                            class="w-8"
+                            class="w-8 brightness-0 invert"
                             src="<?php echo get_theme_file_uri('assets/svg/visibility.svg'); ?>" 
                             alt="<?php echo esc_attr_e('Visión', 'edusiteco') ?>" 
                         />
                     </div>
                     <h3 class="text-2xl font-bold mb-4">Visión</h3>
-                    <p class="text-white leading-relaxed">
+                    <p class="text-white/90 leading-relaxed">
                         Ser reconocidos como la institución educativa líder en innovación pedagógica y formación
                         integral, siendo referente de excelencia académica a nivel nacional para el 2030.
                     </p>
                 </div>
 
                 <!-- Valores -->
-                <div class="bg-blue-700/50 dark:bg-blue-900/50 p-8 rounded-xl backdrop-blur-sm border border-blue-600/30 transform hover:scale-105 transition-all duration-500 animate-fade-in-up"
+                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/20 transform hover:scale-105 transition-all duration-500 animate-fade-in-up"
                     style="animation-delay: 0.4s">
-                    <div
-                        class="bg-primary text-white rounded-full p-4 mb-4 inline-block transform hover:rotate-12 transition-transform duration-300">
+                    <div class="bg-white/20 rounded-full p-4 mb-4 inline-block transform hover:rotate-12 transition-transform duration-300">
                         <img 
-                            class="w-8"
+                            class="w-8 brightness-0 invert"
                             src="<?php echo get_theme_file_uri('assets/svg/favorite.svg'); ?>" 
                             alt="<?php echo esc_attr_e('Valores', 'edusiteco') ?>" 
                         />
                     </div>
                     <h3 class="text-2xl font-bold mb-4">Valores</h3>
-                    <ul class="text-white space-y-3 text-left">
+                    <ul class="text-white/90 space-y-3 text-left">
                         <li class="flex items-center transform hover:translate-x-2 transition-transform duration-300">
-                            <span class="material-icons text-primary text-sm mr-2">check_circle</span>
+                            <span class="material-icons text-white text-sm mr-2">check_circle</span>
                             Respeto y tolerancia
                         </li>
                         <li class="flex items-center transform hover:translate-x-2 transition-transform duration-300">
-                            <span class="material-icons text-primary text-sm mr-2">check_circle</span>
+                            <span class="material-icons text-white text-sm mr-2">check_circle</span>
                             Responsabilidad
                         </li>
                         <li class="flex items-center transform hover:translate-x-2 transition-transform duration-300">
-                            <span class="material-icons text-primary text-sm mr-2">check_circle</span>
+                            <span class="material-icons text-white text-sm mr-2">check_circle</span>
                             Honestidad
                         </li>
                         <li class="flex items-center transform hover:translate-x-2 transition-transform duration-300">
-                            <span class="material-icons text-primary text-sm mr-2">check_circle</span>
+                            <span class="material-icons text-white text-sm mr-2">check_circle</span>
                             Excelencia
                         </li>
                     </ul>
@@ -342,7 +340,7 @@ get_header();
             </div>
 
             <a href="#"
-                class="mt-12 inline-block bg-primary text-white font-semibold py-3 px-8 rounded-full hover:bg-yellow-600 transition-all duration-300 transform hover:scale-105 animate-fade-in-up"
+                class="mt-12 inline-block bg-white text-brand-primary px-8 py-3 rounded-full font-semibold hover:bg-white/90 transition-all duration-300 transform hover:scale-105 animate-fade-in-up"
                 style="animation-delay: 0.5s">
                 Conoce Nuestra Filosofía Completa
             </a>
@@ -369,7 +367,7 @@ get_header();
                         class="w-24 h-24 rounded-full object-cover mx-auto mb-4 shadow-lg transform hover:scale-110 transition-transform duration-300"
                         src="https://placehold.co/200x200/1e40af/ffffff?text=Dr.+Juan+D.+Rodríguez" />
                     <h3 class="text-xl font-bold text-text-light dark:text-text-dark mb-2">Dr. Juan David Rodríguez</h3>
-                    <p class="text-primary font-semibold mb-4">Rector</p>
+                    <p class="text-brand-primary font-semibold mb-4">Rector</p>
                     <p class="text-text-light dark:text-text-dark text-sm">
                         Magíster en Educación con más de 25 años de experiencia en dirección educativa y gestión
                         institucional.
@@ -383,7 +381,7 @@ get_header();
                         class="w-24 h-24 rounded-full object-cover mx-auto mb-4 shadow-lg transform hover:scale-110 transition-transform duration-300"
                         src="https://placehold.co/200x200/ea580c/ffffff?text=Lic.+Carlos+Mendoza" />
                     <h3 class="text-xl font-bold text-text-light dark:text-text-dark mb-2">Lic. Carlos Mendoza</h3>
-                    <p class="text-primary font-semibold mb-4">Coordinador Académico</p>
+                    <p class="text-brand-warning font-semibold mb-4">Coordinador Académico</p>
                     <p class="text-text-light dark:text-text-dark text-sm">
                         Especialista en currículo y evaluación educativa, comprometido con la innovación pedagógica.
                     </p>
@@ -396,7 +394,7 @@ get_header();
                         class="w-24 h-24 rounded-full object-cover mx-auto mb-4 shadow-lg transform hover:scale-110 transition-transform duration-300"
                         src="https://placehold.co/200x200/059669/ffffff?text=Ps.+Ana+Lucía+Torres" />
                     <h3 class="text-xl font-bold text-text-light dark:text-text-dark mb-2">Ps. Ana Lucía Torres</h3>
-                    <p class="text-primary font-semibold mb-4">Coordinadora de Convivencia</p>
+                    <p class="text-brand-accent font-semibold mb-4">Coordinadora de Convivencia</p>
                     <p class="text-text-light dark:text-text-dark text-sm">
                         Psicóloga educativa especializada en desarrollo adolescente y clima escolar positivo.
                     </p>
@@ -406,7 +404,7 @@ get_header();
     </section>
 
     <!-- CTA Section Mejorada -->
-    <section class="py-16 bg-primary">
+    <section class="py-16 bg-brand-primary">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center animate-fade-in-up">
             <h2 class="text-3xl lg:text-4xl font-bold text-white font-display mb-6">
                 Únete a Nuestra Comunidad Educativa
@@ -416,11 +414,11 @@ get_header();
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="#contact"
-                    class="bg-white text-primary px-8 py-3 rounded-full font-semibold text-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105">
+                    class="bg-white text-brand-primary px-8 py-3 rounded-full font-semibold text-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105">
                     Solicitar Información
                 </a>
                 <a href="#news"
-                    class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full font-semibold text-lg hover:bg-white hover:text-primary transition-all duration-300 transform hover:scale-105">
+                    class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full font-semibold text-lg hover:bg-white hover:text-brand-primary transition-all duration-300 transform hover:scale-105">
                     Ver Últimas Noticias
                 </a>
             </div>

@@ -1,0 +1,1 @@
+{"version":3,"file":"custom-admin.js","mappings":";;;;AAAA;AACA;AACA;;AAEAA,OAAO,CAACC,GAAG,CAAC,sCAAsC,CAAC,C","sources":["webpack://underscores/./src/js/custom-admin.js"],"sourcesContent":["/**\r\n * Archivo para scripts personalizados del panel de administración.\r\n */\r\n\r\nconsole.log('¡Scripts de administración cargados!');\r\n"],"names":["console","log"],"sourceRoot":""}

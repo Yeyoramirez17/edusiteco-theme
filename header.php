@@ -72,7 +72,7 @@
 			</div>
 
 			<!-- Main Header -->
-			<div class="bg-background-light dark:bg-background-dark border-b-4 border-accent">
+			<div class="bg-background-light dark:bg-background-dark border-b-[8px] border-brand-warning">
 				<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 					<div class="flex items-center justify-between h-20">
 						<div class="flex items-center">
@@ -87,14 +87,14 @@
 										<?php if (is_front_page() && is_home()): ?>
 											<h1 class="site-title font-quartzo-bold text-3xl">
 												<a href="<?php echo esc_url(home_url('/')); ?>" rel="home"
-													class="text-text-light dark:text-text-dark hover:text-primary transition-colors">
+													class="text-text-light dark:text-text-dark hover:text-brand-primary transition-colors">
 													<?php bloginfo('name'); ?>
 												</a>
 											</h1>
 										<?php else: ?>
-											<p class="site-title font-quartzo-bold text-2xl">
+											<p class="site-title font-quartzo-bold text-3xl">
 												<a href="<?php echo esc_url(home_url('/')); ?>" rel="home"
-													class="text-text-light dark:text-text-dark hover:text-primary transition-colors">
+													class="text-text-light dark:text-text-dark hover:text-brand-primary transition-colors">
 													<?php bloginfo('name'); ?>
 												</a>
 											</p>
@@ -144,7 +144,7 @@
 
 							<!-- Botón Tema Oscuro/Claro -->
 							<button id="theme-toggle"
-								class="p-2 rounded-full flex justify-center items-center bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 transition-colors text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-white"
+								class="p-2 rounded-full flex justify-center items-center bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 transition-colors text-gray-600 dark:text-gray-400 hover:text-brand-primary dark:hover:text-white"
 								aria-label="Cambiar tema"
 							>
 								<!-- SVG para modo claro -->
@@ -178,7 +178,8 @@
 							<div class="lg:hidden">
 								<button
 									class="text-text-light dark:text-text-dark p-2 rounded-md bg-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-									id="main-mobile-menu-button">
+									id="main-mobile-menu-button"
+								>
 									<img 
 										class="w-6"
 										src="<?php echo get_theme_file_uri('assets/svg/menu-burger.svg') ?>"
