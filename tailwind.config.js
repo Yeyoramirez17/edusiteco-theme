@@ -12,13 +12,78 @@ module.exports = {
       colors: {
         'gov-top': "#0943B5",
         
-        // Nueva paleta personalizable con variables CSS
+        // Nueva paleta personalizable con variables CSS y variantes
         'brand': {
-          'primary': 'hsl(var(--color-brand-primary) / <alpha-value>)',
-          'secondary': 'hsl(var(--color-brand-secondary) / <alpha-value>)',
-          'accent': 'hsl(var(--color-brand-accent) / <alpha-value>)',
-          'warning': 'hsl(var(--color-brand-warning) / <alpha-value>)',
-          'danger': 'hsl(var(--color-brand-danger) / <alpha-value>)',
+          // Color primario con variantes
+          'primary': {
+            DEFAULT: 'hsl(var(--color-brand-primary) / <alpha-value>)',
+            50: 'hsl(var(--color-brand-primary-50) / <alpha-value>)',
+            100: 'hsl(var(--color-brand-primary-100) / <alpha-value>)',
+            200: 'hsl(var(--color-brand-primary-200) / <alpha-value>)',
+            300: 'hsl(var(--color-brand-primary-300) / <alpha-value>)',
+            400: 'hsl(var(--color-brand-primary-400) / <alpha-value>)',
+            500: 'hsl(var(--color-brand-primary) / <alpha-value>)',
+            600: 'hsl(var(--color-brand-primary-600) / <alpha-value>)',
+            700: 'hsl(var(--color-brand-primary-700) / <alpha-value>)',
+            800: 'hsl(var(--color-brand-primary-800) / <alpha-value>)',
+            900: 'hsl(var(--color-brand-primary-900) / <alpha-value>)',
+          },
+          // Color secundario con variantes
+          'secondary': {
+            DEFAULT: 'hsl(var(--color-brand-secondary) / <alpha-value>)',
+            50: 'hsl(var(--color-brand-secondary-50) / <alpha-value>)',
+            100: 'hsl(var(--color-brand-secondary-100) / <alpha-value>)',
+            200: 'hsl(var(--color-brand-secondary-200) / <alpha-value>)',
+            300: 'hsl(var(--color-brand-secondary-300) / <alpha-value>)',
+            400: 'hsl(var(--color-brand-secondary-400) / <alpha-value>)',
+            500: 'hsl(var(--color-brand-secondary) / <alpha-value>)', // Default
+            600: 'hsl(var(--color-brand-secondary-600) / <alpha-value>)',
+            700: 'hsl(var(--color-brand-secondary-700) / <alpha-value>)',
+            800: 'hsl(var(--color-brand-secondary-800) / <alpha-value>)',
+            900: 'hsl(var(--color-brand-secondary-900) / <alpha-value>)',
+          },
+          // Color acento con variantes
+          'accent': {
+            DEFAULT: 'hsl(var(--color-brand-accent) / <alpha-value>)',
+            50: 'hsl(var(--color-brand-accent-50) / <alpha-value>)',
+            100: 'hsl(var(--color-brand-accent-100) / <alpha-value>)',
+            200: 'hsl(var(--color-brand-accent-200) / <alpha-value>)',
+            300: 'hsl(var(--color-brand-accent-300) / <alpha-value>)',
+            400: 'hsl(var(--color-brand-accent-400) / <alpha-value>)',
+            500: 'hsl(var(--color-brand-accent) / <alpha-value>)', // Default
+            600: 'hsl(var(--color-brand-accent-600) / <alpha-value>)',
+            700: 'hsl(var(--color-brand-accent-700) / <alpha-value>)',
+            800: 'hsl(var(--color-brand-accent-800) / <alpha-value>)',
+            900: 'hsl(var(--color-brand-accent-900) / <alpha-value>)',
+          },
+          // Color advertencia con variantes
+          'warning': {
+            DEFAULT: 'hsl(var(--color-brand-warning) / <alpha-value>)',
+            50: 'hsl(var(--color-brand-warning-50) / <alpha-value>)',
+            100: 'hsl(var(--color-brand-warning-100) / <alpha-value>)',
+            200: 'hsl(var(--color-brand-warning-200) / <alpha-value>)',
+            300: 'hsl(var(--color-brand-warning-300) / <alpha-value>)',
+            400: 'hsl(var(--color-brand-warning-400) / <alpha-value>)',
+            500: 'hsl(var(--color-brand-warning) / <alpha-value>)', // Default
+            600: 'hsl(var(--color-brand-warning-600) / <alpha-value>)',
+            700: 'hsl(var(--color-brand-warning-700) / <alpha-value>)',
+            800: 'hsl(var(--color-brand-warning-800) / <alpha-value>)',
+            900: 'hsl(var(--color-brand-warning-900) / <alpha-value>)',
+          },
+          // Color peligro con variantes
+          'danger': {
+            DEFAULT: 'hsl(var(--color-brand-danger) / <alpha-value>)',
+            50: 'hsl(var(--color-brand-danger-50) / <alpha-value>)',
+            100: 'hsl(var(--color-brand-danger-100) / <alpha-value>)',
+            200: 'hsl(var(--color-brand-danger-200) / <alpha-value>)',
+            300: 'hsl(var(--color-brand-danger-300) / <alpha-value>)',
+            400: 'hsl(var(--color-brand-danger-400) / <alpha-value>)',
+            500: 'hsl(var(--color-brand-danger) / <alpha-value>)', // Default
+            600: 'hsl(var(--color-brand-danger-600) / <alpha-value>)',
+            700: 'hsl(var(--color-brand-danger-700) / <alpha-value>)',
+            800: 'hsl(var(--color-brand-danger-800) / <alpha-value>)',
+            900: 'hsl(var(--color-brand-danger-900) / <alpha-value>)',
+          },
         },
         
         // Colores antiguos mantenidos para compatibilidad
@@ -30,13 +95,6 @@ module.exports = {
         'border-light': '#E2E8F0',
         'border-dark': '#4A5568',
         'accent': '#FFA500',
-        
-        // Custom
-        'dark-slate-gray': '#36453b',
-        'dim-gray': '#596869',
-        'ebony': '#515751',
-        'ivory': '#f5f9e9',
-        'sage': '#c2c1a5',
         
         'keppel': {
           50: 'hsl(var(--keppel-50) / <alpha-value>)',

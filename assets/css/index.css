@@ -2262,8 +2262,8 @@ h6 {
   border-bottom-width: 1px;
 }
 
-.border-b-4 {
-  border-bottom-width: 4px;
+.border-b-\[8px\] {
+  border-bottom-width: 8px;
 }
 
 .border-l-4 {
@@ -2276,14 +2276,6 @@ h6 {
 
 .border-t-4 {
   border-top-width: 4px;
-}
-
-.border-b-8 {
-  border-bottom-width: 8px;
-}
-
-.border-b-\[8px\] {
-  border-bottom-width: 8px;
 }
 
 .border-blue-100 {
@@ -2403,6 +2395,11 @@ h6 {
   background-color: hsl(var(--color-brand-primary) / 0.1);
 }
 
+.bg-brand-secondary {
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--color-brand-secondary) / var(--tw-bg-opacity));
+}
+
 .bg-brand-warning {
   --tw-bg-opacity: 1;
   background-color: hsl(var(--color-brand-warning) / var(--tw-bg-opacity));
@@ -2474,11 +2471,6 @@ h6 {
   background-color: rgb(254 249 195 / var(--tw-bg-opacity));
 }
 
-.bg-brand-secondary {
-  --tw-bg-opacity: 1;
-  background-color: hsl(var(--color-brand-secondary) / var(--tw-bg-opacity));
-}
-
 .bg-opacity-20 {
   --tw-bg-opacity: 0.2;
 }
@@ -2545,6 +2537,12 @@ h6 {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
+.from-brand-secondary {
+  --tw-gradient-from: hsl(var(--color-brand-secondary) / 1) var(--tw-gradient-from-position);
+  --tw-gradient-to: hsl(var(--color-brand-secondary) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
 .from-brand-warning {
   --tw-gradient-from: hsl(var(--color-brand-warning) / 1) var(--tw-gradient-from-position);
   --tw-gradient-to: hsl(var(--color-brand-warning) / 0) var(--tw-gradient-to-position);
@@ -2557,18 +2555,6 @@ h6 {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
-.from-green-500 {
-  --tw-gradient-from: #22c55e var(--tw-gradient-from-position);
-  --tw-gradient-to: rgb(34 197 94 / 0) var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
-.from-purple-500 {
-  --tw-gradient-from: #a855f7 var(--tw-gradient-from-position);
-  --tw-gradient-to: rgb(168 85 247 / 0) var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
 .from-red-400 {
   --tw-gradient-from: #f87171 var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(248 113 113 / 0) var(--tw-gradient-to-position);
@@ -2578,12 +2564,6 @@ h6 {
 .from-yellow-400 {
   --tw-gradient-from: #facc15 var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(250 204 21 / 0) var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
-.from-brand-secondary {
-  --tw-gradient-from: hsl(var(--color-brand-secondary) / 1) var(--tw-gradient-from-position);
-  --tw-gradient-to: hsl(var(--color-brand-secondary) / 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
@@ -2603,16 +2583,12 @@ h6 {
   --tw-gradient-to: hsl(var(--color-brand-danger) / 1) var(--tw-gradient-to-position);
 }
 
+.to-brand-primary {
+  --tw-gradient-to: hsl(var(--color-brand-primary) / 1) var(--tw-gradient-to-position);
+}
+
 .to-brand-secondary {
   --tw-gradient-to: hsl(var(--color-brand-secondary) / 1) var(--tw-gradient-to-position);
-}
-
-.to-brand-warning {
-  --tw-gradient-to: hsl(var(--color-brand-warning) / 1) var(--tw-gradient-to-position);
-}
-
-.to-emerald-600 {
-  --tw-gradient-to: #059669 var(--tw-gradient-to-position);
 }
 
 .to-green-500 {
@@ -2621,10 +2597,6 @@ h6 {
 
 .to-indigo-100 {
   --tw-gradient-to: #e0e7ff var(--tw-gradient-to-position);
-}
-
-.to-purple-600 {
-  --tw-gradient-to: #9333ea var(--tw-gradient-to-position);
 }
 
 .to-red-500 {
@@ -2637,10 +2609,6 @@ h6 {
 
 .to-yellow-500 {
   --tw-gradient-to: #eab308 var(--tw-gradient-to-position);
-}
-
-.to-brand-primary {
-  --tw-gradient-to: hsl(var(--color-brand-primary) / 1) var(--tw-gradient-to-position);
 }
 
 .bg-cover {
@@ -2936,19 +2904,9 @@ h6 {
   line-height: 1.25;
 }
 
-.text-blue-100 {
-  --tw-text-opacity: 1;
-  color: rgb(219 234 254 / var(--tw-text-opacity));
-}
-
 .text-blue-200 {
   --tw-text-opacity: 1;
   color: rgb(191 219 254 / var(--tw-text-opacity));
-}
-
-.text-blue-50 {
-  --tw-text-opacity: 1;
-  color: rgb(239 246 255 / var(--tw-text-opacity));
 }
 
 .text-blue-500 {
@@ -2971,9 +2929,19 @@ h6 {
   color: rgb(30 64 175 / var(--tw-text-opacity));
 }
 
+.text-brand-accent {
+  --tw-text-opacity: 1;
+  color: hsl(var(--color-brand-accent) / var(--tw-text-opacity));
+}
+
 .text-brand-primary {
   --tw-text-opacity: 1;
   color: hsl(var(--color-brand-primary) / var(--tw-text-opacity));
+}
+
+.text-brand-warning {
+  --tw-text-opacity: 1;
+  color: hsl(var(--color-brand-warning) / var(--tw-text-opacity));
 }
 
 .text-gray-400 {
@@ -3057,16 +3025,6 @@ h6 {
 .text-yellow-600 {
   --tw-text-opacity: 1;
   color: rgb(202 138 4 / var(--tw-text-opacity));
-}
-
-.text-brand-accent {
-  --tw-text-opacity: 1;
-  color: hsl(var(--color-brand-accent) / var(--tw-text-opacity));
-}
-
-.text-brand-warning {
-  --tw-text-opacity: 1;
-  color: hsl(var(--color-brand-warning) / var(--tw-text-opacity));
 }
 
 .underline {
@@ -3324,33 +3282,123 @@ h6 {
   --ebony: #515751ff;
   --ivory: #f5f9e9ff;
   --sage: #c2c1a5ff;
-  /* NUEVA PALETA DE COLORES - Modo Claro */
-  /* Valores en HSL para mejor manipulación */
+  /* PALETA DE COLORES - Modo Claro */
+  /* Color base en HSL */
+  /* PRIMARY - #0367A6 (199 100% 33%) */
   --color-brand-primary: 199 100% 33%;
-  /* #0367A6 */
+  --color-brand-primary-50: 199 100% 95%;
+  --color-brand-primary-100: 199 100% 90%;
+  --color-brand-primary-200: 199 100% 80%;
+  --color-brand-primary-300: 199 100% 70%;
+  --color-brand-primary-400: 199 100% 50%;
+  --color-brand-primary-600: 199 100% 25%;
+  --color-brand-primary-700: 199 100% 20%;
+  --color-brand-primary-800: 199 100% 15%;
+  --color-brand-primary-900: 199 100% 10%;
+  /* SECONDARY - #03658C (193 95% 28%) */
   --color-brand-secondary: 193 95% 28%;
-  /* #03658C */
+  --color-brand-secondary-50: 193 95% 95%;
+  --color-brand-secondary-100: 193 95% 90%;
+  --color-brand-secondary-200: 193 95% 80%;
+  --color-brand-secondary-300: 193 95% 70%;
+  --color-brand-secondary-400: 193 95% 45%;
+  --color-brand-secondary-600: 193 95% 22%;
+  --color-brand-secondary-700: 193 95% 18%;
+  --color-brand-secondary-800: 193 95% 14%;
+  --color-brand-secondary-900: 193 95% 10%;
+  /* ACCENT - #6C8C3B (81 44% 39%) */
   --color-brand-accent: 81 44% 39%;
-  /* #6C8C3B */
+  --color-brand-accent-50: 81 44% 95%;
+  --color-brand-accent-100: 81 44% 90%;
+  --color-brand-accent-200: 81 44% 80%;
+  --color-brand-accent-300: 81 44% 65%;
+  --color-brand-accent-400: 81 44% 52%;
+  --color-brand-accent-600: 81 44% 32%;
+  --color-brand-accent-700: 81 44% 26%;
+  --color-brand-accent-800: 81 44% 20%;
+  --color-brand-accent-900: 81 44% 15%;
+  /* WARNING - #F28705 (27 97% 49%) */
   --color-brand-warning: 27 97% 49%;
-  /* #F28705 */
+  --color-brand-warning-50: 27 97% 95%;
+  --color-brand-warning-100: 27 97% 90%;
+  --color-brand-warning-200: 27 97% 80%;
+  --color-brand-warning-300: 27 97% 70%;
+  --color-brand-warning-400: 27 97% 60%;
+  --color-brand-warning-600: 27 97% 40%;
+  --color-brand-warning-700: 27 97% 32%;
+  --color-brand-warning-800: 27 97% 24%;
+  --color-brand-warning-900: 27 97% 18%;
+  /* DANGER - #D96907 (24 95% 44%) */
   --color-brand-danger: 24 95% 44%;
-  /* #D96907 */
+  --color-brand-danger-50: 24 95% 95%;
+  --color-brand-danger-100: 24 95% 90%;
+  --color-brand-danger-200: 24 95% 80%;
+  --color-brand-danger-300: 24 95% 70%;
+  --color-brand-danger-400: 24 95% 57%;
+  --color-brand-danger-600: 24 95% 36%;
+  --color-brand-danger-700: 24 95% 28%;
+  --color-brand-danger-800: 24 95% 22%;
+  --color-brand-danger-900: 24 95% 16%;
 }
 
-/* Modo Oscuro - Colores ajustados para mejor contraste */
+/* Modo Oscuro */
 
 .dark {
+  /* PRIMARY */
   --color-brand-primary: 199 100% 45%;
-  /* Más claro para legibilidad */
+  --color-brand-primary-50: 199 100% 10%;
+  --color-brand-primary-100: 199 100% 15%;
+  --color-brand-primary-200: 199 100% 20%;
+  --color-brand-primary-300: 199 100% 30%;
+  --color-brand-primary-400: 199 100% 40%;
+  --color-brand-primary-600: 199 100% 55%;
+  --color-brand-primary-700: 199 100% 65%;
+  --color-brand-primary-800: 199 100% 75%;
+  --color-brand-primary-900: 199 100% 85%;
+  /* SECONDARY */
   --color-brand-secondary: 193 95% 40%;
-  /* Más claro para legibilidad */
+  --color-brand-secondary-50: 193 95% 10%;
+  --color-brand-secondary-100: 193 95% 14%;
+  --color-brand-secondary-200: 193 95% 18%;
+  --color-brand-secondary-300: 193 95% 25%;
+  --color-brand-secondary-400: 193 95% 35%;
+  --color-brand-secondary-600: 193 95% 50%;
+  --color-brand-secondary-700: 193 95% 60%;
+  --color-brand-secondary-800: 193 95% 70%;
+  --color-brand-secondary-900: 193 95% 80%;
+  /* ACCENT */
   --color-brand-accent: 81 44% 55%;
-  /* Más claro para legibilidad */
+  --color-brand-accent-50: 81 44% 15%;
+  --color-brand-accent-100: 81 44% 20%;
+  --color-brand-accent-200: 81 44% 26%;
+  --color-brand-accent-300: 81 44% 35%;
+  --color-brand-accent-400: 81 44% 45%;
+  --color-brand-accent-600: 81 44% 65%;
+  --color-brand-accent-700: 81 44% 75%;
+  --color-brand-accent-800: 81 44% 85%;
+  --color-brand-accent-900: 81 44% 90%;
+  /* WARNING */
   --color-brand-warning: 27 97% 60%;
-  /* Más claro para legibilidad */
+  --color-brand-warning-50: 27 97% 18%;
+  --color-brand-warning-100: 27 97% 24%;
+  --color-brand-warning-200: 27 97% 32%;
+  --color-brand-warning-300: 27 97% 45%;
+  --color-brand-warning-400: 27 97% 52%;
+  --color-brand-warning-600: 27 97% 68%;
+  --color-brand-warning-700: 27 97% 75%;
+  --color-brand-warning-800: 27 97% 82%;
+  --color-brand-warning-900: 27 97% 88%;
+  /* DANGER */
   --color-brand-danger: 24 95% 58%;
-  /* Más claro para legibilidad */
+  --color-brand-danger-50: 24 95% 16%;
+  --color-brand-danger-100: 24 95% 22%;
+  --color-brand-danger-200: 24 95% 28%;
+  --color-brand-danger-300: 24 95% 40%;
+  --color-brand-danger-400: 24 95% 50%;
+  --color-brand-danger-600: 24 95% 66%;
+  --color-brand-danger-700: 24 95% 74%;
+  --color-brand-danger-800: 24 95% 80%;
+  --color-brand-danger-900: 24 95% 86%;
 }
 
 /* Ejemplos de uso de los nuevos colores */
@@ -4793,10 +4841,6 @@ audio:focus {
 
 :is(.dark .dark\:bg-primary\/20) {
   background-color: rgb(51 102 204 / 0.2);
-}
-
-:is(.dark .dark\:bg-white\/5) {
-  background-color: rgb(255 255 255 / 0.05);
 }
 
 :is(.dark .dark\:bg-yellow-900) {

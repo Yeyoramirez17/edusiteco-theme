@@ -66,22 +66,131 @@
     --ivory: #f5f9e9ff;
     --sage: #c2c1a5ff;
     
-    /* NUEVA PALETA DE COLORES - Modo Claro */
-    /* Valores en HSL para mejor manipulación */
-    --color-brand-primary: 199 100% 33%;    /* #0367A6 */
-    --color-brand-secondary: 193 95% 28%;   /* #03658C */
-    --color-brand-accent: 81 44% 39%;       /* #6C8C3B */
-    --color-brand-warning: 27 97% 49%;      /* #F28705 */
-    --color-brand-danger: 24 95% 44%;       /* #D96907 */
+    /* PALETA DE COLORES - Modo Claro */
+    /* Color base en HSL */
+    
+    /* PRIMARY - #0367A6 (199 100% 33%) */
+    --color-brand-primary: 199 100% 33%;
+    --color-brand-primary-50: 199 100% 95%;
+    --color-brand-primary-100: 199 100% 90%;
+    --color-brand-primary-200: 199 100% 80%;
+    --color-brand-primary-300: 199 100% 70%;
+    --color-brand-primary-400: 199 100% 50%;
+    --color-brand-primary-600: 199 100% 25%;
+    --color-brand-primary-700: 199 100% 20%;
+    --color-brand-primary-800: 199 100% 15%;
+    --color-brand-primary-900: 199 100% 10%;
+    
+    /* SECONDARY - #03658C (193 95% 28%) */
+    --color-brand-secondary: 193 95% 28%;
+    --color-brand-secondary-50: 193 95% 95%;
+    --color-brand-secondary-100: 193 95% 90%;
+    --color-brand-secondary-200: 193 95% 80%;
+    --color-brand-secondary-300: 193 95% 70%;
+    --color-brand-secondary-400: 193 95% 45%;
+    --color-brand-secondary-600: 193 95% 22%;
+    --color-brand-secondary-700: 193 95% 18%;
+    --color-brand-secondary-800: 193 95% 14%;
+    --color-brand-secondary-900: 193 95% 10%;
+    
+    /* ACCENT - #6C8C3B (81 44% 39%) */
+    --color-brand-accent: 81 44% 39%;
+    --color-brand-accent-50: 81 44% 95%;
+    --color-brand-accent-100: 81 44% 90%;
+    --color-brand-accent-200: 81 44% 80%;
+    --color-brand-accent-300: 81 44% 65%;
+    --color-brand-accent-400: 81 44% 52%;
+    --color-brand-accent-600: 81 44% 32%;
+    --color-brand-accent-700: 81 44% 26%;
+    --color-brand-accent-800: 81 44% 20%;
+    --color-brand-accent-900: 81 44% 15%;
+    
+    /* WARNING - #F28705 (27 97% 49%) */
+    --color-brand-warning: 27 97% 49%;
+    --color-brand-warning-50: 27 97% 95%;
+    --color-brand-warning-100: 27 97% 90%;
+    --color-brand-warning-200: 27 97% 80%;
+    --color-brand-warning-300: 27 97% 70%;
+    --color-brand-warning-400: 27 97% 60%;
+    --color-brand-warning-600: 27 97% 40%;
+    --color-brand-warning-700: 27 97% 32%;
+    --color-brand-warning-800: 27 97% 24%;
+    --color-brand-warning-900: 27 97% 18%;
+    
+    /* DANGER - #D96907 (24 95% 44%) */
+    --color-brand-danger: 24 95% 44%;
+    --color-brand-danger-50: 24 95% 95%;
+    --color-brand-danger-100: 24 95% 90%;
+    --color-brand-danger-200: 24 95% 80%;
+    --color-brand-danger-300: 24 95% 70%;
+    --color-brand-danger-400: 24 95% 57%;
+    --color-brand-danger-600: 24 95% 36%;
+    --color-brand-danger-700: 24 95% 28%;
+    --color-brand-danger-800: 24 95% 22%;
+    --color-brand-danger-900: 24 95% 16%;
 }
 
-/* Modo Oscuro - Colores ajustados para mejor contraste */
+/* Modo Oscuro */
 .dark {
-    --color-brand-primary: 199 100% 45%;    /* Más claro para legibilidad */
-    --color-brand-secondary: 193 95% 40%;   /* Más claro para legibilidad */
-    --color-brand-accent: 81 44% 55%;       /* Más claro para legibilidad */
-    --color-brand-warning: 27 97% 60%;      /* Más claro para legibilidad */
-    --color-brand-danger: 24 95% 58%;       /* Más claro para legibilidad */
+    /* PRIMARY */
+    --color-brand-primary: 199 100% 45%;
+    --color-brand-primary-50: 199 100% 10%;
+    --color-brand-primary-100: 199 100% 15%;
+    --color-brand-primary-200: 199 100% 20%;
+    --color-brand-primary-300: 199 100% 30%;
+    --color-brand-primary-400: 199 100% 40%;
+    --color-brand-primary-600: 199 100% 55%;
+    --color-brand-primary-700: 199 100% 65%;
+    --color-brand-primary-800: 199 100% 75%;
+    --color-brand-primary-900: 199 100% 85%;
+    
+    /* SECONDARY */
+    --color-brand-secondary: 193 95% 40%;
+    --color-brand-secondary-50: 193 95% 10%;
+    --color-brand-secondary-100: 193 95% 14%;
+    --color-brand-secondary-200: 193 95% 18%;
+    --color-brand-secondary-300: 193 95% 25%;
+    --color-brand-secondary-400: 193 95% 35%;
+    --color-brand-secondary-600: 193 95% 50%;
+    --color-brand-secondary-700: 193 95% 60%;
+    --color-brand-secondary-800: 193 95% 70%;
+    --color-brand-secondary-900: 193 95% 80%;
+    
+    /* ACCENT */
+    --color-brand-accent: 81 44% 55%;
+    --color-brand-accent-50: 81 44% 15%;
+    --color-brand-accent-100: 81 44% 20%;
+    --color-brand-accent-200: 81 44% 26%;
+    --color-brand-accent-300: 81 44% 35%;
+    --color-brand-accent-400: 81 44% 45%;
+    --color-brand-accent-600: 81 44% 65%;
+    --color-brand-accent-700: 81 44% 75%;
+    --color-brand-accent-800: 81 44% 85%;
+    --color-brand-accent-900: 81 44% 90%;
+    
+    /* WARNING */
+    --color-brand-warning: 27 97% 60%;
+    --color-brand-warning-50: 27 97% 18%;
+    --color-brand-warning-100: 27 97% 24%;
+    --color-brand-warning-200: 27 97% 32%;
+    --color-brand-warning-300: 27 97% 45%;
+    --color-brand-warning-400: 27 97% 52%;
+    --color-brand-warning-600: 27 97% 68%;
+    --color-brand-warning-700: 27 97% 75%;
+    --color-brand-warning-800: 27 97% 82%;
+    --color-brand-warning-900: 27 97% 88%;
+    
+    /* DANGER */
+    --color-brand-danger: 24 95% 58%;
+    --color-brand-danger-50: 24 95% 16%;
+    --color-brand-danger-100: 24 95% 22%;
+    --color-brand-danger-200: 24 95% 28%;
+    --color-brand-danger-300: 24 95% 40%;
+    --color-brand-danger-400: 24 95% 50%;
+    --color-brand-danger-600: 24 95% 66%;
+    --color-brand-danger-700: 24 95% 74%;
+    --color-brand-danger-800: 24 95% 80%;
+    --color-brand-danger-900: 24 95% 86%;
 }
 
 @layer base {
