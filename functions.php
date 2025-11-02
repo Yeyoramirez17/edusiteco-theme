@@ -392,11 +392,30 @@ function edusite_register_comunicados_cpt() {
         'menu_icon'          => 'dashicons-megaphone',
         'supports'           => ['title', 'editor', 'thumbnail', 'excerpt'],
         'show_in_rest'       => true, // compatible con el editor de bloques
+        'taxonomies'         => ['category'],
     ];
 
     register_post_type('comunicado', $args);
 }
 add_action('init', 'edusite_register_comunicados_cpt');
+/**
+ * Crea automáticamente la categoría "Convocatorias" al activar el tema.
+ */
+function edusite_create_default_categories() {
+    // Verificar si la categoría "Convocatorias" ya existe
+    if (!term_exists('Convocatorias', 'category')) {
+        wp_insert_term(
+            'Convocatorias', // Nombre visible
+            'category',  // Taxonomía
+            [
+                'slug' => 'convocatorias',
+                'description' => 'Publicaciones relacionadas con convocatorias, concursos, inscripciones o procesos institucionales del colegio.'
+            ]
+        );
+    }
+}
+add_action('after_switch_theme', 'edusite_create_default_categories');
+
 
 // ============================
 // Metaboxes para Comunicados

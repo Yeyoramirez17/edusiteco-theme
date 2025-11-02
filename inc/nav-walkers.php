@@ -24,11 +24,14 @@ class Custom_Nav_Walker extends Walker_Nav_Menu
 
         // Check if item has children
         $has_children = in_array('menu-item-has-children', $classes);
+        $has_header_image = get_header_image() ? true : false;
+
+        $text_color_class = $has_header_image ? 'text-white text-shadow-lg text-shadow-black/70' : 'text-text-light dark:text-text-dark';
 
         if ($has_children) {
             // Elemento con hijos - MEJORADO ESPACIADO
             $output .= $indent . '<div class="relative header-group group">';
-            $output .= '<a href="' . esc_url($item->url) . '" class="text-text-light dark:text-text-dark inline-flex items-center text-md font-semibold hover:text-brand-primary transition-colors px-3 py-2 rounded-sm focus:outline-none focus:ring-2 focus:ring-brand-primary/50 focus:ring-offset-2" aria-haspopup="true" aria-expanded="false">';
+            $output .= '<a href="' . esc_url($item->url) . '" class="' . $text_color_class . ' inline-flex items-center text-lg font-bold hover:text-brand-primary transition-colors px-2 py-2 rounded-sm focus:outline-none focus:ring-2 focus:ring-brand-primary/50 focus:ring-offset-2" aria-haspopup="true" aria-expanded="false">';
             $output .= '<span>' . apply_filters('the_title', $item->title, $item->ID) . '</span>';
             $output .= '<span class="material-icons text-sm ml-1 group-hover:rotate-180 transition-transform duration-200">expand_more</span>';
             $output .= '</a>';
@@ -38,7 +41,7 @@ class Custom_Nav_Walker extends Walker_Nav_Menu
         } else {
             // Elemento sin hijos - MEJORADO ESPACIADO
             $output .= $indent . '<div class="header-group">';
-            $output .= '<a href="' . esc_url($item->url) . '" class="text-text-light dark:text-text-dark text-md font-semibold hover:text-brand-primary transition-colors rounded-sm focus:outline-none focus:ring-2 focus:ring-brand-primary/50 focus:ring-offset-2">';
+            $output .= '<a href="' . esc_url($item->url) . '" class="' . $text_color_class . ' text-lg font-bold hover:text-brand-primary transition-colors rounded-sm focus:outline-none focus:ring-2 focus:ring-brand-primary/50 focus:ring-offset-2">';
             $output .= '<span>' . apply_filters('the_title', $item->title, $item->ID) . '</span>';
             $output .= '</a>';
             $output .= '</div>';
@@ -147,44 +150,61 @@ function edusiteco_default_menu(): void
 {
     ?>
     <div class="relative header-group group">
-        <a href="#" class="text-text-light dark:text-text-dark inline-flex items-center text-sm font-semibold underline-link hover:text-brand-primary transition-colors px-3 py-2 rounded-sm focus:outline-none focus:ring-2 focus:ring-brand-primary/50 focus:ring-offset-2">
+        <a href="#"
+            class="text-text-light dark:text-text-dark inline-flex items-center text-sm font-semibold underline-link hover:text-brand-primary transition-colors px-3 py-2 rounded-sm focus:outline-none focus:ring-2 focus:ring-brand-primary/50 focus:ring-offset-2">
             <span>La Institución</span>
-            <span class="material-icons text-sm ml-1 group-hover:rotate-180 transition-transform duration-200">expand_more</span>
+            <span
+                class="material-icons text-sm ml-1 group-hover:rotate-180 transition-transform duration-200">expand_more</span>
         </a>
-        <div class="submenu absolute z-50 left-0 w-64 p-3 rounded-lg shadow-xl bg-background-light dark:bg-background-dark ring-1 ring-black ring-opacity-5 border border-border-light dark:border-border-dark opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-1 transition-all duration-200">
+        <div
+            class="submenu absolute z-50 left-0 w-64 p-3 rounded-lg shadow-xl bg-background-light dark:bg-background-dark ring-1 ring-black ring-opacity-5 border border-border-light dark:border-border-dark opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-1 transition-all duration-200">
             <div class="space-y-1">
-                <a class="block px-4 py-2.5 text-sm text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors rounded-md" href="#">Misión y Visión</a>
-                <a class="block px-4 py-2.5 text-sm text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors rounded-md" href="#">Nuestra Historia</a>
-                <a class="block px-4 py-2.5 text-sm text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors rounded-md" href="#">Organigrama</a>
+                <a class="block px-4 py-2.5 text-sm text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors rounded-md"
+                    href="#">Misión y Visión</a>
+                <a class="block px-4 py-2.5 text-sm text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors rounded-md"
+                    href="#">Nuestra Historia</a>
+                <a class="block px-4 py-2.5 text-sm text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors rounded-md"
+                    href="#">Organigrama</a>
             </div>
         </div>
     </div>
     <div class="relative header-group group">
-        <a href="#" class="text-text-light dark:text-text-dark inline-flex items-center text-sm font-semibold underline-link hover:text-brand-primary transition-colors px-3 py-2 rounded-sm focus:outline-none focus:ring-2 focus:ring-brand-primary/50 focus:ring-offset-2">
+        <a href="#"
+            class="text-text-light dark:text-text-dark inline-flex items-center text-sm font-semibold underline-link hover:text-brand-primary transition-colors px-3 py-2 rounded-sm focus:outline-none focus:ring-2 focus:ring-brand-primary/50 focus:ring-offset-2">
             <span>Sedes</span>
-            <span class="material-icons text-sm ml-1 group-hover:rotate-180 transition-transform duration-200">expand_more</span>
+            <span
+                class="material-icons text-sm ml-1 group-hover:rotate-180 transition-transform duration-200">expand_more</span>
         </a>
-        <div class="submenu absolute z-50 left-0 w-64 p-3 rounded-lg shadow-xl bg-background-light dark:bg-background-dark ring-1 ring-black ring-opacity-5 border border-border-light dark:border-border-dark opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-1 transition-all duration-200">
+        <div
+            class="submenu absolute z-50 left-0 w-64 p-3 rounded-lg shadow-xl bg-background-light dark:bg-background-dark ring-1 ring-black ring-opacity-5 border border-border-light dark:border-border-dark opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-1 transition-all duration-200">
             <div class="space-y-1">
-                <a class="block px-4 py-2.5 text-sm text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors rounded-md" href="#">Sede Principal</a>
-                <a class="block px-4 py-2.5 text-sm text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors rounded-md" href="#">Sedes Regionales</a>
+                <a class="block px-4 py-2.5 text-sm text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors rounded-md"
+                    href="#">Sede Principal</a>
+                <a class="block px-4 py-2.5 text-sm text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors rounded-md"
+                    href="#">Sedes Regionales</a>
             </div>
         </div>
     </div>
     <div class="header-group">
-        <a class="text-text-light dark:text-text-dark text-sm font-semibold underline-link hover:text-brand-primary transition-colors px-3 py-2 rounded-sm focus:outline-none focus:ring-2 focus:ring-brand-primary/50 focus:ring-offset-2" href="#">
+        <a class="text-text-light dark:text-text-dark text-sm font-semibold underline-link hover:text-brand-primary transition-colors px-3 py-2 rounded-sm focus:outline-none focus:ring-2 focus:ring-brand-primary/50 focus:ring-offset-2"
+            href="#">
             <span>Comunicados</span>
         </a>
     </div>
     <div class="relative header-group group">
-        <a href="#" class="text-text-light dark:text-text-dark inline-flex items-center text-sm font-semibold underline-link hover:text-brand-primary transition-colors px-3 py-2 rounded-sm focus:outline-none focus:ring-2 focus:ring-brand-primary/50 focus:ring-offset-2">
+        <a href="#"
+            class="text-text-light dark:text-text-dark inline-flex items-center text-sm font-semibold underline-link hover:text-brand-primary transition-colors px-3 py-2 rounded-sm focus:outline-none focus:ring-2 focus:ring-brand-primary/50 focus:ring-offset-2">
             <span>Normativa</span>
-            <span class="material-icons text-sm ml-1 group-hover:rotate-180 transition-transform duration-200">expand_more</span>
+            <span
+                class="material-icons text-sm ml-1 group-hover:rotate-180 transition-transform duration-200">expand_more</span>
         </a>
-        <div class="submenu absolute z-50 left-0 w-64 p-3 rounded-lg shadow-xl bg-background-light dark:bg-background-dark ring-1 ring-black ring-opacity-5 border border-border-light dark:border-border-dark opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-1 transition-all duration-200">
+        <div
+            class="submenu absolute z-50 left-0 w-64 p-3 rounded-lg shadow-xl bg-background-light dark:bg-background-dark ring-1 ring-black ring-opacity-5 border border-border-light dark:border-border-dark opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-1 transition-all duration-200">
             <div class="space-y-1">
-                <a class="block px-4 py-2.5 text-sm text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors rounded-md" href="#">Leyes y Decretos</a>
-                <a class="block px-4 py-2.5 text-sm text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors rounded-md" href="#">Resoluciones</a>
+                <a class="block px-4 py-2.5 text-sm text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors rounded-md"
+                    href="#">Leyes y Decretos</a>
+                <a class="block px-4 py-2.5 text-sm text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors rounded-md"
+                    href="#">Resoluciones</a>
             </div>
         </div>
     </div>
@@ -197,171 +217,222 @@ function edusiteco_default_mobile_menu()
     ?>
     <div class="border-b border-border-light dark:border-border-dark last:border-b-0">
         <div class="flex items-center">
-            <a href="#" class="flex-1 pl-4 pr-4 py-3.5 text-base font-medium text-text-light dark:text-text-dark hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+            <a href="#"
+                class="flex-1 pl-4 pr-4 py-3.5 text-base font-medium text-text-light dark:text-text-dark hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
                 La Institución
             </a>
-            <button class="mobile-toggle flex-shrink-0 px-4 py-3.5 text-text-light dark:text-text-dark hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors" onclick="this.classList.toggle('text-brand-primary'); this.classList.toggle('rotate-180'); this.parentNode.nextElementSibling.classList.toggle('hidden')">
+            <button
+                class="mobile-toggle flex-shrink-0 px-4 py-3.5 text-text-light dark:text-text-dark hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+                onclick="this.classList.toggle('text-brand-primary'); this.classList.toggle('rotate-180'); this.parentNode.nextElementSibling.classList.toggle('hidden')">
                 <span class="material-icons text-sm transition-transform duration-200">expand_more</span>
             </button>
         </div>
         <div class="hidden bg-gray-50 dark:bg-gray-800">
-            <a class="block pl-8 pr-4 py-3 text-base font-medium text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" href="#">Misión y Visión</a>
-            <a class="block pl-8 pr-4 py-3 text-base font-medium text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" href="#">Nuestra Historia</a>
-            <a class="block pl-8 pr-4 py-3 text-base font-medium text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" href="#">Organigrama</a>
+            <a class="block pl-8 pr-4 py-3 text-base font-medium text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                href="#">Misión y Visión</a>
+            <a class="block pl-8 pr-4 py-3 text-base font-medium text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                href="#">Nuestra Historia</a>
+            <a class="block pl-8 pr-4 py-3 text-base font-medium text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                href="#">Organigrama</a>
         </div>
     </div>
     <div class="border-b border-border-light dark:border-border-dark last:border-b-0">
         <div class="flex items-center">
-            <a href="#" class="flex-1 pl-4 pr-4 py-3.5 text-base font-medium text-text-light dark:text-text-dark hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+            <a href="#"
+                class="flex-1 pl-4 pr-4 py-3.5 text-base font-medium text-text-light dark:text-text-dark hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
                 Sedes
             </a>
-            <button class="mobile-toggle flex-shrink-0 px-4 py-3.5 text-text-light dark:text-text-dark hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors" onclick="this.classList.toggle('text-brand-primary'); this.classList.toggle('rotate-180'); this.parentNode.nextElementSibling.classList.toggle('hidden')">
+            <button
+                class="mobile-toggle flex-shrink-0 px-4 py-3.5 text-text-light dark:text-text-dark hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+                onclick="this.classList.toggle('text-brand-primary'); this.classList.toggle('rotate-180'); this.parentNode.nextElementSibling.classList.toggle('hidden')">
                 <span class="material-icons text-sm transition-transform duration-200">expand_more</span>
             </button>
         </div>
         <div class="hidden bg-gray-50 dark:bg-gray-800">
-            <a class="block pl-8 pr-4 py-3 text-base font-medium text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" href="#">Sede Principal</a>
-            <a class="block pl-8 pr-4 py-3 text-base font-medium text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" href="#">Sedes Regionales</a>
+            <a class="block pl-8 pr-4 py-3 text-base font-medium text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                href="#">Sede Principal</a>
+            <a class="block pl-8 pr-4 py-3 text-base font-medium text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                href="#">Sedes Regionales</a>
         </div>
     </div>
-    <a class="block pl-4 pr-4 py-3.5 text-base font-medium text-text-light dark:text-text-dark hover:bg-gray-50 dark:hover:bg-gray-700 border-b border-border-light dark:border-border-dark last:border-b-0 transition-colors" href="#">
+    <a class="block pl-4 pr-4 py-3.5 text-base font-medium text-text-light dark:text-text-dark hover:bg-gray-50 dark:hover:bg-gray-700 border-b border-border-light dark:border-border-dark last:border-b-0 transition-colors"
+        href="#">
         Comunicados
     </a>
     <div class="border-b border-border-light dark:border-border-dark last:border-b-0">
         <div class="flex items-center">
-            <a href="#" class="flex-1 pl-4 pr-4 py-3.5 text-base font-medium text-text-light dark:text-text-dark hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+            <a href="#"
+                class="flex-1 pl-4 pr-4 py-3.5 text-base font-medium text-text-light dark:text-text-dark hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
                 Normativa
             </a>
-            <button class="mobile-toggle flex-shrink-0 px-4 py-3.5 text-text-light dark:text-text-dark hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors" onclick="this.classList.toggle('text-brand-primary'); this.classList.toggle('rotate-180'); this.parentNode.nextElementSibling.classList.toggle('hidden')">
+            <button
+                class="mobile-toggle flex-shrink-0 px-4 py-3.5 text-text-light dark:text-text-dark hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+                onclick="this.classList.toggle('text-brand-primary'); this.classList.toggle('rotate-180'); this.parentNode.nextElementSibling.classList.toggle('hidden')">
                 <span class="material-icons text-sm transition-transform duration-200">expand_more</span>
             </button>
         </div>
         <div class="hidden bg-gray-50 dark:bg-gray-800">
-            <a class="block pl-8 pr-4 py-3 text-base font-medium text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" href="#">Leyes y Decretos</a>
-            <a class="block pl-8 pr-4 py-3 text-base font-medium text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" href="#">Resoluciones</a>
+            <a class="block pl-8 pr-4 py-3 text-base font-medium text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                href="#">Leyes y Decretos</a>
+            <a class="block pl-8 pr-4 py-3 text-base font-medium text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                href="#">Resoluciones</a>
         </div>
     </div>
     <?php
 }
 
 // CSS adicional para mejorar la experiencia CON MEJOR ESPACIADO Y SOBRESCRIBIENDO CONFLICTOS
-function edusiteco_nav_styles() {
+function edusiteco_nav_styles()
+{
+    $has_header_image = get_header_image() ? true : false;
     ?>
     <style>
-    /* SOBRESCRIBIR ESTILOS CONFLICTIVOS DEL INDEX.CSS */
-    
-    /* 1. Asegurar que los submenús sean visibles con hover */
-    .header-group .submenu {
-        display: block !important;
-        pointer-events: none;
-    }
-    
-    .header-group:hover .submenu {
-        display: block !important;
-        pointer-events: auto;
-    }
-    
-    /* 2. Mejor transición para el submenú */
-    .header-group .submenu {
-        transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease !important;
-    }
-    
-    /* 3. Asegurar que los enlaces del submenú sean clickeables */
-    .submenu a {
-        pointer-events: auto;
-        display: block !important;
-    }
-    
-    /* 4. Mejorar el espaciado entre elementos del submenú */
-    .submenu .space-y-1 > * + * {
-        margin-top: 0.25rem;
-    }
-    
-    /* 5. Estados hover mejorados para móvil */
-    .mobile-toggle.text-brand-primary {
-        color: hsl(var(--color-brand-primary)) !important;
-    }
-    
-    .mobile-toggle.rotate-180 {
-        transform: rotate(180deg);
-    }
-    
-    /* 6. Mejoras adicionales de espaciado */
-    .header-group a {
-        padding: 0.5rem 0.75rem;
-        display: inline-flex !important;
-    }
-    
-    .submenu a {
-        padding: 0.625rem 1rem;
-        display: block !important;
-    }
-    
-    /* 7. Mejor sombra y bordes para submenú */
-    .submenu {
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
-    }
-    
-    /* 8. Eliminar bordes internos en submenús móviles */
-    .bg-gray-50 a, .bg-gray-800 a {
-        border-bottom: none !important;
-    }
-    
-    /* 9. SOBRESCRIBIR underline animation usando color personalizable */
-    .header-group .underline-link {
-        position: relative !important;
-        text-decoration: none !important;
-    }
-    
-    .header-group .underline-link::after {
-        content: '' !important;
-        position: absolute !important;
-        width: 100% !important;
-        transform: scaleX(0) !important;
-        height: 2px !important;
-        bottom: -0.25rem !important;
-        left: 0 !important;
-        background-color: hsl(var(--color-brand-primary)) !important;
-        transform-origin: bottom right !important;
-        transition: transform 0.25s ease-out !important;
-    }
-    
-    .header-group:hover .underline-link::after {
-        transform: scaleX(1) !important;
-        transform-origin: bottom left !important;
-    }
-    
-    /* 10. Asegurar visibilidad de los submenús */
-    .header-group .submenu {
-        opacity: 0 !important;
-        visibility: hidden !important;
-        transform: translateY(10px) !important;
-    }
-    
-    .header-group:hover .submenu {
-        opacity: 1 !important;
-        visibility: visible !important;
-        transform: translateY(0) !important;
-    }
-    
-    /* 11. Prevenir interferencias de animaciones */
-    .header-group,
-    .header-group *,
-    .submenu,
-    .submenu * {
-        animation: none !important;
-    }
-    
-    /* 12. Estilos específicos para móvil */
-    @media (max-width: 768px) {
+        /* SOBRESCRIBIR ESTILOS CONFLICTIVOS DEL INDEX.CSS */
+
+        /* 1. Asegurar que los submenús sean visibles con hover */
         .header-group .submenu {
-            display: none !important;
+            display: block !important;
+            pointer-events: none;
         }
-        
+
         .header-group:hover .submenu {
-            display: none !important;
+            display: block !important;
+            pointer-events: auto;
         }
-    }
+
+        /* 2. Mejor transición para el submenú */
+        .header-group .submenu {
+            transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease !important;
+        }
+
+        /* 3. Asegurar que los enlaces del submenú sean clickeables */
+        .submenu a {
+            pointer-events: auto;
+            display: block !important;
+        }
+
+        /* 4. Mejorar el espaciado entre elementos del submenú */
+        .submenu .space-y-1>*+* {
+            margin-top: 0.25rem;
+        }
+
+        /* 5. Estados hover mejorados para móvil */
+        .mobile-toggle.text-brand-primary {
+            color: hsl(var(--color-brand-primary)) !important;
+        }
+
+        .mobile-toggle.rotate-180 {
+            transform: rotate(180deg);
+        }
+
+        /* 6. Mejoras adicionales de espaciado */
+        .header-group a {
+            padding: 0.5rem 0.75rem;
+            display: inline-flex !important;
+        }
+
+        .submenu a {
+            padding: 0.625rem 1rem;
+            display: block !important;
+        }
+
+        /* 7. Mejor sombra y bordes para submenú */
+        .submenu {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+        }
+
+        /* 8. Eliminar bordes internos en submenús móviles */
+        .bg-gray-50 a,
+        .bg-gray-800 a {
+            border-bottom: none !important;
+        }
+
+        /* 9. SOBRESCRIBIR underline animation usando color personalizable */
+        .header-group .underline-link {
+            position: relative !important;
+            text-decoration: none !important;
+        }
+
+        .header-group .underline-link::after {
+            content: '' !important;
+            position: absolute !important;
+            width: 100% !important;
+            transform: scaleX(0) !important;
+            height: 2px !important;
+            bottom: -0.25rem !important;
+            left: 0 !important;
+            background-color: hsl(var(--color-brand-primary)) !important;
+            transform-origin: bottom right !important;
+            transition: transform 0.25s ease-out !important;
+        }
+
+        .header-group:hover .underline-link::after {
+            transform: scaleX(1) !important;
+            transform-origin: bottom left !important;
+        }
+
+        /* 10. Asegurar visibilidad de los submenús */
+        .header-group .submenu {
+            opacity: 0 !important;
+            visibility: hidden !important;
+            transform: translateY(10px) !important;
+        }
+
+        .header-group:hover .submenu {
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: translateY(0) !important;
+        }
+
+        /* 11. Prevenir interferencias de animaciones */
+        .header-group,
+        .header-group *,
+        .submenu,
+        .submenu * {
+            animation: none !important;
+        }
+
+        /* 12. Estilos específicos para móvil */
+        @media (max-width: 768px) {
+            .header-group .submenu {
+                display: none !important;
+            }
+
+            .header-group:hover .submenu {
+                display: none !important;
+            }
+        }
+
+        /* 13. FORZAR colores cuando hay header image */
+        <?php if ($has_header_image): ?>
+            .header-group>a.text-white,
+            .header-group>a.text-white span {
+                color: white !important;
+            }
+
+            .header-group>a.text-white:hover {
+                color: rgba(255, 255, 255, 0.9) !important;
+            }
+
+            .header-group .underline-link.text-white::after {
+                background-color: rgba(255, 255, 255, 0.8) !important;
+            }
+
+            /* Los submenús mantienen sus colores normales */
+            .submenu a {
+                color: hsl(var(--color-text-light)) !important;
+            }
+
+            .dark .submenu a {
+                color: hsl(var(--color-text-dark)) !important;
+            }
+
+        <?php endif; ?>
+
+        /* 14. Asegurar especificidad sobre estilos del customizer */
+        body .header-group>a.text-white {
+            color: white !important;
+        }
     </style>
     <?php
 }

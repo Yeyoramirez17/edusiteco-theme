@@ -58,14 +58,7 @@
   font-display: swap;
 }
 
-:root {
-    /* Colores base antiguos */
-    --dark-slate-gray: #36453bff;
-    --dim-gray: #596869ff;
-    --ebony: #515751ff;
-    --ivory: #f5f9e9ff;
-    --sage: #c2c1a5ff;
-    
+:root {    
     /* PALETA DE COLORES - Modo Claro */
     /* Color base en HSL */
     
@@ -231,12 +224,11 @@
 }
 
 .submenu a:hover {
-  background-color: #f3f4f6;
+  background-color: hsl(var(--color-brand-primary));
 }
 
 .header-group button:focus {
   @apply outline-none ring-2 ring-offset-2;
-  /* Usar el nuevo color primario con opacidad */
   ring-color: hsl(var(--color-brand-primary) / 0.5);
 }
 
@@ -413,7 +405,6 @@ audio:focus {
 
 /* Página directorio */
 .hero-directorio {
-  /* Usar gradiente con los nuevos colores */
   background: linear-gradient(to right, 
     hsl(var(--color-brand-primary)), 
     hsl(var(--color-brand-secondary))
@@ -467,7 +458,7 @@ audio:focus {
 
 .directivo-placeholder {
   @apply w-full h-full rounded-full flex items-center justify-center text-white text-4xl font-bold;
-  /* Usar gradiente con los nuevos colores */
+  
   background: linear-gradient(to bottom right, 
     hsl(var(--color-brand-primary)), 
     hsl(var(--color-brand-secondary))
@@ -480,7 +471,6 @@ audio:focus {
 
 .directivo-cargo {
   @apply font-semibold mb-3 text-lg;
-  /* Usar el nuevo color primario */
   color: hsl(var(--color-brand-primary));
 }
 

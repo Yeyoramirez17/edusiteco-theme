@@ -72,15 +72,15 @@ function edusiteco_create_default_pages() {
                 'post_status'  => 'publish',
                 'post_author'  => 1,
             );
+            // Insertar la página en la base de datos
+            $page_id = wp_insert_post($page_data);
+    
+            // Si la página se creó correctamente, asignamos la plantilla
+            if ($page_id && !is_wp_error($page_id)) {
+                update_post_meta($page_id, '_wp_page_template', $page_template);
+            }
         }
 
-        // Insertar la página en la base de datos
-        $page_id = wp_insert_post($page_data);
-
-        // Si la página se creó correctamente, asignamos la plantilla
-        if ($page_id && !is_wp_error($page_id)) {
-            update_post_meta($page_id, '_wp_page_template', $page_template);
-        }
     }
 }
 add_action('after_switch_theme', 'edusiteco_create_default_pages');

@@ -1,7 +1,7 @@
 <form role="search" method="get" class="search-form" action="<?php echo esc_url(home_url('/')); ?>">
     <div class="relative">
         <input type="search"
-            class="search-field bg-gray-100 dark:bg-gray-700 text-text-light dark:text-text-dark focus:ring-primary focus:border-primary block w-full pl-4 pr-10 sm:text-sm border-gray-200 dark:border-gray-600 rounded-full py-2"
+            class="search-field bg-gray-100 dark:bg-gray-700 text-text-light dark:text-text-dark focus:ring-brand-primary-500 focus:border-primary block w-full pl-4 pr-10 sm:text-sm border-gray-200 dark:border-gray-600 rounded-full py-2"
             placeholder="<?php echo esc_attr__('Buscar...', 'edusiteco'); ?>" value="<?php echo get_search_query(); ?>"
             name="s" />
         <div class="absolute inset-y-0 right-0 flex items-center pr-3">

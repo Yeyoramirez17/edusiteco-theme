@@ -72,29 +72,50 @@
 			</div>
 
 			<!-- Main Header -->
-			<div class="bg-background-light dark:bg-background-dark border-b-[8px] border-brand-warning">
+			 <?php 
+			 $class_text = "";
+			 $style_header = "";
+
+			 $has_header_image = get_header_image() ? true : false;
+
+			 if ($has_header_image) {
+				$class_text = "text-white";
+				$style_header = 'style="background-image: url(' . esc_url(get_header_image()) . '); background-size: cover; background-position: center;"';
+			 } else {
+				$class_text = "text-text-light dark:text-text-dark font-bold";
+				$style_header = '';
+			 }
+			 ?>
+			<div class="bg-background-light dark:bg-background-dark border-b-[8px] border-brand-warning" <?php echo $style_header; ?> >
 				<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-					<div class="flex items-center justify-between h-20">
+					<div class="flex items-center justify-between <?= ($has_header_image) ? "h-56"  : "h-20" ?>">
 						<div class="flex items-center">
 							<div class="flex-shrink-0">
 								<?php
 								// Logo del sitio
-								if (has_custom_logo()) {
+								if (has_custom_logo()) 
+								{
 									the_custom_logo();
 								} else {
 									?>
 									<div class="site-branding">
 										<?php if (is_front_page() && is_home()): ?>
 											<h1 class="site-title font-quartzo-bold text-3xl">
-												<a href="<?php echo esc_url(home_url('/')); ?>" rel="home"
-													class="text-text-light dark:text-text-dark hover:text-brand-primary transition-colors">
+												<a 
+													href="<?php echo esc_url(home_url('/')); ?>" 
+													rel="home"
+													class="<?= $class_text; ?> hover:text-brand-primary transition-colors"
+												>
 													<?php bloginfo('name'); ?>
 												</a>
 											</h1>
 										<?php else: ?>
 											<p class="site-title font-quartzo-bold text-3xl">
-												<a href="<?php echo esc_url(home_url('/')); ?>" rel="home"
-													class="text-text-light dark:text-text-dark hover:text-brand-primary transition-colors">
+												<a 
+													href="<?php echo esc_url(home_url('/')); ?>" 
+													rel="home"
+													class="<?= $class_text; ?> hover:text-brand-primary transition-colors"
+												>
 													<?php bloginfo('name'); ?>
 												</a>
 											</p>
@@ -102,9 +123,9 @@
 
 										<?php
 										$edusiteco_description = get_bloginfo('description', 'display');
-										if ($edusiteco_description || is_customize_preview()):
-											?>
-											<p class="site-description text-sm text-gray-600 mt-1">
+										
+										if ($edusiteco_description || is_customize_preview()): ?>
+											<p class="site-description text-sm mt-1 <?= $class_text; ?>">
 												<?php echo $edusiteco_description; ?>
 											</p>
 										<?php endif; ?>

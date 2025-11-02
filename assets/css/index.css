@@ -1911,6 +1911,10 @@ h6 {
   height: 13rem;
 }
 
+.h-56 {
+  height: 14rem;
+}
+
 .h-6 {
   height: 1.5rem;
 }
@@ -2356,6 +2360,18 @@ h6 {
   border-color: rgb(234 179 8 / var(--tw-border-opacity));
 }
 
+.bg-\[hsl\(var\(--color-brand-accent\)\)\] {
+  background-color: hsl(var(--color-brand-accent));
+}
+
+.bg-\[hsl\(var\(--color-brand-primary\)\)\] {
+  background-color: hsl(var(--color-brand-primary));
+}
+
+.bg-\[hsl\(var\(--color-brand-secondary\)\)\] {
+  background-color: hsl(var(--color-brand-secondary));
+}
+
 .bg-background-light {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -2391,13 +2407,13 @@ h6 {
   background-color: hsl(var(--color-brand-primary) / var(--tw-bg-opacity));
 }
 
-.bg-brand-primary\/10 {
-  background-color: hsl(var(--color-brand-primary) / 0.1);
+.bg-brand-primary-100 {
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--color-brand-primary-100) / var(--tw-bg-opacity));
 }
 
-.bg-brand-secondary {
-  --tw-bg-opacity: 1;
-  background-color: hsl(var(--color-brand-secondary) / var(--tw-bg-opacity));
+.bg-brand-primary\/10 {
+  background-color: hsl(var(--color-brand-primary) / 0.1);
 }
 
 .bg-brand-warning {
@@ -2495,6 +2511,24 @@ h6 {
   background-image: linear-gradient(to top, var(--tw-gradient-stops));
 }
 
+.from-\[hsl\(var\(--color-brand-primary\)\)\] {
+  --tw-gradient-from: hsl(var(--color-brand-primary)) var(--tw-gradient-from-position);
+  --tw-gradient-to: hsl(var(--color-brand-primary) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.from-\[hsl\(var\(--color-brand-secondary\)\)\] {
+  --tw-gradient-from: hsl(var(--color-brand-secondary)) var(--tw-gradient-from-position);
+  --tw-gradient-to: hsl(var(--color-brand-secondary) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.from-\[hsl\(var\(--color-brand-warning\)\)\] {
+  --tw-gradient-from: hsl(var(--color-brand-warning)) var(--tw-gradient-from-position);
+  --tw-gradient-to: hsl(var(--color-brand-warning) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
 .from-black\/20 {
   --tw-gradient-from: rgb(0 0 0 / 0.2) var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(0 0 0 / 0) var(--tw-gradient-to-position);
@@ -2537,12 +2571,6 @@ h6 {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
-.from-brand-secondary {
-  --tw-gradient-from: hsl(var(--color-brand-secondary) / 1) var(--tw-gradient-from-position);
-  --tw-gradient-to: hsl(var(--color-brand-secondary) / 0) var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
 .from-brand-warning {
   --tw-gradient-from: hsl(var(--color-brand-warning) / 1) var(--tw-gradient-from-position);
   --tw-gradient-to: hsl(var(--color-brand-warning) / 0) var(--tw-gradient-to-position);
@@ -2567,6 +2595,18 @@ h6 {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
+.to-\[hsl\(var\(--color-brand-danger\)\)\] {
+  --tw-gradient-to: hsl(var(--color-brand-danger)) var(--tw-gradient-to-position);
+}
+
+.to-\[hsl\(var\(--color-brand-primary\)\)\] {
+  --tw-gradient-to: hsl(var(--color-brand-primary)) var(--tw-gradient-to-position);
+}
+
+.to-\[hsl\(var\(--color-brand-secondary\)\)\] {
+  --tw-gradient-to: hsl(var(--color-brand-secondary)) var(--tw-gradient-to-position);
+}
+
 .to-blue-500 {
   --tw-gradient-to: #3b82f6 var(--tw-gradient-to-position);
 }
@@ -2581,10 +2621,6 @@ h6 {
 
 .to-brand-danger {
   --tw-gradient-to: hsl(var(--color-brand-danger) / 1) var(--tw-gradient-to-position);
-}
-
-.to-brand-primary {
-  --tw-gradient-to: hsl(var(--color-brand-primary) / 1) var(--tw-gradient-to-position);
 }
 
 .to-brand-secondary {
@@ -2908,6 +2944,18 @@ h6 {
   line-height: 1.25;
 }
 
+.text-\[hsl\(var\(--color-brand-accent\)\)\] {
+  color: hsl(var(--color-brand-accent));
+}
+
+.text-\[hsl\(var\(--color-brand-primary\)\)\] {
+  color: hsl(var(--color-brand-primary));
+}
+
+.text-\[hsl\(var\(--color-brand-warning\)\)\] {
+  color: hsl(var(--color-brand-warning));
+}
+
 .text-blue-200 {
   --tw-text-opacity: 1;
   color: rgb(191 219 254 / var(--tw-text-opacity));
@@ -2933,19 +2981,9 @@ h6 {
   color: rgb(30 64 175 / var(--tw-text-opacity));
 }
 
-.text-brand-accent {
-  --tw-text-opacity: 1;
-  color: hsl(var(--color-brand-accent) / var(--tw-text-opacity));
-}
-
 .text-brand-primary {
   --tw-text-opacity: 1;
   color: hsl(var(--color-brand-primary) / var(--tw-text-opacity));
-}
-
-.text-brand-warning {
-  --tw-text-opacity: 1;
-  color: hsl(var(--color-brand-warning) / var(--tw-text-opacity));
 }
 
 .text-gray-400 {
@@ -3120,16 +3158,6 @@ h6 {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
-.brightness-0 {
-  --tw-brightness: brightness(0);
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
-}
-
-.invert {
-  --tw-invert: invert(100%);
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
-}
-
 .filter {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
@@ -3280,12 +3308,6 @@ h6 {
 }
 
 :root {
-  /* Colores base antiguos */
-  --dark-slate-gray: #36453bff;
-  --dim-gray: #596869ff;
-  --ebony: #515751ff;
-  --ivory: #f5f9e9ff;
-  --sage: #c2c1a5ff;
   /* PALETA DE COLORES - Modo Claro */
   /* Color base en HSL */
   /* PRIMARY - #0367A6 (199 100% 33%) */
@@ -3422,7 +3444,7 @@ h6 {
 }
 
 .submenu a:hover {
-  background-color: #f3f4f6;
+  background-color: hsl(var(--color-brand-primary));
 }
 
 .header-group button:focus {
@@ -3432,7 +3454,6 @@ h6 {
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
   --tw-ring-offset-width: 2px;
-  /* Usar el nuevo color primario con opacidad */
   ring-color: hsl(var(--color-brand-primary) / 0.5);
 }
 
@@ -3671,7 +3692,6 @@ audio:focus {
 /* Página directorio */
 
 .hero-directorio {
-  /* Usar gradiente con los nuevos colores */
   background: linear-gradient(to right, 
     hsl(var(--color-brand-primary)), 
     hsl(var(--color-brand-secondary))
@@ -3877,7 +3897,6 @@ audio:focus {
   font-weight: 700;
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-  /* Usar gradiente con los nuevos colores */
   background: linear-gradient(to bottom right, 
     hsl(var(--color-brand-primary)), 
     hsl(var(--color-brand-secondary))
@@ -3898,7 +3917,6 @@ audio:focus {
   font-size: 1.125rem;
   line-height: 1.75rem;
   font-weight: 600;
-  /* Usar el nuevo color primario */
   color: hsl(var(--color-brand-primary));
 }
 
@@ -4490,6 +4508,10 @@ audio:focus {
   border-color: rgb(51 102 204 / 0.5);
 }
 
+.hover\:bg-\[hsl\(var\(--color-brand-primary-600\)\)\]:hover {
+  background-color: hsl(var(--color-brand-primary-600));
+}
+
 .hover\:bg-blue-600:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(37 99 235 / var(--tw-bg-opacity));
@@ -4545,6 +4567,10 @@ audio:focus {
 
 .hover\:bg-opacity-30:hover {
   --tw-bg-opacity: 0.3;
+}
+
+.hover\:text-\[hsl\(var\(--color-brand-primary\)\)\]:hover {
+  color: hsl(var(--color-brand-primary));
 }
 
 .hover\:text-blue-600:hover {
@@ -4648,13 +4674,13 @@ audio:focus {
   --tw-ring-color: hsl(var(--color-brand-primary) / var(--tw-ring-opacity));
 }
 
-.focus\:ring-brand-primary\/50:focus {
-  --tw-ring-color: hsl(var(--color-brand-primary) / 0.5);
+.focus\:ring-brand-primary-500:focus {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: hsl(var(--color-brand-primary) / var(--tw-ring-opacity));
 }
 
-.focus\:ring-primary:focus {
-  --tw-ring-opacity: 1;
-  --tw-ring-color: rgb(51 102 204 / var(--tw-ring-opacity));
+.focus\:ring-brand-primary\/50:focus {
+  --tw-ring-color: hsl(var(--color-brand-primary) / 0.5);
 }
 
 .focus\:ring-white:focus {
