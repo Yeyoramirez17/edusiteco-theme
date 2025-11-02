@@ -230,7 +230,7 @@ get_header();
     </section>
 
     <!-- Contactos Generales -->
-    <section class="contactos-section bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-800 dark:to-gray-700 py-16 px-4 transition-colors duration-300" aria-labelledby="contactos-generales-title">
+    <section class=" bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-800 dark:to-gray-700 py-16 px-4 transition-colors duration-300" aria-labelledby="contactos-generales-title">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-12">
                 <h2 id="contactos-generales-title" class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 font-plus-jakarta">
