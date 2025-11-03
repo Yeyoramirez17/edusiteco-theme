@@ -165,6 +165,9 @@ function edusiteco_scripts() {
 		wp_enqueue_script( 'edusiteco-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 	}
 
+	// Mobile menu toggle script
+	wp_enqueue_script( 'edusiteco-mobile-menu', get_template_directory_uri() . '/src/js/mobile-menu.js', array(), _S_VERSION, true );
+
 	// Comment reply script
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
