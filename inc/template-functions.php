@@ -12,6 +12,10 @@
  * @return array
  */
 function edusiteco_body_classes( $classes ) {
+	// Adds a class of .has-header-image to the body when a custom header is active.
+	if ( get_header_image() ) {
+        $classes[] = 'has-header-image';
+    }
 	// Adds a class of hfeed to non-singular pages.
 	if ( ! is_singular() ) {
 		$classes[] = 'hfeed';

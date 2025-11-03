@@ -462,3 +462,103 @@ audio:focus {
     transition: none;
   }
 }
+
+/*
+==========================================================================
+MAIN NAVIGATION STYLES
+==========================================================================
+*/
+@layer components {
+  /* Base styles for menu items */
+  .header-group a {
+    @apply inline-flex items-center px-3 py-2;
+  }
+
+  .submenu a {
+    @apply block px-4 py-2.5;
+  }
+
+  /* Submenu container */
+  .header-group .submenu {
+    @apply absolute z-50 left-0 w-64 p-3 rounded-lg shadow-xl bg-background-light dark:bg-background-dark ring-1 ring-black ring-opacity-5 border border-border-light dark:border-border-dark;
+    
+    /* Default state: hidden */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+    pointer-events: none;
+  }
+
+  /* Submenu visibility on hover */
+  .header-group:hover .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  /* Underline animation for main links */
+  .header-group .underline-link {
+    @apply relative no-underline;
+  }
+
+  .header-group .underline-link::after {
+    content: '';
+    @apply absolute w-full h-[2px] left-0 bg-brand-primary;
+    bottom: -0.25rem;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+
+  .header-group:hover .underline-link::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+  /* Mobile menu specific styles */
+  .mobile-toggle.text-brand-primary {
+    color: hsl(var(--color-brand-primary));
+  }
+
+  .mobile-toggle.rotate-180 {
+    transform: rotate(180deg);
+  }
+
+  /* Remove borders from submenu items in mobile */
+  .bg-gray-50 a,
+  .dark .bg-gray-800 a {
+    border-bottom: none;
+  }
+
+  /* Styles for when a header image is present */
+  .has-header-image .header-group > a.text-white,
+  .has-header-image .header-group > a.text-white span {
+    color: white;
+  }
+
+  .has-header-image .header-group > a.text-white:hover {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .has-header-image .header-group .underline-link.text-white::after {
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+
+  /* Ensure submenu links keep their normal colors even with header image */
+  .has-header-image .submenu a {
+    color: hsl(var(--color-text-light));
+  }
+
+  .dark.has-header-image .submenu a {
+    color: hsl(var(--color-text-dark));
+  }
+
+  /* Hide desktop submenus on mobile */
+  @media (max-width: 768px) {
+    .header-group .submenu {
+      display: none;
+    }
+  }
+}

@@ -492,7 +492,3 @@ add_action('save_post', 'edusite_guardar_comunicado_detalles');
  */
 require_once get_template_directory() . '/inc/default-pages.php';
 
-/**
- * Tipografia
- */
-#require_once get_template_directory() . '/inc/edusiteco-typography.php';
