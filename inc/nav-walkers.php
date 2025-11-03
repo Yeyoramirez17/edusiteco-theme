@@ -55,7 +55,10 @@ class Custom_Nav_Walker extends Walker_Nav_Menu {
     public function start_el( &$output, $item, $depth = 0, $args = null, $id = 0 ) {
         $indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
 
+        // Preserve WordPress native classes and add custom ones
         $li_classes = array( 'header-group' );
+        $li_classes = array_merge( $li_classes, empty( $item->classes ) ? array() : (array) $item->classes );
+        
         $has_children = in_array( 'menu-item-has-children', $item->classes );
 
         if ( $has_children ) {
@@ -63,38 +66,81 @@ class Custom_Nav_Walker extends Walker_Nav_Menu {
             $li_classes[] = 'group';
         }
 
-        $output .= $indent . '<li class="' . implode( ' ', $li_classes ) . '">';
+        // Add current item classes
+        if ( in_array( 'current-menu-item', $item->classes ) ) {
+            $li_classes[] = 'current';
+        }
+
+        // Filter and sanitize classes
+        $li_classes = apply_filters( 'nav_menu_css_class', array_filter( $li_classes ), $item, $args, $depth );
+        $class_names = join( ' ', $li_classes );
+        $class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
+
+        // Add ID if exists
+        $id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args, $depth );
+        $id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
+
+        $output .= $indent . '<li' . $id . $class_names . '>';
 
         $has_header_image = get_header_image() ? true : false;
-        $text_color_class = $has_header_image ? 'text-white text-shadow-lg text-shadow-black/70' : 'text-text-light dark:text-text-dark';
+        
+        // Lógica mejorada de colores para todos los escenarios
+        if ( $has_header_image ) {
+            // Con imagen de cabecera - texto blanco con sombra para mejor contraste
+            $text_color_class = 'text-white drop-shadow-lg';
+            $hover_color_class = 'hover:text-brand-primary-200';
+        } else {
+            // Sin imagen de cabecera - colores normales según modo claro/oscuro
+            $text_color_class = 'text-text-light dark:text-text-dark';
+            $hover_color_class = 'hover:text-brand-primary dark:hover:text-brand-primary-300';
+        }
 
         $a_classes = array(
             $text_color_class,
+            $hover_color_class,
             'text-lg',
             'font-bold',
-            'hover:text-brand-primary',
             'transition-colors',
+            'duration-200',
             'rounded-sm',
             'focus:outline-none',
             'focus:ring-2',
             'focus:ring-brand-primary/50',
-            'focus:ring-offset-2'
+            'focus:ring-offset-2',
+            'focus:ring-offset-background-light',
+            'dark:focus:ring-offset-background-dark'
         );
 
-        $attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
-        $attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
-        $attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
-        $attributes .= ! empty( $item->url )        ? ' href="'   . esc_url( $item->url        ) .'"' : '';
+        $atts = array();
+        $atts['title']  = ! empty( $item->attr_title ) ? $item->attr_title : '';
+        $atts['target'] = ! empty( $item->target )     ? $item->target     : '';
+        $atts['rel']    = ! empty( $item->xfn )        ? $item->xfn        : '';
+        $atts['href']   = ! empty( $item->url )        ? $item->url        : '';
+        $atts['class']  = implode( ' ', $a_classes );
         
         if ( $has_children ) {
-            $attributes .= ' aria-haspopup="true" aria-expanded="false"';
+            $atts['aria-haspopup'] = 'true';
+            $atts['aria-expanded'] = 'false';
         }
 
+        $atts = apply_filters( 'nav_menu_link_attributes', $atts, $item, $args, $depth );
+
+        $attributes = '';
+        foreach ( $atts as $attr => $value ) {
+            if ( ! empty( $value ) ) {
+                $value = ( 'href' === $attr ) ? esc_url( $value ) : esc_attr( $value );
+                $attributes .= ' ' . $attr . '="' . $value . '"';
+            }
+        }
+
+        $title = apply_filters( 'nav_menu_item_title', $item->title, $item, $args, $depth );
+
         $item_output = $args->before;
-        $item_output .= '<a class="' . implode(' ', $a_classes) . '"' . $attributes . '>';
-        $item_output .= $args->link_before . '<span>' . apply_filters( 'the_title', $item->title, $item->ID ) . '</span>' . $args->link_after;
+        $item_output .= '<a' . $attributes . '>';
+        $item_output .= $args->link_before . '<span class="underline-link">' . esc_html( $title ) . '</span>' . $args->link_after;
         if ( $has_children ) {
-            $item_output .= '<span class="material-icons text-sm ml-1 group-hover:rotate-180 transition-transform duration-200">expand_more</span>';
+            $icon_color_class = $has_header_image ? 'text-white' : 'text-text-light dark:text-text-dark';
+            $item_output .= '<span class="material-icons text-2xl ml-1 ' . $icon_color_class . ' group-hover:rotate-180 transition-transform duration-200" aria-hidden="true">expand_more</span>';
         }
         $item_output .= '</a>';
         $item_output .= $args->after;
@@ -125,49 +171,94 @@ class Custom_Nav_Walker extends Walker_Nav_Menu {
  * an external JS file for interactions.
  */
 class Mobile_Nav_Walker extends Walker_Nav_Menu {
-
+    /**
+     * Starts the element output.
+     *
+     * @see Walker::start_el()
+     *
+     * @param string   $output Used to append additional content (passed by reference).
+     * @param WP_Post  $item   Menu item data object.
+     * @param int      $depth  Depth of menu item. Used for padding.
+     * @param stdClass $args   An object of wp_nav_menu() arguments.
+     * @param int      $id     Current item ID.
+     */
     public function start_el( &$output, $item, $depth = 0, $args = null, $id = 0 ) {
         $has_children = in_array( 'menu-item-has-children', $item->classes );
         $submenu_id = 'submenu-' . $item->ID;
+        $title = apply_filters( 'nav_menu_item_title', $item->title, $item, $args, $depth );
+
+        $has_header_image = get_header_image() ? true : false;
+        $text_color_class = $has_header_image ? 'text-white' : 'text-text-light dark:text-text-dark';
+        $bg_class = $has_header_image ? 'bg-white/10 hover:bg-white/20' : 'bg-[rgb(0,0,0,0.256)] hover:bg-gray-50 dark:hover:bg-gray-700';
 
         if ( $has_children ) {
-            $output .= '<div class="border-b border-border-light dark:border-border-dark last:border-b-0">';
+            $output .= '<li class="border-b border-border-light dark:border-border-dark last:border-b-0">';
             $output .= '<div class="flex items-center">';
             
             // Link
-            $output .= '<a href="' . esc_url( $item->url ) . '" class="flex-1 pl-4 pr-4 py-3.5 text-base font-medium text-text-light dark:text-text-dark hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">';
-            $output .= apply_filters( 'the_title', $item->title, $item->ID );
+            $output .= '<a href="' . esc_url( $item->url ) . '" class="flex-1 pl-4 pr-4 py-3.5 text-base font-medium ' . $text_color_class . ' ' . $bg_class . ' transition-colors">';
+            $output .= esc_html( $title );
             $output .= '</a>';
             
             // Toggle Button
-            $output .= '<button class="mobile-toggle flex-shrink-0 px-4 py-3.5 text-text-light dark:text-text-dark hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors" aria-controls="' . $submenu_id . '" aria-expanded="false">';
-            $output .= '<span class="material-icons text-sm transition-transform duration-200">expand_more</span>';
+            $output .= '<button type="button" class="mobile-toggle flex-shrink-0 px-4 py-[8px] transition-colors ' . $bg_class . ' ' . $text_color_class . '" aria-controls="' . esc_attr( $submenu_id ) . '" aria-expanded="false" aria-label="' . esc_attr( sprintf( __( 'Toggle %s submenu', 'edusiteco' ), $title ) ) . '">';
+            $output .= '<span class="material-icons text-2xl transition-transform duration-200" aria-hidden="true">expand_more</span>';
             $output .= '</button>';
             
             $output .= '</div>';
-            $output .= '<div id="' . $submenu_id . '" class="hidden bg-gray-50 dark:bg-gray-800">';
+            $output .= '<div id="' . esc_attr( $submenu_id ) . '" class="submenu hidden">';
 
         } else {
-            $output .= '<a class="block pl-4 pr-4 py-3.5 text-base font-medium text-text-light dark:text-text-dark hover:bg-gray-50 dark:hover:bg-gray-700 border-b border-border-light dark:border-border-dark last:border-b-0 transition-colors" href="' . esc_url( $item->url ) . '">';
-            $output .= apply_filters( 'the_title', $item->title, $item->ID );
+            $output .= '<li class="border-b border-border-light dark:border-border-dark last:border-b-0">';
+            $output .= '<a class="block pl-4 pr-4 py-3.5 text-base font-medium ' . $text_color_class . ' ' . $bg_class . ' transition-colors" href="' . esc_url( $item->url ) . '">';
+            $output .= esc_html( $title );
             $output .= '</a>';
         }
     }
 
+    /**
+     * Ends the element output.
+     *
+     * @see Walker::end_el()
+     *
+     * @param string   $output Used to append additional content (passed by reference).
+     * @param WP_Post  $item   Page data object.
+     * @param int      $depth  Depth of page.
+     * @param stdClass $args   An object of wp_nav_menu() arguments.
+     */
     public function end_el( &$output, $item, $depth = 0, $args = null ) {
         if ( in_array( 'menu-item-has-children', $item->classes ) ) {
-            $output .= '</div></div>';
+            $output .= '</div>';
         }
+        $output .= '</li>';
     }
 
+    /**
+     * Starts the list before the elements are added.
+     *
+     * @see Walker::start_lvl()
+     *
+     * @param string   $output Used to append additional content (passed by reference).
+     * @param int      $depth  Depth of menu item. Used for padding.
+     * @param stdClass $args   An object of wp_nav_menu() arguments.
+     */
     public function start_lvl( &$output, $depth = 0, $args = null ) {
         $indent = str_repeat( "\t", $depth );
-        $output .= "\n$indent<div class=\"pl-6 bg-white dark:bg-gray-800 space-y-0\">\n";
+        $output .= "\n$indent<ul class=\"pl-6 space-y-0\">\n";
     }
 
+    /**
+     * Ends the list of after the elements are added.
+     *
+     * @see Walker::end_lvl()
+     *
+     * @param string   $output Used to append additional content (passed by reference).
+     * @param int      $depth  Depth of menu item. Used for padding.
+     * @param stdClass $args   An object of wp_nav_menu() arguments.
+     */
     public function end_lvl( &$output, $depth = 0, $args = null ) {
         $indent = str_repeat( "\t", $depth );
-        $output .= "$indent</div>\n";
+        $output .= "$indent</ul>\n";
     }
 }
 
