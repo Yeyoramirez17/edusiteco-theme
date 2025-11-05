@@ -4,16 +4,13 @@
     <section class="container bg-background-light dark:bg-background-dark">
         <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
             <header class="page-header text-center mb-12">
-                <?php
-                // Muestra el título del archivo de la categoría dinámicamente.
-                the_archive_title('<h1 class="text-3xl lg:text-4xl font-bold text-text-light dark:text-text-dark font-display mb-4">', '</h1>');
-                
-                // Obtiene la descripción y la muestra dentro de nuestras propias etiquetas para un control total.
-                $archive_description = get_the_archive_description();
-                if ( ! empty( $archive_description ) ) {
-                    echo "<p class=\"text-lg text-text-light dark:text-text-dark max-w-2xl mx-auto\">{$archive_description}</p>";
-                }
-                ?>
+                <?php $current_category = get_queried_object(); ?>
+
+				<h1 class="text-3xl lg:text-4xl font-bold text-text-light dark:text-text-dark font-display mb-4"><?= $current_category->name; ?></h1>
+				
+				<?php if ( ! empty( $current_category->description ) ) : ?>
+					<p class="text-lg text-text-light dark:text-text-dark max-w-2xl mx-auto"><?= $current_category->description; ?></p>
+				<?php endif; ?>
             </header>
 
 			
@@ -27,7 +24,7 @@
                     [
                         'taxonomy' => 'category',
                         'field' => 'slug',
-                        'terms' => 'convocatorias',
+                        'terms' => $current_category->slug,
                     ],
                 ],
             ]);

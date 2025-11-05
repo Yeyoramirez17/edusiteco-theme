@@ -13,7 +13,7 @@
     <?php else: ?>
         <div class="relative overflow-hidden">
             <a href="<?php the_permalink(); ?>" class="block">
-                <div class="h-52 bg-primary group-hover:scale-105">
+                <div class="h-52 bg-brand-primary group-hover:scale-105">
                     <svg viewBox="0 0 1000 500" fill="currentColor">
                         <circle cx="200" cy="100" r="80" opacity="0.1" />
                         <circle cx="800" cy="150" r="120" opacity="0.05" />
@@ -22,7 +22,7 @@
                 </div>
             </a>
             <div
-                class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                class="absolute inset-0 bg-gradient-custom to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             </div>
         </div>
     <?php endif; ?>
@@ -31,9 +31,16 @@
         <div class="grow">
             <!-- Meta información superior -->
             <div class="flex items-center justify-between mb-3">
-                <span class="text-xs font-medium text-primary bg-primary/10 px-2 py-1 rounded-full">
-                    Comunicado
-                </span>
+                <div class="flex flex-wrap gap-2">
+                    <?php
+                    $categories = get_the_category();
+                    if (!empty($categories)) {
+                        foreach ($categories as $category) {
+                            echo '<a href="' . esc_url(get_category_link($category->term_id)) . '" class="text-xs font-medium text-primary bg-primary/10 px-2 py-1 rounded-full hover:bg-primary/20 transition-colors">' . esc_html($category->name) . '</a>';
+                        }
+                    }
+                    ?>
+                </div>
                 <time class="text-xs text-gray-500" datetime="<?php echo get_the_date('c'); ?>">
                     <?php echo get_the_date('j M, Y'); ?>
                 </time>
@@ -55,7 +62,7 @@
             <!-- Fecha del evento si existe -->
             <?php if ($fecha_evento): ?>
                 <div class="flex items-center mb-2 p-2 bg-blue-50 rounded-lg border border-blue-100">
-                    <div class="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center mr-3">
+                    <div class="flex-shrink-0 w-8 h-8 bg-brand-primary rounded-full flex items-center justify-center mr-3">
                         <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">

@@ -897,7 +897,7 @@ function edusiteco_output_all_custom_styles()
 
 function edusiteco_load_google_fonts()
 {
-    $body_font = get_theme_mod('body_font_family', 'Plus Jakarta Sans:200,300,400,500,600,700');
+    $body_font = get_theme_mod('body_font_family', 'Plus Jakarta Sans:100,200,300,400,500,600,700');
     $headings_font = get_theme_mod('headings_font_family', 'Montserrat:400,500,600,700');
 
     $fonts = array();
@@ -935,7 +935,7 @@ function edusiteco_customize_preview_js()
     // Preview de colores
     wp_enqueue_script(
         'edusiteco-customizer-colors',
-        get_template_directory_uri() . '/assets/js/customizer-palette.js',
+        get_template_directory_uri() . '/js/customizer-palette.js',
         array('customize-preview'),
         '1.0.0',
         true

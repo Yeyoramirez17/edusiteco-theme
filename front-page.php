@@ -202,7 +202,7 @@ get_header();
 				<!-- Sede Principal -->
 				<div
 					class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden border border-border-light dark:border-border-dark">
-					<div class="h-48 bg-gradient-to-br from-brand-primary to-brand-secondary flex items-center justify-center">
+					<div class="h-48 bg-gradient-custom flex items-center justify-center">
 						<span class="text-white material-icons text-6xl">school</span>
 					</div>
 					<div class="p-6">
@@ -232,7 +232,7 @@ get_header();
 				<!-- Sede Norte -->
 				<div
 					class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden border border-border-light dark:border-border-dark">
-					<div class="h-48 bg-gradient-to-br from-brand-warning to-brand-danger flex items-center justify-center">
+					<div class="h-48 bg-gradient-custom flex items-center justify-center">
 						<span class="text-white material-icons text-6xl">location_city</span>
 					</div>
 					<div class="p-6">
@@ -262,7 +262,7 @@ get_header();
 				<!-- Sede Sur -->
 				<div
 					class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden border border-border-light dark:border-border-dark">
-					<div class="h-48 bg-gradient-to-br from-brand-accent to-brand-accent flex items-center justify-center">
+					<div class="h-48 bg-gradient-custom flex items-center justify-center">
 						<span class="text-white material-icons text-6xl">apartment</span>
 					</div>
 					<div class="p-6">
