@@ -396,3 +396,8 @@ add_filter( 'get_the_archive_title', function ( $title ) {
     }
     return $title;
 });
+
+#########################
+#    EDUSITECO BLOCKS   #
+#########################
+require_once get_template_directory() . '/inc/edusiteco-register-blocks.php';
