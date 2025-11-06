@@ -228,7 +228,7 @@
 								'menu_class' => 'space-y-1',
 								'container' => false,
 								'items_wrap' => '<div class="space-y-0">%3$s</div>',
-								'fallback_cb' => 'edusiteco_default_mobile_menu',
+								'fallback_cb' => false,
 								'walker' => new Mobile_Nav_Walker()
 							)
 						);

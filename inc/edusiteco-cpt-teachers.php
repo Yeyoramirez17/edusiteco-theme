@@ -50,7 +50,7 @@ function edusiteco_manage_teacher_role_and_caps()
                 'read' => true,
                 'edit_posts' => true,
                 'upload_files' => true,
-                'publish_posts' => false,
+                'publish_posts' => true,
             )
         );
     }
@@ -64,13 +64,23 @@ function eduusiteco_add_teacher_capabilities()
 {
     $role = get_role('profesor_role'); 
     if ($role) {
-        $role->add_cap('edit_profesor');
+        $role->add_cap('read');
         $role->add_cap('read_profesor');
-        $role->add_cap('delete_profesor');
+        $role->add_cap('edit');
+        $role->add_cap('edit_profesor');
         $role->add_cap('edit_profesores');
-        $role->add_cap('edit_others_profesores');
+        $role->add_cap('delete');
+        $role->add_cap('delete_profesor');
+        $role->add_cap('delete_profesores');
+        $role->add_cap('publish');
+        $role->add_cap('publish_profesor');
         $role->add_cap('publish_profesores');
         $role->add_cap('read_private_profesores');
+        $role->add_cap('edit_published_profesores');
+        $role->add_cap('delete_published_profesores');
+
+        # $role->add_cap('delete_others_profesores');
+        # $role->add_cap('edit_others_profesores');
     }
 }
 
