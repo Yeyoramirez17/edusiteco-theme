@@ -17,7 +17,6 @@ import {
 	PanelBody,
 	Flex,
 	FlexItem,
-	FlexBlock,
 	Spinner,
 	RangeControl,
 	SelectControl,
@@ -26,6 +25,15 @@ import {
 	ToolbarButton,
 } from '@wordpress/components';
 
+
+/**
+ * Icons
+ */
+import { Mail, FilePen, GraduationCap, Eye } from 'lucide-react';
+
+/**
+ * Styles
+ */
 import './editor.scss';
 
 import { useSelect } from '@wordpress/data';
@@ -78,9 +86,9 @@ export default function Edit({ attributes, setAttributes }) {
 	if (isResolving) {
 		return (
 			<div {...useBlockProps()}>
-				<div className="flex items-center gap-2 p-4">
+				<div className="flex items-center gap-2 p-4 bg-white rounded-lg border border-border-light dark:border-border-dark">
 					<Spinner /> 
-					<span>{__('Cargando información del profesor...', 'edusiteco')}</span>
+					<span className="text-text-light dark:text-text-dark">{__('Cargando información del profesor...', 'edusiteco')}</span>
 				</div>
 			</div>
 		);
@@ -110,15 +118,28 @@ export default function Edit({ attributes, setAttributes }) {
 		);
 	}
 
-	// Clases dinámicas
+	// Clases dinámicas con estilos del tema
 	const avatarClasses = [
 		`rounded-${avatarRounded}`,
 		'object-cover',
-		avatarBorder ? 'border-2 border-gray-300' : '',
+		'm-0',
+		avatarBorder ? 'border-2 border-brand-primary' : '', // Usar color primario del tema
+	].filter(Boolean).join(' ');
+
+	const containerClasses = [
+		'bg-white',
+		'dark:bg-gray-800',
+		'border',
+		'border-border-light',
+		'dark:border-border-dark',
+		'shadow-md',
+		'rounded-lg',
+		'p-6',
+		hoverEffect ? 'transition-all duration-300 hover:shadow-lg' : '',
 	].filter(Boolean).join(' ');
 
 	const blockProps = useBlockProps({
-		className: hoverEffect ? 'transition-all hover:scale-[1.02]' : '',
+		className: 'edusiteco-teacher-profile-block',
 	});
 
 	return (
@@ -247,7 +268,7 @@ export default function Edit({ attributes, setAttributes }) {
 				</PanelBody>
 
 				{/* CONTENIDO VISIBLE */}
-				<PanelBody title={__('👁️ Información visible', 'edusiteco')} initialOpen={false}>
+				<PanelBody icon={ <Eye width={24} color='bg-brand-primary' /> } title={__('Información visible', 'edusiteco')} initialOpen={false}>
 					<ToggleControl
 						label={__('Mostrar correo electrónico', 'edusiteco')}
 						checked={showEmail}
@@ -281,65 +302,67 @@ export default function Edit({ attributes, setAttributes }) {
 				</PanelBody>
 			</InspectorControls>
 
-			{/* Renderizado del bloque */}
+			{/* Renderizado del bloque con estilos del tema */}
 			<div {...blockProps}>
-				<Flex
-					gap={gap}
-					justify={alignment}
-					direction={direction === 'vertical' ? 'column' : 'row'}
-					align={direction === 'vertical' ? 'center' : 'flex-start'}
-				>
-					<FlexItem>
-						<img
-							width={avatarSize}
-							height={avatarSize}
-							src={currentUser.avatar}
-							alt={`${__('Avatar de', 'edusiteco')} ${currentUser.name}`}
-							className={avatarClasses}
-							style={{ display: 'block' }}
-						/>
-					</FlexItem>
-					
-					<FlexItem className="min-w-0">
-						<h3 
-							className={`${nameSize} ${nameWeight} mb-2`}
-							style={{ margin: '0 0 0.5rem 0' }}
-						>
-							{currentUser.name || __('Sin nombre', 'edusiteco')}
-						</h3>
+				<div className={containerClasses}>
+					<Flex
+						gap={gap}
+						justify={alignment}
+						direction={direction === 'vertical' ? 'column' : 'row'}
+						align={direction === 'vertical' ? 'center' : 'flex-start'}
+					>
+						<FlexItem>
+							<img
+								width={avatarSize}
+								height={avatarSize}
+								src={currentUser.avatar}
+								alt={`${__('Avatar de', 'edusiteco')} ${currentUser.name}`}
+								className={avatarClasses}
+								style={{ display: 'block' }}
+							/>
+						</FlexItem>
+						
+						<FlexItem className="min-w-0">
+							<h3 
+								className={`${nameSize} ${nameWeight} text-text-light dark:text-text-dark mb-2`}
+								style={{ margin: '0 0 0.5rem 0' }}
+							>
+								{currentUser.name || __('Sin nombre', 'edusiteco')}
+							</h3>
 
-						<div className="flex flex-col gap-1 text-sm">
-							{showEmail && currentUser.email && (
-								<p style={{ margin: 0, fontSize: '0.875rem' }}>
-									<strong>{__('✉️ Correo:', 'edusiteco')}</strong> {currentUser.email}
-								</p>
-							)}
-							
-							{showSubject && currentUser.subject && (
-								<p style={{ margin: 0, fontSize: '0.875rem' }}>
-									<strong>{__('📚 Asignatura:', 'edusiteco')}</strong> {currentUser.subject}
-								</p>
-							)}
-							
-							{showTitle && currentUser.title && (
-								<p style={{ margin: 0, fontSize: '0.875rem' }}>
-									<strong>{__('🎓 Título:', 'edusiteco')}</strong> {currentUser.title}
-								</p>
-							)}
-							
-							{!showEmail && !showSubject && !showTitle && (
-								<p style={{ 
-									margin: 0, 
-									fontSize: '0.875rem',
-									color: '#d63638',
-									fontStyle: 'italic'
-								}}>
-									{__('No hay información visible. Activa al menos un campo.', 'edusiteco')}
-								</p>
-							)}
-						</div>
-					</FlexItem>
-				</Flex>
+							<div className="flex flex-col gap-1 text-base text-gray-600 dark:text-gray-400">
+								{showEmail && currentUser.email && (
+									<p className="text-base">
+										<Mail width={32} className='inline-flex'/> <strong> {__('Correo:', 'edusiteco')}</strong> {currentUser.email}
+									</p>
+								)}
+								
+								{showSubject && currentUser.subject && (
+									<p className="text-base">
+										<FilePen width={32} className='inline-flex'/> <strong>{__('Asignatura:', 'edusiteco')}</strong> {currentUser.subject}
+									</p>
+								)}
+								
+								{showTitle && currentUser.title && (
+									<p sclassName="text-base">
+										<GraduationCap width={32} className='inline-flex'/> <strong>{__('Título:', 'edusiteco')}</strong> {currentUser.title}
+									</p>
+								)}
+								
+								{!showEmail && !showSubject && !showTitle && (
+									<p style={{ 
+										margin: 0, 
+										fontSize: '0.875rem',
+										color: '#d63638',
+										fontStyle: 'italic'
+									}}>
+										{__('No hay información visible. Activa al menos un campo.', 'edusiteco')}
+									</p>
+								)}
+							</div>
+						</FlexItem>
+					</Flex>
+				</div>
 			</div>
 		</>
 	);

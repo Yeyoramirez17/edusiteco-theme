@@ -23,54 +23,7 @@
                     <?php the_content(); ?>
                 </div>
 
-                <?php
-                // Obtener el ID del usuario profesor asociado a este post
-                $teacher_user_id = get_post_meta(get_the_ID(), '_teacher_user_id', true);
-
-                if ($teacher_user_id):
-                    // Obtener los metadatos del usuario
-                    $teacher_info = get_userdata($teacher_user_id);
-                    $subject = get_user_meta($teacher_user_id, 'subject', true);
-                    $title = get_user_meta($teacher_user_id, 'title', true);
-                    $experience = get_user_meta($teacher_user_id, 'experience', true);
-                    ?>
-                    <section class="teacher-info-card mt-12 border-t border-border-light dark:border-border-dark pt-10">
-                        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-border-light dark:border-border-dark p-6 md:p-8 flex flex-col md:flex-row items-center gap-6 md:gap-8">
-                            
-                            <!-- Avatar del Profesor -->
-                            <div class="flex-shrink-0">
-                                <?php echo get_avatar($teacher_user_id, 128, '', 'Avatar del profesor', ['class' => 'rounded-full w-24 h-24 md:w-32 md:h-32 object-cover shadow-md border-4 border-white dark:border-gray-700']); ?>
-                            </div>
-
-                            <!-- Información del Profesor -->
-                            <div class="text-center md:text-left">
-                                <h2 class="text-2xl font-bold text-text-light dark:text-text-dark mb-1">
-                                    <?php echo esc_html($teacher_info->display_name); ?>
-                                </h2>
-                                <p class="text-brand-primary font-semibold text-lg mb-4">
-                                    <?php echo esc_html($title); ?>
-                                </p>
-
-                                <div class="space-y-3 text-text-light dark:text-text-dark">
-                                    <?php if ($subject): ?>
-                                        <div class="flex items-center justify-center md:justify-start gap-2">
-                                            <span class="material-icons text-brand-secondary text-xl">school</span>
-                                            <p><strong><?php esc_html_e('Asignatura:', 'edusiteco'); ?></strong> <?php echo esc_html($subject); ?></p>
-                                        </div>
-                                    <?php endif; ?>
-                                    
-                                    <?php if ($experience): ?>
-                                        <div class="flex items-center justify-center md:justify-start gap-2">
-                                            <span class="material-icons text-brand-secondary text-xl">workspace_premium</span>
-                                            <p><strong><?php esc_html_e('Experiencia:', 'edusiteco'); ?></strong> <?php echo esc_html($experience); ?> años</p>
-                                        </div>
-                                    <?php endif; ?>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                <?php endif; ?>
-
+                
                 <footer class="entry-footer mt-12">
                     <a 
                         href="<?php echo get_post_type_archive_link('profesor'); ?>"
