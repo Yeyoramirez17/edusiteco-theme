@@ -3,8 +3,11 @@ module.exports = {
   darkMode: 'class',
   content: [
     './*.php',
-    './**/*.php',
-    './src/js/**/*.js',
+    './template-parts/**/*.php',
+    './inc/**/*.php',
+    './src/js/**/*.{js,jsx}',
+    './src/blocks/**/*.{js,jsx}',
+    './src/blocks/**/*.php',
     './src/css/**/*.css'
   ],
   theme: {

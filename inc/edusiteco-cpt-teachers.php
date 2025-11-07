@@ -169,3 +169,22 @@ function edusiteco_auto_assign_teacher_to_post($post_id, $post, $update)
     }
 }
 add_action('save_post', 'edusiteco_auto_assign_teacher_to_post', 10, 3);
+
+# Registrar campos meta en la API REST
+function edusiteco_register_user_meta_rest_field() {
+    register_rest_field('user', 'meta', array(
+        'get_callback' => function($user) {
+            return array(
+                'subject' => get_user_meta($user['id'], 'subject', true),
+                'title' => get_user_meta($user['id'], 'title', true),
+                'experience' => get_user_meta($user['id'], 'experience', true)
+            );
+        },
+        'update_callback' => null,
+        'schema' => array(
+            'description' => __('Metadata del profesor', 'edusiteco'),
+            'type' => 'object'
+        )
+    ));
+}
+add_action('rest_api_init', 'edusiteco_register_user_meta_rest_field');

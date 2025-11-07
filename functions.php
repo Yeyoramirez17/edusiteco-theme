@@ -401,3 +401,23 @@ add_filter( 'get_the_archive_title', function ( $title ) {
 #    EDUSITECO BLOCKS   #
 #########################
 require_once get_template_directory() . '/inc/edusiteco-register-blocks.php';
+
+/**
+ * Encolar los estilos compilados (Tailwind) dentro del editor de bloques.
+ *
+ * Esto hace que las utilidades de Tailwind (p-6, text-gray-600, etc.) estén
+ * disponibles cuando se renderiza el bloque en el editor.
+ */
+function edusiteco_block_editor_styles() {
+	$css_path = get_template_directory() . '/assets/css/index.css';
+	
+	if ( file_exists( $css_path ) ) {
+		wp_enqueue_style(
+			'edusiteco-editor-styles',
+			get_template_directory_uri() . '/assets/css/index.css',
+			array(),
+			filemtime( $css_path )
+		);
+	}
+}
+add_action( 'enqueue_block_editor_assets', 'edusiteco_block_editor_styles' );

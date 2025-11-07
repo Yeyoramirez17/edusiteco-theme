@@ -3,6 +3,25 @@ const path = require('path');
 const glob = require('glob');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
+// Modificar la configuración de reglas para SCSS
+const cssRules = defaultConfig.module.rules.find(
+  rule => rule.test && rule.test.toString() === /\.(sc|sa)ss$/.toString()
+);
+
+if (cssRules) {
+  const postCssLoader = cssRules.use.find(loader => 
+    loader.loader && loader.loader.includes('postcss-loader')
+  );
+  
+  if (postCssLoader) {
+    postCssLoader.options = {
+      postcssOptions: {
+        config: true 
+      }
+    };
+  }
+}
+
 // Función para obtener todas las entradas de bloques dinámicamente
 const getBlockEntries = () => {
   const entries = {};

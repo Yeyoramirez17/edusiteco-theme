@@ -24,6 +24,7 @@
     "autoprefixer": "^10.4.21",
     "copy-webpack-plugin": "^13.0.1",
     "dir-archiver": "^1.1.1",
+    "glob": "^11.0.3",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.5.6",
     "rimraf": "^6.1.0",
@@ -59,5 +60,8 @@
     "lint:js": "wp-scripts lint-js 'src/**/*.js'",
     "clean": "rimraf assets/css assets/js build",
     "bundle": "npm run build && dir-archiver --src . --dest ../_s.zip --exclude .DS_Store .stylelintrc.json .eslintrc .git .gitattributes .github .gitignore README.md composer.json composer.lock node_modules vendor package-lock.json package.json .travis.yml phpcs.xml.dist src postcss.config.js tailwind.config.js yarn.lock"
+  },
+  "dependencies": {
+    "@wordpress/core-data": "^7.34.0"
   }
 }
