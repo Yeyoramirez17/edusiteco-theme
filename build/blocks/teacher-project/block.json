@@ -2,19 +2,49 @@
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
   "name": "edusiteco/teacher-project",
-  "version": "0.1.0",
-  "title": "Teacher Project",
+  "title": "Proyecto del Profesor",
   "category": "widgets",
-  "icon": "smiley",
-  "description": "Example block scaffolded with Create Block tool.",
-  "example": {},
+  "icon": "portfolio",
+  "description": "Bloque para mostrar un proyecto del profesor con imagen, descripción, galería y documento.",
+  "keywords": [
+    "profesor",
+    "proyecto",
+    "educación"
+  ],
   "supports": {
     "html": false
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": ""
+    },
+    "authors": {
+      "type": "string",
+      "default": ""
+    },
+    "image": {
+      "type": "object",
+      "default": null
+    },
+    "description": {
+      "type": "string",
+      "default": ""
+    },
+    "gallery": {
+      "type": "array",
+      "default": []
+    },
+    "pdf": {
+      "type": "object",
+      "default": null
+    }
   },
   "textdomain": "teacher-project",
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
   "style": "file:./style-index.css",
   "render": "file:./render.php",
-  "viewScript": "file:./view.js"
+  "viewScript": "file:./view.js",
+  "script": "file:./frontend.js"
 }

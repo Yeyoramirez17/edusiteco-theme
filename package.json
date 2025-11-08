@@ -63,6 +63,7 @@
     "bundle": "npm run build && dir-archiver --src . --dest ../_s.zip --exclude .DS_Store .stylelintrc.json .eslintrc .git .gitattributes .github .gitignore README.md composer.json composer.lock node_modules vendor package-lock.json package.json .travis.yml phpcs.xml.dist src postcss.config.js tailwind.config.js yarn.lock"
   },
   "dependencies": {
-    "@wordpress/core-data": "^7.34.0"
+    "@wordpress/core-data": "^7.34.0",
+    "swiper": "^12.0.3"
   }
 }

@@ -25,11 +25,17 @@ if (cssRules) {
 // Función para obtener todas las entradas de bloques dinámicamente
 const getBlockEntries = () => {
   const entries = {};
-  const blockFiles = glob.sync('./src/blocks/*/index.js');
-  blockFiles.forEach(file => {
+  // Busca index.js y view.js en cada directorio de bloque
+  const blockFiles = glob.sync('./src/blocks/*/{index.js,view.js,frontend.js}');
+  
+  blockFiles.forEach((file) => {
     const name = path.basename(path.dirname(file));
-    entries[`blocks/${name}/index`] = path.resolve(process.cwd(), file);
+    const entryName = path.basename(file, '.js'); // 'index' o 'view'
+    
+    // La clave de entrada será algo como 'blocks/teacher-project/index' o 'blocks/teacher-project/view'
+    entries[`blocks/${name}/${entryName}`] = path.resolve(process.cwd(), file);
   });
+
   return entries;
 };
 
@@ -51,7 +57,7 @@ module.exports = {
       if (['index', 'custom-admin'].includes(pathData.chunk.name)) {
         return `../assets/js/${pathData.chunk.name}.js`;
       }
-      // Los bloques van a build/blocks/{nombre-bloque}/index.js
+      // Los bloques van a build/blocks/{nombre-bloque}/{index.js o view.js}
       return '[name].js';
     },
     // Limpia el directorio de salida (excepto lo que le decimos que ignore)
