@@ -222,7 +222,7 @@ add_action('init', 'edusiteco_register_menus');
 
 # Front Page
 function edusiteco_enqueue_swiper() {
-    if (is_front_page()) {
+    if (is_front_page() || (is_singular() && has_block('edusiteco/teacher-project'))) {
         wp_enqueue_script('swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js', array(), '12.0.0', true);
         wp_enqueue_style('swiper-css', 'https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css', array(), '12.0.0');
     }

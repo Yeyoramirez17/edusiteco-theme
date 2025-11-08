@@ -1,6 +1,7 @@
 /**
  * Main JavaScript file for Edusite CO theme
  */
+
 document.addEventListener('DOMContentLoaded', function () {
     console.log('Edusite CO theme loaded');
 
@@ -64,6 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // --- Swiper Carousel Initialization (Front Page) ---
     // Solo se inicializa si el contenedor existe y la librería Swiper está cargada
+    
     const swiperContainer = document.querySelector('.swiper-container');
     if (swiperContainer && typeof Swiper !== 'undefined') {
         const swiper = new Swiper('.swiper-container', {
