@@ -6,7 +6,7 @@
             while (have_posts()):
                 the_post(); ?>
 
-                <header class="entry-header mb-8 text-center">
+                <header class="entry-header mb-8 ">
                     <?php the_title('<h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-text-dark mb-4">', '</h1>'); ?>
                     <div class="text-sm text-gray-500 dark:text-gray-400">
                         <span>Publicado el <?php echo get_the_date(); ?></span>

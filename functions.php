@@ -229,6 +229,12 @@ function edusiteco_enqueue_swiper() {
 }
 add_action('wp_enqueue_scripts', 'edusiteco_enqueue_swiper');
 
+# Google Icons
+function edusiteco_enqueue_google_icons() {
+	wp_enqueue_style('google-icons', 'https://fonts.googleapis.com/icon?family=Material+Icons', array(), null);
+}
+add_action('wp_enqueue_scripts', 'edusiteco_enqueue_google_icons');
+
 /**
  * Devuelve los datos de los hitos históricos.
  * En un proyecto real, estos datos vendrían de un Custom Post Type,

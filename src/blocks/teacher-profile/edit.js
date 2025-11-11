@@ -268,7 +268,7 @@ export default function Edit({ attributes, setAttributes }) {
 				</PanelBody>
 
 				{/* CONTENIDO VISIBLE */}
-				<PanelBody icon={ <Eye width={24} color='bg-brand-primary' /> } title={__('Información visible', 'edusiteco')} initialOpen={false}>
+				<PanelBody icon={ <Eye width={16} className='bg-brand-primary' /> } title={__('Información visible', 'edusiteco')} initialOpen={false}>
 					<ToggleControl
 						label={__('Mostrar correo electrónico', 'edusiteco')}
 						checked={showEmail}

@@ -14,13 +14,13 @@ if ($post_type !== 'profesor') {
     return;
 }
 
-$title = $attributes['title'] ?? '';
-$authors = $attributes['authors'] ?? '';
-$image = $attributes['image']['url'] ?? '';
-$image_alt = $attributes['image']['alt'] ?? '';
-$description = $attributes['description'] ?? '';
-$gallery = $attributes['gallery'] ?? [];
-$pdf = $attributes['pdf']['url'] ?? '';
+$title       = $attributes['title'] 		?? '';
+$authors 	 = $attributes['authors'] 		?? '';
+$image 		 = $attributes['image']['url']  ?? '';
+$image_alt   = $attributes['image']['alt']  ?? '';
+$description = $attributes['description']   ?? '';
+$gallery     = $attributes['gallery'] 		?? [];
+$pdf         = $attributes['pdf']['url'] 	?? '';
 $pdf_filename = $attributes['pdf']['filename'] ?? '';
 
 ?>
@@ -28,14 +28,14 @@ $pdf_filename = $attributes['pdf']['filename'] ?? '';
 	
 	<!-- Título -->
 	<?php if ($title): ?>
-		<h3 class="text-2xl md:text-3xl font-bold mt-0 mb-2 text-gray-900">
+		<h3 class="text-2xl md:text-3xl font-bold !mt-0 mb-2 text-gray-900">
 			<?php echo esc_html($title); ?>
 		</h3>
 	<?php endif; ?>
 
 	<!-- Autores -->
 	<?php if ($authors): ?>
-		<p class="italic text-sm md:text-base text-gray-600 mb-4">
+		<p class="italic text-sm md:text-base text-gray-600 mb-2">
 			Por: <?php echo esc_html($authors); ?>
 		</p>
 	<?php endif; ?>
@@ -47,7 +47,7 @@ $pdf_filename = $attributes['pdf']['filename'] ?? '';
 			<img 
 				src="<?php echo esc_url($image); ?>" 
 				alt="<?php echo esc_attr($image_alt ?: $title); ?>"
-				class="float-left w-full md:w-2/5 lg:w-1/3 mr-0 md:mr-6 mb-4 rounded-lg object-cover shadow-md"
+				class="float-left w-full md:w-2/5 lg:w-1/3 !my-0 mr-0 md:mr-6 mb-4 rounded-lg object-cover shadow-md"
 				style="max-height: 400px;"
 				loading="lazy"
 			/>
@@ -62,7 +62,7 @@ $pdf_filename = $attributes['pdf']['filename'] ?? '';
 				foreach ($paragraphs as $paragraph) {
 					$paragraph = trim($paragraph);
 					if (!empty($paragraph)) {
-						echo '<p class="mb-3">' . nl2br(esc_html($paragraph)) . '</p>';
+						echo '<p class="mb-2">' . nl2br(esc_html($paragraph)) . '</p>';
 					}
 				}
 				?>

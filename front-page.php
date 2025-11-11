@@ -14,50 +14,69 @@ get_header();
 	<section class="hero-section relative bg-gray-100">
 		<div class="swiper-container overflow-hidden">
 			<div class="swiper-wrapper">
-				<!-- Slide 1 -->
-				<div class="swiper-slide relative">
-					<div class="bg-cover bg-center h-96 lg:h-[600px]"
-						style="background-image: url('<?php echo get_theme_file_uri("assets/img/hero.jpg"); ?>')">
-						<div class="absolute inset-0 bg-black bg-opacity-40"></div>
-						<div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
-							<div class="text-white max-w-2xl">
-								<h1 class="text-4xl lg:text-6xl font-bold font-display mb-4">Bienvenidos a
-									<?php echo get_bloginfo('name'); ?></h1>
-								<p class="text-xl lg:text-2xl mb-8">Formando líderes para el futuro con excelencia
-									académica y valores</p>
-								<div class="flex flex-col sm:flex-row gap-4">
-									<a href="#admissions"
-										class="bg-brand-primary hover:bg-brand-secondary text-white px-8 py-3 rounded-lg font-semibold text-lg transition-colors text-center">
-										Admisiones
-									</a>
-									<a href="#about"
-										class="bg-white hover:bg-gray-100 text-brand-primary px-8 py-3 rounded-lg font-semibold text-lg transition-colors text-center">
-										Conoce más
-									</a>
+				<?php
+				// Query para los comunicados destacados
+				$comunicados_destacados = new WP_Query(array(
+					'post_type' => 'comunicado',
+					'posts_per_page' => 4, 
+					'meta_query' => array(
+						array(
+							'key' => '_es_destacado',
+							'value' => '1',
+							'compare' => '=',
+						),
+					),
+				));
+
+				if ($comunicados_destacados->have_posts()):
+					while ($comunicados_destacados->have_posts()):
+						$comunicados_destacados->the_post();
+						$has_thumbnail = has_post_thumbnail();
+						$background_style = '';
+						if ($has_thumbnail) {
+							$background_style = 'style="background-image: url(\'' . esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')) . '\')"';
+						}
+						?>
+						<div class="swiper-slide relative">
+							<div class="bg-cover bg-center h-96 lg:h-[600px] <?php echo !$has_thumbnail ? 'bg-gray-700' : ''; ?>" <?php echo $background_style; ?>>
+								
+								<?php if (!$has_thumbnail): ?>
+									<div class="absolute inset-0 bg-gradient-custom bg-opacity-80"></div>
+								<?php endif; ?>
+
+								<div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
+									<div class="text-white max-w-2xl">
+										<span class="bg-brand-primary text-white px-3 py-1 rounded-md text-sm font-bold mb-4 inline-block">Comunicado</span>
+										<h2 class="text-4xl lg:text-6xl font-bold font-display mb-4 line-clamp-2"><?php the_title(); ?></h2>
+										<div class="text-xl lg:text-2xl mb-8 line-clamp-3">
+											<?php the_excerpt(); ?>
+										</div>
+										<a href="<?php the_permalink(); ?>"
+											class="bg-white hover:bg-gray-100 text-brand-primary px-8 py-3 rounded-lg font-semibold text-lg transition-colors inline-block">
+											Leer más
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<?php
+					endwhile;
+					wp_reset_postdata();
+				else:
+					// Fallback: si no hay comunicados destacados, muestra un slide por defecto
+					?>
+					<div class="swiper-slide relative">
+						<div class="bg-cover bg-center h-96 lg:h-[600px]" style="background-image: url('<?php echo get_theme_file_uri("assets/img/hero.jpg"); ?>')">
+							<div class="absolute inset-0 bg-gradient-custom bg-opacity-40"></div>
+							<div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
+								<div class="text-white max-w-2xl">
+									<h1 class="text-4xl lg:text-6xl font-bold font-display mb-4">Bienvenidos a <?php echo get_bloginfo('name'); ?></h1>
+									<p class="text-xl lg:text-2xl mb-8">Formando líderes para el futuro con excelencia académica y valores</p>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-
-				<!-- Slide 2 -->
-				<div class="swiper-slide relative">
-					<div class="bg-cover bg-center h-96 lg:h-[600px]"
-						style="background-image: url('<?php echo get_theme_file_uri("assets/img/hero.jpg"); ?>')">
-						<div class="absolute inset-0 bg-black bg-opacity-40"></div>
-						<div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
-							<div class="text-white max-w-2xl">
-								<h2 class="text-4xl lg:text-6xl font-bold font-display mb-4">Excelencia Educativa</h2>
-								<p class="text-xl lg:text-2xl mb-8">Programas académicos innovadores y docentes
-									altamente calificados</p>
-								<a href="#programs"
-									class="bg-brand-warning hover:bg-brand-danger text-white px-8 py-3 rounded-lg font-semibold text-lg transition-colors inline-block">
-									Nuestros Programas
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
+				<?php endif; ?>
 			</div>
 
 			<!-- Navigation -->
