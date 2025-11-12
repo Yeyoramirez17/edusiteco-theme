@@ -41,7 +41,7 @@ get_header();
 							<div class="bg-cover bg-center h-96 lg:h-[600px] <?php echo !$has_thumbnail ? 'bg-gray-700' : ''; ?>" <?php echo $background_style; ?>>
 								
 								<?php if (!$has_thumbnail): ?>
-									<div class="absolute inset-0 bg-gradient-custom bg-opacity-80"></div>
+									<div class="absolute inset-0 bg-gradient-custom bg-opacity-50"></div>
 								<?php endif; ?>
 
 								<div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
