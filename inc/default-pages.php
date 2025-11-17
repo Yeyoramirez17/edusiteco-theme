@@ -51,7 +51,13 @@ function edusiteco_create_default_pages() {
             'page_slug'     => 'participa',
             'page_content'  => '',
             'page_template' => 'page-participates.php',
-        )
+        ),
+        array(
+            'page_title'    => 'Contáctanos',
+            'page_slug'     => 'contactanos',
+            'page_content'  => '',
+            'page_template' => 'page-contact.php',
+        ),
     );
 
     foreach ($pages as $value) {

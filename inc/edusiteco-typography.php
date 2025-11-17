@@ -1,7 +1,7 @@
 <?php
 /**
- * Sistema de Tipografía Personalizable
- * Añadir este código a functions.php
+ * Sistema de Tipografía Personalizable - VERSIÓN MEJORADA
+ * Resuelve conflictos con Tailwind CSS y mejora especificidad
  * 
  * @package edusiteco
  */
@@ -404,57 +404,181 @@ function edusiteco_typography_css() {
     
     ?>
     <style id="edusiteco-typography-customizer">
-        /* Fuente del cuerpo */
+        /* ========================================
+           CSS CUSTOM PROPERTIES
+           ======================================== */
+        :root {
+            --edusiteco-body-font: '<?php echo esc_attr($body_font_name); ?>', sans-serif;
+            --edusiteco-headings-font: '<?php echo esc_attr($headings_font_name); ?>', sans-serif;
+            --edusiteco-body-size: <?php echo esc_attr($body_size); ?>px;
+            --edusiteco-body-weight: <?php echo esc_attr($body_weight); ?>;
+            --edusiteco-body-color: <?php echo esc_attr($body_color); ?>;
+            --edusiteco-body-line-height: <?php echo esc_attr($body_line_height); ?>;
+            --edusiteco-headings-weight: <?php echo esc_attr($headings_weight); ?>;
+            --edusiteco-headings-color: <?php echo esc_attr($headings_color); ?>;
+            --edusiteco-headings-transform: <?php echo esc_attr($headings_transform); ?>;
+        }
+        
+        /* ========================================
+           BODY - CON EXCLUSIÓN DE ICONOS
+           ======================================== */
+        body, body *:not(.material-icons):not(.material-icons-outlined) {
+            font-family: var(--edusiteco-body-font) !important;
+        }
+        
         body {
-            font-family: '<?php echo esc_attr($body_font_name); ?>', sans-serif;
-            font-size: <?php echo esc_attr($body_size); ?>px;
-            font-weight: <?php echo esc_attr($body_weight); ?>;
-            color: <?php echo esc_attr($body_color); ?>;
-            line-height: <?php echo esc_attr($body_line_height); ?>;
+            font-size: var(--edusiteco-body-size) !important;
+            font-weight: var(--edusiteco-body-weight) !important;
+            color: var(--edusiteco-body-color) !important;
+            line-height: var(--edusiteco-body-line-height) !important;
         }
         
-        /* Encabezados */
-        h1, h2, h3, h4, h5, h6 {
-            font-family: '<?php echo esc_attr($headings_font_name); ?>', sans-serif;
-            font-weight: <?php echo esc_attr($headings_weight); ?>;
-            color: <?php echo esc_attr($headings_color); ?>;
-            text-transform: <?php echo esc_attr($headings_transform); ?>;
+        /* ========================================
+           PROTEGER GOOGLE MATERIAL ICONS
+           ======================================== */
+        .material-icons,
+        .material-icons-outlined {
+            font-family: 'Material Icons' !important;
+            font-weight: normal !important;
+            font-style: normal !important;
+            font-size: inherit;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+            -moz-osx-font-smoothing: grayscale;
+            font-feature-settings: 'liga';
         }
         
-        h1 { font-size: <?php echo esc_attr($h1_size); ?>px; }
-        h2 { font-size: <?php echo esc_attr($h2_size); ?>px; }
-        h3 { font-size: <?php echo esc_attr($h3_size); ?>px; }
-        h4 { font-size: <?php echo esc_attr($h4_size); ?>px; }
-        h5 { font-size: <?php echo esc_attr($h5_size); ?>px; }
-        h6 { font-size: <?php echo esc_attr($h6_size); ?>px; }
-        
-        /* Menú de navegación */
-        nav a,
-        .header-group a,
-        .nav-links a {
-            font-size: <?php echo esc_attr($menu_size); ?>px;
-            font-weight: <?php echo esc_attr($menu_weight); ?>;
-            color: <?php echo esc_attr($menu_color); ?>;
-            text-transform: <?php echo esc_attr($menu_transform); ?>;
+        .material-icons-outlined {
+            font-family: 'Material Icons Outlined' !important;
         }
         
-        /* Modo oscuro - ajustar colores automáticamente */
+        /* ========================================
+           HEADINGS - CON EXCLUSIÓN DE ICONOS
+           ======================================== */
+        h1:not(.material-icons):not(.material-icons-outlined),
+        .h1:not(.material-icons):not(.material-icons-outlined),
+        h2:not(.material-icons):not(.material-icons-outlined),
+        .h2:not(.material-icons):not(.material-icons-outlined),
+        h3:not(.material-icons):not(.material-icons-outlined),
+        .h3:not(.material-icons):not(.material-icons-outlined),
+        h4:not(.material-icons):not(.material-icons-outlined),
+        .h4:not(.material-icons):not(.material-icons-outlined),
+        h5:not(.material-icons):not(.material-icons-outlined),
+        .h5:not(.material-icons):not(.material-icons-outlined),
+        h6:not(.material-icons):not(.material-icons-outlined),
+        .h6:not(.material-icons):not(.material-icons-outlined) {
+            font-family: var(--edusiteco-headings-font) !important;
+            font-weight: var(--edusiteco-headings-weight) !important;
+            color: var(--edusiteco-headings-color) !important;
+            text-transform: var(--edusiteco-headings-transform) !important;
+        }
+        
+        h1, .h1 { 
+            font-size: <?php echo esc_attr($h1_size); ?>px !important; 
+        }
+        
+        h2, .h2 { 
+            font-size: <?php echo esc_attr($h2_size); ?>px !important; 
+        }
+        
+        h3, .h3 { 
+            font-size: <?php echo esc_attr($h3_size); ?>px !important; 
+        }
+        
+        h4, .h4 { 
+            font-size: <?php echo esc_attr($h4_size); ?>px !important; 
+        }
+        
+        h5, .h5 { 
+            font-size: <?php echo esc_attr($h5_size); ?>px !important; 
+        }
+        
+        h6, .h6 { 
+            font-size: <?php echo esc_attr($h6_size); ?>px !important; 
+        }
+        
+        /* ========================================
+           MENU - CON EXCLUSIÓN DE ICONOS
+           ======================================== */
+        nav a:not(.material-icons):not(.material-icons-outlined),
+        nav button:not(.material-icons):not(.material-icons-outlined),
+        nav li a:not(.material-icons):not(.material-icons-outlined),
+        .header-group a:not(.material-icons):not(.material-icons-outlined),
+        .header-group button:not(.material-icons):not(.material-icons-outlined),
+        .nav-links a:not(.material-icons):not(.material-icons-outlined),
+        .menu-item a:not(.material-icons):not(.material-icons-outlined) {
+            font-size: <?php echo esc_attr($menu_size); ?>px !important;
+            font-weight: <?php echo esc_attr($menu_weight); ?> !important;
+            color: <?php echo esc_attr($menu_color); ?> !important;
+            text-transform: <?php echo esc_attr($menu_transform); ?> !important;
+        }
+        
+        /* ========================================
+           DARK MODE - AJUSTES AUTOMÁTICOS
+           ======================================== */
         .dark body {
-            color: <?php echo edusiteco_adjust_color_brightness($body_color, 180); ?>;
+            color: <?php echo edusiteco_adjust_color_brightness($body_color, 150); ?> !important;
         }
         
-        .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
-            color: <?php echo edusiteco_adjust_color_brightness($headings_color, 200); ?>;
+        .dark h1, .dark h2, .dark h3, 
+        .dark h4, .dark h5, .dark h6,
+        .dark .h1, .dark .h2, .dark .h3,
+        .dark .h4, .dark .h5, .dark .h6 {
+            color: <?php echo edusiteco_adjust_color_brightness($headings_color, 180); ?> !important;
         }
         
         .dark nav a,
-        .dark .header-group a {
-            color: <?php echo edusiteco_adjust_color_brightness($menu_color, 200); ?>;
+        .dark nav button,
+        .dark .header-group a,
+        .dark .header-group button,
+        .dark .nav-links a {
+            color: <?php echo edusiteco_adjust_color_brightness($menu_color, 180); ?> !important;
+        }
+        
+        /* ========================================
+           OVERRIDE TAILWIND - CON PROTECCIÓN
+           ======================================== */
+        
+        body.font-plus-jakarta:not(.material-icons),
+        body.font-display:not(.material-icons) {
+            font-family: var(--edusiteco-body-font) !important;
+        }
+        
+        .font-quartzo-bold:not(.material-icons) {
+            font-family: var(--edusiteco-headings-font) !important;
+        }
+        
+        /* ========================================
+           ELEMENTOS DE FORMULARIO
+           ======================================== */
+        p:not(.material-icons), 
+        span:not(.material-icons):not(.material-icons-outlined), 
+        div:not(.material-icons), 
+        li:not(.material-icons), 
+        td:not(.material-icons), 
+        th:not(.material-icons), 
+        label:not(.material-icons), 
+        input:not(.material-icons), 
+        textarea:not(.material-icons), 
+        button:not(.material-icons) {
+            font-family: var(--edusiteco-body-font) !important;
+            font-size: inherit;
+            font-weight: inherit;
+            color: inherit;
         }
     </style>
     <?php
 }
-add_action('wp_head', 'edusiteco_typography_css');
+// Priority 999: Se ejecuta DESPUÉS que otros hooks
+add_action('wp_head', 'edusiteco_typography_css', 999);
 
 // ============================================
 // 4. CARGAR GOOGLE FONTS
@@ -478,26 +602,26 @@ function edusiteco_load_google_fonts() {
         wp_enqueue_style('edusiteco-google-fonts', $fonts_url, array(), null);
     }
 }
-add_action('wp_enqueue_scripts', 'edusiteco_load_google_fonts');
+add_action('wp_enqueue_scripts', 'edusiteco_load_google_fonts', 5);
 
 // ============================================
 // 5. FUNCIÓN AUXILIAR: AJUSTAR BRILLO
 // ============================================
 function edusiteco_adjust_color_brightness($hex, $brightness = 0) {
-    // Remover #
     $hex = str_replace('#', '', $hex);
     
-    // Convertir a RGB
+    if (strlen($hex) !== 6) {
+        return '#1A202C';
+    }
+    
     $r = hexdec(substr($hex, 0, 2));
     $g = hexdec(substr($hex, 2, 2));
     $b = hexdec(substr($hex, 4, 2));
     
-    // Ajustar brillo
     $r = max(0, min(255, $r + $brightness));
     $g = max(0, min(255, $g + $brightness));
     $b = max(0, min(255, $b + $brightness));
     
-    // Convertir de vuelta a HEX
     return '#' . str_pad(dechex($r), 2, '0', STR_PAD_LEFT)
                . str_pad(dechex($g), 2, '0', STR_PAD_LEFT)
                . str_pad(dechex($b), 2, '0', STR_PAD_LEFT);
@@ -511,7 +635,7 @@ function edusiteco_typography_customizer_live_preview() {
         'edusiteco-typography-customizer',
         get_template_directory_uri() . '/js/typography-customizer.js',
         array('customize-preview'),
-        '1.0.0',
+        '1.0.1',
         true
     );
 }

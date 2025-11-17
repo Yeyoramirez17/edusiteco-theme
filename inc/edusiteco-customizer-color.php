@@ -456,7 +456,7 @@ function edusiteco_customize_register($wp_customize)
 
     // Tamaño - Menu
     $wp_customize->add_setting('menu_font_size', array(
-        'default' => '14',
+        'default' => '16',
         'sanitize_callback' => 'absint',
         'transport' => 'postMessage',
     ));
@@ -589,15 +589,15 @@ function edusiteco_output_all_custom_styles()
     $gradient_direction = get_theme_mod('gradient_direction', 'to right');
 
     // ========== TIPOGRAFÍA ==========
-    $body_font = get_theme_mod('body_font_family', 'Plus Jakarta Sans:200,300,400,500,600,700');
-    $body_size = get_theme_mod('body_font_size', 16);
-    $body_weight = get_theme_mod('body_font_weight', '400');
-    $body_color = get_theme_mod('body_text_color', '#1A202C');
+    $body_font      = get_theme_mod('body_font_family', 'Plus Jakarta Sans:200,300,400,500,600,700');
+    $body_size      = get_theme_mod('body_font_size', 16);
+    $body_weight    = get_theme_mod('body_font_weight', '400');
+    $body_color     = get_theme_mod('body_text_color', '#1A202C');
     $body_line_height = get_theme_mod('body_line_height', '1.6');
 
-    $headings_font = get_theme_mod('headings_font_family', 'Montserrat:400,500,600,700');
-    $headings_weight = get_theme_mod('headings_font_weight', '700');
-    $headings_color = get_theme_mod('headings_text_color', '#1A202C');
+    $headings_font      = get_theme_mod('headings_font_family', 'Montserrat:400,500,600,700');
+    $headings_weight    = get_theme_mod('headings_font_weight', '700');
+    $headings_color     = get_theme_mod('headings_text_color', '#1A202C');
     $headings_transform = get_theme_mod('headings_text_transform', 'none');
 
     $h1_size = get_theme_mod('h1_font_size', 36);

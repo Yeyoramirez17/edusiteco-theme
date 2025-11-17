@@ -74,7 +74,7 @@ class Custom_Nav_Walker extends Walker_Nav_Menu
         if ($has_header_image) {
             // CON IMAGEN - siempre usar blanco/claro para mejor contraste
             $text_color_class = 'text-white drop-shadow-md';
-            $hover_color_class = 'hover:text-yellow-200';
+            $hover_color_class = 'hover:text-brand-primary-200';
             $icon_color_class = 'text-white drop-shadow-sm';
             $focus_ring_class = 'focus:ring-white/50 focus:ring-offset-blue-900';
         } else {
@@ -266,6 +266,9 @@ function edusiteco_default_menu()
 
             $symbols_page = get_page_by_path('simbolos-institucionales');
             $symbols_url = $symbols_page ? get_permalink($symbols_page->ID) : '#';
+
+            $contact_page = get_page_by_path('contactanos');
+            $contact_url = $contact_page ? get_permalink($contact_page->ID) : '#';
             ?>
 
             <a href="<?= $institution_url ?>"
@@ -293,6 +296,12 @@ function edusiteco_default_menu()
             <a class="<?= $link_class ?> text-sm font-semibold underline-link transition-all px-3 py-2 rounded-sm focus:outline-none focus:ring-2 focus:ring-offset-2"
                 href="/profesores/">
                 <span>Profesores</span>
+            </a>
+        </li>
+        <li class="header-group">
+            <a class="<?= $link_class ?> text-sm font-semibold underline-link transition-all px-3 py-2 rounded-sm focus:outline-none focus:ring-2 focus:ring-offset-2"
+                href="<?= $contact_url ?>">
+                <span>Contáctanos</span>
             </a>
         </li>
     </ul>

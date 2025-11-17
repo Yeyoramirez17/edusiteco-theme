@@ -230,7 +230,14 @@ function edusiteco_enqueue_swiper() {
     }
 }
 add_action('wp_enqueue_scripts', 'edusiteco_enqueue_swiper');
-
+# Leaflet Maps
+function edusiteco_enqueue_leaflet() {
+	if (is_page_template('page-contact.php') || is_front_page()) {
+		wp_enqueue_style('leaflet-css', 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css', array(), '1.9.4');
+		wp_enqueue_script('leaflet-js', 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js', array(), '1.9.4', true);
+	}
+}
+add_action('wp_enqueue_scripts', 'edusiteco_enqueue_leaflet');
 # Google Icons
 function edusiteco_enqueue_google_icons() {
 	wp_enqueue_style('google-icons', 'https://fonts.googleapis.com/icon?family=Material+Icons', array(), null);

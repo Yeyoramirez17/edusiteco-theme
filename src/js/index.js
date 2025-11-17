@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // --- Swiper Carousel Initialization (Front Page) ---
     // Solo se inicializa si el contenedor existe y la librería Swiper está cargada
-    
+
     const swiperContainer = document.querySelector('.swiper-container');
     if (swiperContainer && typeof Swiper !== 'undefined') {
         const swiper = new Swiper('.swiper-container', {
@@ -153,4 +153,26 @@ document.addEventListener('DOMContentLoaded', function () {
         section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(section);
     });
+
+    // Mapa
+    const mapContainer = document.getElementById('map');
+    if (mapContainer && typeof L !== 'undefined') {
+        const map = L.map('map').setView([2.4402181, -76.6078959], 15); // Coordenadas de Popayán
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors',
+            maxZoom: 19,
+            className: 'leaflet-tiles'
+        }).addTo(map);
+
+        // Agregar marcador personalizado
+        const marker = L.marker([2.4402181, -76.6078959]).addTo(map);
+        marker.bindPopup(
+            '<div style="font-family: Plus Jakarta Sans; font-weight: 600;">' +
+            '<strong>📍 IERP Popayán</strong><br>' +
+            'Sede Principal<br>' +
+            '<a href="tel:+573015551234">+57 301 555 1234</a>' +
+            '</div>'
+        ).openPopup();
+    }
 });

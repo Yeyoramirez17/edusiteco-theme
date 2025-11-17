@@ -12,19 +12,26 @@ get_header();
 
     <!-- Hero Section Mejorada con Animación -->
     <section class="relative h-[60vh] md:h-[80vh] bg-cover bg-center flex items-center justify-center overflow-hidden bg-gradient-custom">
-        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div class="absolute inset-0"></div>
         <div class="relative z-10 text-center text-white px-4 max-w-4xl mx-auto animate-fade-in-up">
-            <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-slide-in-top">Nuestra Institución</h1>
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-slide-in-top text-text-dark">Nuestra Institución</h1>
             <p class="text-xl md:text-2xl mb-8 animate-slide-in-bottom">Educando con valores para el futuro de Colombia
             </p>
+            <?php
+                $history_page = get_page_by_path('historia');
+                $history_url = $history_page ? get_permalink($history_page->ID) : '#';
+
+                $symbols_page = get_page_by_path('simbolos-institucionales');
+                $symbols_url = $symbols_page ? get_permalink($symbols_page->ID) : '#';
+            ?>
             <div class="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in-delayed">
-                <a href="#historia"
-                    class="bg-[hsl(var(--color-brand-primary))] text-white font-semibold py-3 px-8 rounded-full hover:bg-[hsl(var(--color-brand-primary-600))] transition-all duration-300 transform hover:scale-105">
+                <a href="<?php echo esc_url($history_url); ?>"
+                    class="bg-brand-primary border-2 border-white text-white font-semibold py-3 px-8 rounded-full hover:bg-brand-primary-600 transition-all duration-300 transform hover:scale-105">
                     Nuestra Historia
                 </a>
-                <a href="#instalaciones"
+                <a href="<?php echo esc_url($symbols_url); ?>"
                     class="bg-transparent border-2 border-white text-white font-semibold py-3 px-8 rounded-full hover:bg-white hover:text-[hsl(var(--color-brand-primary))] transition-all duration-300 transform hover:scale-105">
-                    Conoce Nuestras Instalaciones
+                    Conoce Nuestros Simbolos
                 </a>
             </div>
         </div>
@@ -63,7 +70,7 @@ get_header();
                             educativa.
                         </p>
                     </div>
-                    <a href="#"
+                    <a href="<?php echo esc_url($history_url); ?>"
                         class="mt-6 inline-block bg-[hsl(var(--color-brand-primary))] text-white font-semibold py-3 px-8 rounded-full hover:bg-[hsl(var(--color-brand-primary-600))] transition-all duration-300 transform hover:scale-105">
                         Historia Completa
                     </a>
@@ -351,7 +358,11 @@ get_header();
                 </div>
             </div>
 
-            <a href="#"
+            <?php 
+                $page_mision = get_page_by_path('mision-vision-y-valores');
+                $mision_url = $page_mision ? get_permalink($page_mision->ID) : '#';
+            ?>
+            <a href="<?= esc_url($mision_url); ?>"
                 class="mt-12 inline-block bg-white text-[hsl(var(--color-brand-primary))] px-8 py-3 rounded-full font-semibold hover:bg-white/90 transition-all duration-300 transform hover:scale-105 animate-fade-in-up"
                 style="animation-delay: 0.5s">
                 Conoce Nuestra Filosofía Completa
@@ -429,7 +440,7 @@ get_header();
                     class="bg-white text-[hsl(var(--color-brand-primary))] px-8 py-3 rounded-full font-semibold text-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105">
                     Solicitar Información
                 </a>
-                <a href="#news"
+                <a href="<?php echo get_post_type_archive_link('comunicado'); ?>"
                     class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full font-semibold text-lg hover:bg-white hover:text-[hsl(var(--color-brand-primary))] transition-all duration-300 transform hover:scale-105">
                     Ver Últimas Noticias
                 </a>
