@@ -32,7 +32,7 @@ get_header();
                     
                     <!-- Campo Nombre -->
                     <div class="form-group">
-                        <label for="nombre" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                        <label for="nombre" class="block font-semibold text-gray-700 dark:text-gray-300 mb-2">
                             Nombre <span class="text-red-500">*</span>
                         </label>
                         <input 
@@ -48,7 +48,7 @@ get_header();
 
                     <!-- Campo Email -->
                     <div class="form-group">
-                        <label for="email" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                        <label for="email" class="block font-semibold text-gray-700 dark:text-gray-300 mb-2">
                             Correo Electrónico <span class="text-red-500">*</span>
                         </label>
                         <input 
@@ -63,7 +63,7 @@ get_header();
 
                     <!-- Campo Asunto (Opcional) -->
                     <div class="form-group">
-                        <label for="asunto" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                        <label for="asunto" class="block font-semibold text-gray-700 dark:text-gray-300 mb-2">
                             Asunto <span class="text-gray-500 text-xs">(Opcional)</span>
                         </label>
                         <input 
@@ -77,7 +77,7 @@ get_header();
 
                     <!-- Campo Mensaje -->
                     <div class="form-group">
-                        <label for="mensaje" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                        <label for="mensaje" class="block font-semibold text-gray-700 dark:text-gray-300 mb-2">
                             Mensaje <span class="text-red-500">*</span>
                         </label>
                         <textarea 
@@ -115,7 +115,7 @@ get_header();
             </div>
 
             <!-- Columna Derecha: Información + Mapa -->
-            <div class="space-y-8 animate-fade-in-right">
+            <div class="space-y-4 animate-fade-in-right">
                 
                 <!-- Información de Contacto -->
                 <div class="bg-white dark:bg-slate-800 rounded-xl shadow-lg p-8">
@@ -126,7 +126,7 @@ get_header();
                     <div class="space-y-6">
                         
                         <!-- Dirección -->
-                        <div class="flex gap-4 pb-6 border-b border-gray-200 dark:border-slate-700">
+                        <div class="flex gap-2 pb-3 border-b border-gray-200 dark:border-slate-700">
                             <div class="flex-shrink-0">
                                 <div class="flex items-center justify-center h-10 w-10 rounded-lg" style="background-color: hsl(var(--color-brand-primary) / 0.1);">
                                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: hsl(var(--color-brand-primary));">
@@ -137,7 +137,7 @@ get_header();
                             </div>
                             <div>
                                 <h4 class="font-bold text-gray-900 dark:text-white mb-1">Dirección</h4>
-                                <p class="text-gray-600 dark:text-gray-400">
+                                <p class="text-text-light dark:text-text-dark">
                                     Calle Principal 123<br>
                                     Popayán, Cauca 76001
                                 </p>
@@ -145,7 +145,7 @@ get_header();
                         </div>
 
                         <!-- Teléfono -->
-                        <div class="flex gap-4 pb-6 border-b border-gray-200 dark:border-slate-700">
+                        <div class="flex gap-2 pb-3 border-b border-gray-200 dark:border-slate-700">
                             <div class="flex-shrink-0">
                                 <div class="flex items-center justify-center h-10 w-10 rounded-lg" style="background-color: hsl(var(--color-brand-accent) / 0.1);">
                                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: hsl(var(--color-brand-accent));">
@@ -155,7 +155,7 @@ get_header();
                             </div>
                             <div>
                                 <h4 class="font-bold text-gray-900 dark:text-white mb-1">Teléfono</h4>
-                                <p class="text-gray-600 dark:text-gray-400">
+                                <p class="text-text-light dark:text-text-dark">
                                     <a href="tel:+573015551234" class="hover:font-semibold transition-all" style="color: hsl(var(--color-brand-primary));">
                                         +57 301 555 1234
                                     </a>
@@ -164,7 +164,7 @@ get_header();
                         </div>
 
                         <!-- Email -->
-                        <div class="flex gap-4 pb-6 border-b border-gray-200 dark:border-slate-700">
+                        <div class="flex gap-2 pb-3 border-b border-gray-200 dark:border-slate-700">
                             <div class="flex-shrink-0">
                                 <div class="flex items-center justify-center h-10 w-10 rounded-lg" style="background-color: hsl(var(--color-brand-warning) / 0.1);">
                                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: hsl(var(--color-brand-warning));">
@@ -174,7 +174,7 @@ get_header();
                             </div>
                             <div>
                                 <h4 class="font-bold text-gray-900 dark:text-white mb-1">Correo Electrónico</h4>
-                                <p class="text-gray-600 dark:text-gray-400">
+                                <p class="text-text-light dark:text-text-dark">
                                     <a href="mailto:info@ierp-popayan.edu.co" class="hover:font-semibold transition-all" style="color: hsl(var(--color-brand-primary));">
                                         info@ierp-popayan.edu.co
                                     </a>
@@ -183,7 +183,7 @@ get_header();
                         </div>
 
                         <!-- Horario -->
-                        <div class="flex gap-4">
+                        <div class="flex gap-2">
                             <div class="flex-shrink-0">
                                 <div class="flex items-center justify-center h-10 w-10 rounded-lg" style="background-color: hsl(var(--color-brand-secondary) / 0.1);">
                                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: hsl(var(--color-brand-secondary));">
@@ -206,7 +206,7 @@ get_header();
 
                 <!-- Mapa Incrustado -->
                 <div class="bg-white dark:bg-slate-800 rounded-xl shadow-lg overflow-hidden border-2" style="border-color: hsl(var(--color-brand-primary) / 0.2);">
-                    <div class="relative w-full h-80">
+                    <div class="relative w-full h-60">
                         <div id="map" class="w-full h-full rounded-xl"></div>
                     </div>
                 </div>

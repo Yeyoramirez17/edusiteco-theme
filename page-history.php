@@ -8,8 +8,8 @@
 
 <main id="primary" class="site-main">
     <!-- Hero Section -->
-    <section class="relative h-[50vh] bg-cover bg-center flex items-center justify-center text-white"
-        style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://placehold.co/1200x600/1e40af/ffffff?text=Nuestra+Historia');">
+    <section class="relative h-[50vh] bg-cover bg-gradient-custom flex items-center justify-center text-white"
+        style="">
         <div class="relative z-10 text-center px-4 animate-fade-in-up">
             <h1 class="text-4xl md:text-6xl font-bold font-display mb-4"><?php the_title(); ?></h1>
             <p class="text-xl md:text-2xl opacity-90">

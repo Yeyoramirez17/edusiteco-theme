@@ -58,6 +58,12 @@ function edusiteco_create_default_pages() {
             'page_content'  => '',
             'page_template' => 'page-contact.php',
         ),
+        array(
+            'page_title'    => 'Psicoorientación Escolar',
+            'page_slug'     => 'psicoorientacion-escolar',
+            'page_content'  => '',
+            'page_template' => 'page-psicoorientacion.php',
+        ),
     );
 
     foreach ($pages as $value) {

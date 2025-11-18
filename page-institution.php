@@ -76,10 +76,10 @@ get_header();
                     </a>
                 </div>
                 <div class="relative animate-fade-in-right">
-                    <img 
+                    <img
                         alt="Estudiantes en un aula"
                         class="rounded-lg shadow-xl w-full transform hover:scale-105 transition-transform duration-500"
-                        src="https://placehold.co/600x400/3b82f6/ffffff?text=Estudiantes+en+Aula" 
+                        src="https://placehold.co/600x400/3b82f6/ffffff?text=Estudiantes+en+Aula"
                     />
 
                     <div class="absolute -bottom-8 -left-8 grid grid-cols-3 gap-4 w-full max-w-sm">
@@ -358,7 +358,7 @@ get_header();
                 </div>
             </div>
 
-            <?php 
+            <?php
                 $page_mision = get_page_by_path('mision-vision-y-valores');
                 $mision_url = $page_mision ? get_permalink($page_mision->ID) : '#';
             ?>
