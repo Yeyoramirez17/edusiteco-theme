@@ -110,17 +110,48 @@
 							<path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
 						</svg>
 					</a>
-					<a href="#" target="_blank" class="group" aria-label="<?php esc_attr_e('Twitter', 'edusiteco'); ?>"
-						title="<?php esc_attr_e('Cuenta de Twitter', 'edusiteco') ?>">
-						<img class="w-8 h-8 transition-transform duration-300 group-hover:scale-110"
-							src="<?php echo get_theme_file_uri('assets/svg/twitter.svg') ?>"
-							alt="<?php esc_attr_e('Twitter', 'edusiteco') . ' ' . get_bloginfo('name'); ?>" srcset="" />
+					<a href="#" target="_blank" 
+						class="group text-brand-primary" 
+						aria-label="<?php esc_attr_e('Twitter', 'edusiteco'); ?>"
+						title="<?php esc_attr_e('Cuenta de Twitter', 'edusiteco') ?>"
+					>
+						<svg 
+							xmlns="http://www.w3.org/2000/svg" 
+							aria-label="Twitter" 
+							role="img" viewBox="0 0 512 512" fill="#FFFFFF"
+							class="w-8 h-8 transition-transform duration-300 group-hover:scale-110" 
+						>
+							<g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+							<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+							<g id="SVGRepo_iconCarrier">
+								<rect width="512" height="512" rx="15%" fill="currentColor"></rect>
+								<path fill="#FFFFFF" d="M437 152a72 72 0 01-40 12a72 72 0 0032-40a72 72 0 01-45 17a72 72 0 00-122 65a200 200 0 01-145-74a72 72 0 0022 94a72 72 0 01-32-7a72 72 0 0056 69a72 72 0 01-32 1a72 72 0 0067 50a200 200 0 01-105 29a200 200 0 00309-179a200 200 0 0035-37"></path>
+							</g>
+						</svg>
 					</a>
-					<a href="#" target="_blank" class="group" aria-label="<?php esc_attr_e('YouTube', 'edusiteco'); ?>"
-						title="<?php esc_attr_e('Canal de YouTube', 'edusiteco') ?>">
-						<img class="w-8 h-8 transition-transform duration-300 group-hover:scale-110"
-							src="<?php echo get_theme_file_uri('assets/svg/youtube.svg') ?>"
-							alt="<?php esc_attr_e('YouTube', 'edusiteco') . ' ' . get_bloginfo('name'); ?>" srcset="" />
+					<a 
+						href="#" 
+						target="_blank" 
+						class="group text-brand-primary" 
+						aria-label="<?php esc_attr_e('YouTube', 'edusiteco'); ?>"
+						title="<?php esc_attr_e('Canal de YouTube', 'edusiteco') ?>"
+					>
+						<svg 
+							xmlns="http://www.w3.org/2000/svg" 
+							aria-label="YouTube" 
+							role="img" 
+							viewBox="0 0 512 512" 
+							fill="currentColor"
+							class="w-8 h-8 transition-transform duration-300 group-hover:scale-110"
+						>
+							<g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+							<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+							<g id="SVGRepo_iconCarrier">
+								<rect width="512" height="512" rx="15%"></rect>
+								<path d="m427 169c-4-15-17-27-32-31-34-9-239-10-278 0-15 4-28 16-32 31-9 38-10 135 0 174 4 15 17 27 32 31 36 10 241 10 278 0 15-4 28-16 32-31 9-36 9-137 0-174" fill="#ffffff"></path>
+								<path d="m220 203v106l93-53"></path>
+							</g>
+						</svg>
 					</a>
 				</div>
 			</div>
