@@ -4,6 +4,7 @@ $columns   = $attributes['columns']   ?? 3;
 $imageSize = $attributes['imageSize'] ?? 64;
 $gap       = $attributes['gap']       ?? 4;
 $fontSize  = $attributes['fontSize']  ?? 16;
+$title     = $attributes['title']     ?? '';
 
 $colClass = match ($columns) {
 	1 => 'grid-cols-1',
@@ -12,6 +13,8 @@ $colClass = match ($columns) {
 	default => 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'
 };
 ?>
+
+<h3 class="text-text-light dark:text-text-dark mb-3"><?php echo $title ?></h3>
 
 <div class="grid <?php echo $colClass; ?> gap-<?php echo intval($gap); ?>">
 

@@ -672,3 +672,181 @@ MAIN NAVIGATION STYLES - CORREGIDO
     }
   }
 }
+/* ============================================
+   PSICO RESOURCES BLOCK - DYNAMIC STYLES
+   ============================================ */
+
+/**
+ * Main section wrapper
+ * Transitions between light and dark modes
+ */
+.psico-resources-section {
+    background-color: hsl(var(--color-background-light) / 1);
+}
+
+.dark .psico-resources-section {
+    background-color: hsl(var(--color-background-dark) / 1);
+}
+
+/**
+ * Resource card styling
+ * - Base shadow applied via inline style in render.php
+ * - Hover effect with scale transform
+ */
+.psico-resource-card {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid hsl(var(--color-border-light));
+}
+
+.psico-resource-card:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/**
+ * Dark mode card adjustments
+ */
+.dark .psico-resource-card {
+    background-color: hsl(var(--color-gray-800));
+    border-color: hsl(var(--color-border-dark));
+}
+
+.dark .psico-resource-card:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+}
+
+/**
+ * Resource type badge styling
+ * - Responsive text size
+ * - Color coordination with brand primary
+ */
+.psico-resource-card span[class*="bg-brand"] {
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+}
+
+/**
+ * Image responsive behavior
+ * - Maintains 16:9 aspect ratio via height control
+ * - Hover zoom effect for visual feedback
+ */
+.psico-resource-card img {
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    transition: transform 0.3s ease-out;
+}
+
+.psico-resource-card img:hover {
+    transform: scale(1.1);
+}
+
+/**
+ * Action button styles
+ * - Gradient shimmer effect on hover
+ * - Smooth color transitions
+ */
+.psico-resource-card a[target="_blank"] {
+    position: relative;
+    overflow: hidden;
+}
+
+.psico-resource-card a[target="_blank"]::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.psico-resource-card a[target="_blank"]:hover::before {
+    left: 100%;
+}
+
+/**
+ * Mobile responsive adjustments
+ * - Single column layout
+ * - Reduced padding for smaller screens
+ */
+@media (max-width: 640px) {
+    .psico-resources-section {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+    
+    .psico-resource-card {
+        padding: 1rem;
+        min-height: auto;
+    }
+    
+    .psico-resource-card h3 {
+        font-size: 1rem;
+    }
+}
+
+/**
+ * Dark mode hover state optimization
+ */
+.dark .psico-resource-card:hover {
+    border-color: hsl(var(--color-brand-primary) / 0.5);
+}
+
+/**
+ * Animation queue for staggered card appearance
+ * Each card delays by 100ms for smooth entrance
+ */
+@keyframes resource-slide-in {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.psico-resource-card {
+    animation: resource-slide-in 0.5s ease-out forwards;
+}
+
+.psico-resource-card:nth-child(1) { animation-delay: 0s; }
+.psico-resource-card:nth-child(2) { animation-delay: 0.1s; }
+.psico-resource-card:nth-child(3) { animation-delay: 0.2s; }
+.psico-resource-card:nth-child(4) { animation-delay: 0.3s; }
+.psico-resource-card:nth-child(5) { animation-delay: 0.4s; }
+.psico-resource-card:nth-child(6) { animation-delay: 0.5s; }
+.psico-resource-card:nth-child(7) { animation-delay: 0.6s; }
+.psico-resource-card:nth-child(8) { animation-delay: 0.7s; }
+
+/**
+ * Tablet and above optimizations
+ */
+@media (min-width: 768px) {
+    .psico-resources-section {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+    }
+    
+    .psico-resource-card {
+        padding: 1.5rem;
+    }
+}
+
+/**
+ * Prefers reduced motion - Respect user accessibility settings
+ */
+@media (prefers-reduced-motion: reduce) {
+    .psico-resource-card {
+        animation: none;
+        transition: none;
+    }
+    
+    .psico-resource-card:hover {
+        transform: none;
+    }
+}

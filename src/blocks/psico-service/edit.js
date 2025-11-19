@@ -57,7 +57,7 @@ export default function Edit({ attributes, setAttributes }) {
 					<RangeControl
 						label="Columnas"
 						value={columns}
-						onChange={(v) => setAttributes({ columns: v })}
+						onChange={(value) => setAttributes({ columns: value })}
 						min={1}
 						max={3}
 					/>
@@ -88,19 +88,20 @@ export default function Edit({ attributes, setAttributes }) {
 				</PanelBody>
 			</InspectorControls>
 
+			{/* Título del bloque */}
+			<RichText
+				tagName="h3"
+				value={title}
+				className="font-semibold my-3"
+				onChange={(value) => setAttributes({ title: value })}
+				placeholder=" Titulo ej: Accede a nuestros servicios psicoeducativos"
+			/>
+
 			<div
 				{...useBlockProps({
-					className: `grid ${colClass} gap-${gap}`,
+					className: `grid ${colClass} gap-${gap} mx-0`,
 				})}
 			>
-				<RichText
-					tagName="h3"
-					value={title}
-					className="font-semibold"
-					style={{ fontSize: fontSize + 'px' }}
-					onChange={(v) => updateItem(i, 'title', v)}
-				/>
-
 				{items.map((item, i) => (
 					<div key={i} className="p-6 bg-white rounded-xl shadow flex gap-4 items-start">
 

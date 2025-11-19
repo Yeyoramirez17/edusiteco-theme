@@ -14,7 +14,7 @@
   "render": "file:./render.php",
   "supports": {
 		"html": false,
-    "align": ["full", "wide"]
+    	"align": ["full", "wide"]
 	},
 	"attributes": {
 		"items": {
@@ -23,7 +23,7 @@
 		},
 		"columns": {
 			"type": "number",
-			"default": 3
+			"default": 2
 		},
 		"imageSize": {
 			"type": "number",
@@ -36,6 +36,10 @@
 		"fontSize": {
 			"type": "number",
 			"default": 16
+		},
+		"title": {
+			"type": "string",
+			"default": ""
 		}
 	}
 }

@@ -74,8 +74,8 @@ export default function Edit({ attributes, setAttributes }) {
 			currentUser: user ? {
 				...user,
 				avatar: user.avatar_urls?.[96] || '',
-				subject: user.meta?.subject || '',
-				title: user.meta?.title || '',
+				subject: user.meta?.subject    || '',
+				title: user.meta?.title        || '',
 			} : null,
 			isResolving,
 			hasTeacherRole: user?.roles?.includes('profesor_role') || false,
