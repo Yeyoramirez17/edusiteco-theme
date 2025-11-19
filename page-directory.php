@@ -7,7 +7,7 @@ get_header();
 
 <main class="site-main bg-gray-50 dark:bg-gray-900 transition-colors duration-300" role="main">
     <!-- Hero Section -->
-    <section class="hero-directorio relative bg-gradient-to-r from-blue-900 to-blue-700 dark:from-blue-950 dark:to-blue-800 text-white py-20 px-4 overflow-hidden" aria-labelledby="directorio-title">
+    <section class="hero-directorio relative bg-gradient-custom dark:from-blue-950 dark:to-blue-800 text-white py-20 px-4 overflow-hidden" aria-labelledby="directorio-title">
         <!-- Patrón decorativo SVG animado -->
         <div class="absolute inset-0 opacity-10" aria-hidden="true">
             <svg viewBox="0 0 1000 500" fill="currentColor" class="w-full h-full">

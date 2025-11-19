@@ -20,3 +20,14 @@ function edusiteco_register_theme_blocks() {
 	}
 }
 add_action( 'init', 'edusiteco_register_theme_blocks' );
+
+
+function edusiteco_register_category_blocks( $categories ) {
+	$edusiteco_blocks = array(
+		'slug' => 'edusiteco-blocks',
+		'title' => __( 'Edusiteco Blocks', 'edusiteco' ),
+	);
+
+	return array_merge( $categories, array( $edusiteco_blocks ) );
+}
+add_filter( 'block_categories_all', 'edusiteco_register_category_blocks' );

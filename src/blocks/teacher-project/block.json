@@ -3,7 +3,7 @@
 	"apiVersion": 3,
 	"name": "edusiteco/teacher-project",
 	"title": "Proyecto del Profesor",
-	"category": "widgets",
+	"category": "edusiteco-blocks",
 	"icon": "portfolio",
 	"description": "Bloque para mostrar un proyecto del profesor con imagen, descripción, galería y documento.",
 	"keywords": [

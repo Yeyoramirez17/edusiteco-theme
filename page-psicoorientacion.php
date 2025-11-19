@@ -1,39 +1,50 @@
 <?php
 /**
  * Template Name: Psicoorientación
- * Description: Página de Psicoorientación - plantilla con formulario, recursos, actividades y mapa. Usa Tailwind CSS.
+ * Description: Página para Psicoorientación.
  */
 
 get_header();
 ?>
 
-<main id="primary" class="site-main"></main>
-    <!-- Sección Hero -->
-    <section class="relative h-[50vh] bg-cover bg-gradient-custom flex items-center justify-center text-white"
-        style="">
-        <div class="relative z-10 text-center px-4 animate-fade-in-up">
-            <h1 class="text-4xl md:text-6xl font-bold font-display mb-4"><?php the_title(); ?></h1>
-            <p class="text-xl md:text-2xl opacity-90">
-                <?php
-                // Este texto podría ser un campo personalizado (Custom Field) para ser editable.
-                echo esc_html__('Apoyando el bienestar emocional y académico de nuestros estudiantes', 'edusiteco');
-                ?>
+<main id="primary" class="site-main">
+
+    <!-- 🌟 HERO -->
+    <section class="relative h-[50vh] bg-gradient-custom flex items-center justify-center text-white overflow-hidden">
+        
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-black/40"></div>
+
+        <!-- Contenido del Hero -->
+        <div class="relative z-10 text-center px-6 animate-fade-in-up">
+            <h1 class="text-4xl md:text-6xl font-bold font-display mb-4">
+                <?php the_title(); ?>
+            </h1>
+
+            <p class="text-lg md:text-2xl opacity-90 max-w-2xl mx-auto">
+                <?php echo esc_html__('Apoyando el bienestar emocional y académico de nuestros estudiantes', 'edusiteco'); ?>
             </p>
         </div>
     </section>
 
-    <!-- Contenido Principal -->
-    <article class="py-16 md:py-24 bg-gray-50 dark:bg-gray-900">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="prose dark:prose-invert lg:prose-xl mx-auto text-text-light dark:text-text-dark">
-                <?php
-                // El contenido principal se obtiene del editor de WordPress.
-                while (have_posts()) :
+    <!-- 🌿 CONTENIDO PRINCIPAL -->
+    <article 
+        class="w-full max-w-6xl mx-auto px-6 py-12 md:py-20 
+               bg-background-light dark:bg-background-dark 
+               transition-colors duration-300"
+    >
+        <div 
+            class="wp-block-area prose dark:prose-invert 
+                   max-w-none 
+                   prose-img:rounded-xl 
+                   prose-headings:scroll-mt-24"
+        >
+            <?php
+                while ( have_posts() ):
                     the_post();
                     the_content();
                 endwhile;
-                ?>
-            </div>
+            ?>
         </div>
     </article>
 
