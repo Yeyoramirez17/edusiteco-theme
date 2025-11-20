@@ -3,7 +3,7 @@
  * Render callback for the Psico Resources Block
  * 
  * Displays a responsive grid of psychological resources with
- * configurable styling, shadow depths, and image dimensions.
+ * configurable styling and theme colors applied.
  * 
  * @package edusiteco
  */
@@ -13,10 +13,8 @@ $items = $attributes['items'] ?? [];
 $sectionTitle = $attributes['sectionTitle'] ?? 'Recursos Psicoeducativos';
 $sectionDescription = $attributes['sectionDescription'] ?? '';
 $columns = $attributes['columns'] ?? 3;
-$imageHeight = $attributes['imageHeight'] ?? 192;  // Default 192px
-$shadowDepth = $attributes['shadowDepth'] ?? 1;    // Default light shadow
-
-
+$imageHeight = $attributes['imageHeight'] ?? 192;
+$shadowDepth = $attributes['shadowDepth'] ?? 1;
 
 // Stop rendering if no items to display
 if (empty($items))
@@ -24,38 +22,38 @@ if (empty($items))
 
 /**
  * Shadow CSS map - Converts shadow depth levels to CSS box-shadow values
- * 0 = No shadow (flat)
- * 1 = Light shadow (2px blur)
- * 2 = Medium shadow (8px blur)
- * 3 = Heavy shadow (16px blur)
  */
 $shadowMap = [
     0 => 'none',
-    1 => '0 2px 4px rgba(0, 0, 0, 0.08)',
-    2 => '0 8px 16px rgba(0, 0, 0, 0.12)',
-    3 => '0 16px 32px rgba(0, 0, 0, 0.18)'
+    1 => '0 2px 8px rgba(0, 0, 0, 0.08)',
+    2 => '0 8px 24px rgba(0, 0, 0, 0.12)',
+    3 => '0 16px 48px rgba(0, 0, 0, 0.15)'
 ];
 
 $currentShadow = $shadowMap[$shadowDepth] ?? $shadowMap[1];
 
 /**
- * Responsive columns mapping
- * Mobile (default): Always 1 column
- * Tablet (md): 2 columns
- * Desktop (lg): User selected value
+ * Responsive columns mapping with max 3 columns
  */
 $columnClasses = [
     1 => 'md:grid-cols-1 lg:grid-cols-1',
     2 => 'md:grid-cols-2 lg:grid-cols-2',
-    3 => 'md:grid-cols-2 lg:grid-cols-3',
-    4 => 'md:grid-cols-2 lg:grid-cols-4'
+    3 => 'md:grid-cols-2 lg:grid-cols-3'
 ];
 
 $gridClass = $columnClasses[$columns] ?? $columnClasses[3];
 
 /**
+ * Calculate optimal grid columns based on item count
+ */
+$itemCount = count($items);
+$optimalColumns = $columns;
+if ($itemCount <= 2 && $columns > $itemCount) {
+    $optimalColumns = $itemCount;
+}
+
+/**
  * Icon mapping for resource types
- * Used in download/view buttons
  */
 $typeIcons = [
     'PDF' => 'download',
@@ -67,10 +65,6 @@ $typeIcons = [
 
 /**
  * SVG Icon helper function
- * Returns SVG icons based on resource type or action
- * 
- * @param string $type - Icon type to display
- * @return string - SVG markup
  */
 if (!function_exists('get_psico_svg_icon')) {
     function get_psico_svg_icon($type = 'download'): string
@@ -92,83 +86,90 @@ if (!function_exists('get_psico_svg_icon')) {
      Psychological Resources Section
      ============================================ -->
 <section
-    class="psico-resources-section w-full py-12 md:py-16 bg-background-light dark:bg-background-dark transition-colors duration-300">
+    class="psico-resources-section w-full py-8 md:py-12 bg-background-light dark:bg-background-dark transition-colors duration-300">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <!-- Section Header with Title and Decorative Line -->
-        <div class="mb-10 md:mb-14 text-center animate-fade-in-up">
-            <h2 class="text-3xl md:text-4xl font-bold font-display text-text-light dark:text-text-dark mb-3">
+        <!-- Section Header - Reduced Spacing -->
+        <div class="mb-6 md:mb-8 text-center animate-fade-in-up">
+            <h2 class="text-2xl md:text-3xl font-bold font-display text-text-light dark:text-text-dark mb-2">
                 <?php echo wp_kses_post($sectionTitle); ?>
             </h2>
-            <!-- Section Description -->
+
             <?php if (!empty($sectionDescription)): ?>
                 <p class="text-gray-600 dark:text-gray-300 text-sm md:text-base mb-4 max-w-2xl mx-auto">
                     <?php echo wp_kses_post($sectionDescription); ?>
                 </p>
             <?php endif; ?>
-            <!-- Decorative underline -->
+
             <div
                 class="w-12 h-1 bg-gradient-to-r from-transparent via-brand-primary to-transparent rounded-full mx-auto">
             </div>
         </div>
 
-        <!-- Main Resources Grid Container -->
-        <div class="grid grid-cols-1 <?php echo esc_attr($gridClass); ?> gap-6 mb-8">
+        <!-- Resources Grid - Improved Distribution -->
+        <div
+            class="grid grid-cols-1 <?php echo esc_attr($gridClass); ?> gap-4 md:gap-6 justify-items-<?php echo $optimalColumns === 1 ? 'center' : 'stretch'; ?>">
             <?php foreach ($items as $index => $item): ?>
-                <!-- Individual Resource Card -->
-                <div class="psico-resource-card flex flex-col bg-white dark:bg-gray-800 rounded-xl p-2 md:p-4 transition-all duration-300 border border-border-light dark:border-border-dark hover:scale-105"
+                <!-- Resource Card -->
+                <div class="psico-resource-card bg-white dark:bg-gray-800 rounded-lg overflow-hidden border border-border-light dark:border-border-dark transition-all duration-300 hover:shadow-lg hover:scale-105 flex flex-col"
                     style="
                         box-shadow: <?php echo esc_attr($currentShadow); ?>;
                         animation-delay: <?php echo ($index * 0.1); ?>s;
+                        <?php echo $optimalColumns === 1 ? 'max-width: 400px;' : ''; ?>
                     ">
 
-                    <!-- ====== IMAGE SECTION ====== -->
+                    <!-- Image Section -->
                     <?php if (!empty($item['imagen'])): ?>
-                        <div class="overflow-hidden rounded-lg mb-4">
+                        <div class="relative overflow-hidden bg-gray-100 dark:bg-gray-700">
                             <img src="<?php echo esc_url($item['imagen']); ?>" alt="<?php echo esc_attr($item['titulo']); ?>"
-                                loading="lazy"
-                                style="height: <?php echo intval($imageHeight); ?>px; width: 100%; object-fit: cover;"
-                                class="transition-transform duration-300 hover:scale-110" />
+                                loading="lazy" style="height: <?php echo intval($imageHeight); ?>px;"
+                                class="w-full object-cover transition-transform duration-300 hover:scale-110" />
+                            <!-- Overlay gradient -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
+                        </div>
+                    <?php else: ?>
+                        <div
+                            class="h-48 bg-gradient-to-br from-brand-primary/10 to-brand-secondary/10 flex items-center justify-center">
+                            <span class="text-brand-primary text-4xl">📚</span>
                         </div>
                     <?php endif; ?>
 
-                    <!-- ====== CONTENT WRAPPER (Flex for vertical layout) ====== -->
-                    <div class="flex flex-col h-full">
+                    <!-- Content Section -->
+                    <div class="flex-1 p-4 flex flex-col">
 
                         <!-- Resource Type Badge -->
                         <?php if (!empty($item['tipo'])): ?>
-                            <div class="mb-3 inline-flex">
+                            <div class="mb-3">
                                 <span
-                                    class="inline-block bg-brand-primary/15 text-brand-primary dark:bg-brand-primary/20 dark:text-brand-primary-300 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide">
+                                    class="inline-block bg-brand-primary/10 text-brand-primary dark:bg-brand-primary/20 dark:text-brand-primary-300 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide">
                                     <?php echo esc_html($item['tipo']); ?>
                                 </span>
                             </div>
                         <?php endif; ?>
 
                         <!-- Resource Title -->
-                        <h3 class="text-lg md:text-xl font-semibold text-text-light dark:text-text-dark mb-2 line-clamp-2">
+                        <h3
+                            class="text-lg font-semibold text-text-light dark:text-text-dark mb-2 line-clamp-2 leading-tight">
                             <?php echo esc_html($item['titulo']); ?>
                         </h3>
 
                         <!-- Resource Description -->
                         <?php if (!empty($item['descripcion'])): ?>
-                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-4 line-clamp-3 min-h-[60px]">
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-4 line-clamp-3 flex-grow">
                                 <?php echo esc_html($item['descripcion']); ?>
                             </p>
                         <?php endif; ?>
 
-                        <!-- ====== ACTION BUTTON SECTION ====== -->
+                        <!-- Action Button -->
                         <?php if (!empty($item['url'])): ?>
                             <?php
-                            // Determine button text and icon based on file type
                             $isExternal = strpos($item['url'], 'wp-content/uploads') === false;
                             $buttonText = $isExternal ? _x('Ver recurso', 'button label', 'edusiteco') : _x('Descargar', 'button label', 'edusiteco');
                             $buttonIcon = $typeIcons[$item['tipo']] ?? ($isExternal ? 'link' : 'download');
                             ?>
                             <a href="<?php echo esc_url($item['url']); ?>" target="_blank" rel="noopener noreferrer"
-                                class="mt-4 inline-flex items-center justify-center bg-brand-primary hover:bg-brand-secondary text-white px-4 py-2 rounded-lg font-semibold text-sm transition-all duration-300 transform hover:scale-105">
-                                <!-- SVG Icon for button -->
-                                <span class="mr-2 flex items-center justify-center" style="width: 20px; height: 20px;">
+                                class="mt-auto inline-flex items-center justify-center bg-brand-primary hover:bg-brand-primary-600 dark:bg-brand-primary-600 dark:hover:bg-brand-primary-500 text-white px-4 py-2 rounded-lg font-medium text-sm transition-all duration-200 transform hover:scale-105 hover:shadow-md">
+                                <span class="mr-2 flex items-center justify-center" style="width: 18px; height: 18px;">
                                     <?php echo get_psico_svg_icon($buttonIcon); ?>
                                 </span>
                                 <?php echo esc_html($buttonText); ?>
@@ -183,10 +184,10 @@ if (!function_exists('get_psico_svg_icon')) {
 
 <style>
     /* ============================================
-       Inline Styles for Dynamic Values
+       Animation and responsive styles
        ============================================ */
 
-    /* Resource card animation on load */
+    /* Staggered animation for cards */
     @keyframes resource-slide-in {
         from {
             opacity: 0;
@@ -204,19 +205,36 @@ if (!function_exists('get_psico_svg_icon')) {
         opacity: 0;
     }
 
-    /* Responsive grid collapse on mobile */
+    /* Mobile responsive adjustments */
     @media (max-width: 768px) {
         .psico-resources-section {
-            padding: 2rem 0;
+            padding: 1.5rem 0;
         }
     }
 
-    /* Dark mode shadow adjustments */
+    /* Dark mode adjustments */
     .dark .psico-resource-card {
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+        border-color: hsl(var(--color-border-dark));
     }
 
-    .dark .psico-resource-card:nth-child(3) {
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4) !important;
+    .dark .psico-resource-card:hover {
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+        border-color: hsl(var(--color-brand-primary) / 0.3);
+    }
+
+    /* Light mode hover enhancements */
+    .psico-resource-card:hover {
+        border-color: hsl(var(--color-brand-primary) / 0.4);
+    }
+
+    /* Prefers reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+        .psico-resource-card {
+            animation: none;
+        }
+
+        .psico-resource-card:hover {
+            transform: none;
+        }
     }
 </style>
