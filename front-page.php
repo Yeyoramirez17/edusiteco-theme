@@ -50,7 +50,8 @@ get_header();
 										<span
 											class="<?php echo $has_thumbnail ? 'bg-brand-primary text-white' : 'bg-white text-brand-primary' ?> px-3 py-1 rounded-md text-sm font-bold mb-4 inline-block">Comunicado</span>
 										<h2 class="text-4xl lg:text-6xl font-bold font-display mb-4 line-clamp-2">
-											<?php the_title(); ?></h2>
+											<?php the_title(); ?>
+										</h2>
 										<div class="text-xl lg:text-2xl mb-8 line-clamp-3">
 											<?php the_excerpt(); ?>
 										</div>
@@ -75,7 +76,8 @@ get_header();
 							<div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
 								<div class="text-white max-w-2xl">
 									<h1 class="text-4xl lg:text-6xl font-bold font-display mb-4">Bienvenidos a
-										<?php echo get_bloginfo('name'); ?></h1>
+										<?php echo get_bloginfo('name'); ?>
+									</h1>
 									<p class="text-xl lg:text-2xl mb-8">Formando líderes para el futuro con excelencia
 										académica y valores</p>
 								</div>
@@ -339,6 +341,16 @@ get_header();
 						A lo largo de más de tres décadas, hemos mantenido nuestro compromiso con la excelencia
 						académica, la innovación educativa y la formación en valores.
 					</p>
+
+					<?php
+					$history_page = get_page_by_path('historia');
+					$history_url = $history_page ? get_permalink($history_page->ID) : '#';
+					?>
+
+					<a href="<?php echo esc_url($history_url); ?>"
+						class="mt-6 inline-block text-brand-primary hover:text-brand-secondary hover:underline underline-offset-2 font-semibold transition-colors">
+						Leer más ...
+					</a>
 				</div>
 				<div class="bg-gray-200 dark:bg-gray-700 h-80 rounded-lg flex items-center justify-center">
 					<span class="text-gray-400 dark:text-gray-500 material-icons text-6xl">history_edu</span>
@@ -402,125 +414,28 @@ get_header();
 		</div>
 	</section>
 
-	<!-- Formulario de Contacto -->
-	<section class="py-12 px-4 md:px-8 bg-gray-50 dark:bg-gray-900">
-		<div class="max-w-6xl mx-auto">
-			<div class="text-center mb-10">
-				<h2 class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-text-dark mb-4">Contáctanos</h2>
-				<p class="text-lg text-gray-600 dark:text-text-dark max-w-2xl mx-auto">
-					¿Tienes preguntas? Estamos aquí para ayudarte. Ponte en contacto con nosotros fácilmente.
-				</p>
-			</div>
-
-			<div class="flex flex-col lg:flex-row gap-12">
-				<!-- Información de contacto -->
-				<div
-					class="lg:w-2/5 rounded-xl shadow-md p-6 bg-background-light dark:bg-gray-800 border border-border-light dark:border-border-dark">
-					<h3 class="text-xl font-bold text-brand-primary mb-6 dark:text-text-dark">Información de Contacto
-					</h3>
-
-					<div class="space-y-5">
-						<div class="flex items-start">
-							<div class="flex-shrink-0 bg-brand-primary/10 p-2 rounded-lg">
-								<span class="material-icons text-brand-primary text-lg">location_on</span>
-							</div>
-							<div class="ml-4">
-								<h4 class="font-semibold text-gray-800 dark:text-text-dark">Dirección</h4>
-								<p class="text-gray-600 dark:text-text-dark">Carrera 15 #45-67, Barrio Centro</p>
-								<p class="text-gray-600 dark:text-text-dark">Bogotá D.C., Colombia</p>
-							</div>
-						</div>
-
-						<div class="flex items-start">
-							<div class="flex-shrink-0 bg-brand-primary/10 p-2 rounded-lg">
-								<span class="material-icons text-brand-primary text-lg">phone</span>
-							</div>
-							<div class="ml-4">
-								<h4 class="font-semibold text-gray-800 dark:text-text-dark">Teléfono</h4>
-								<p class="text-gray-600 dark:text-text-dark">(601) 234-5678</p>
-							</div>
-						</div>
-
-						<div class="flex items-start">
-							<div class="flex-shrink-0 bg-brand-primary/10 p-2 rounded-lg">
-								<span class="material-icons text-brand-primary text-lg">email</span>
-							</div>
-							<div class="ml-4">
-								<h4 class="font-semibold text-text-light dark:text-text-dark">Correo Electrónico</h4>
-								<p class="text-gray-600 dark:text-text-dark ">contacto@iesanmartin.edu.co</p>
-							</div>
-						</div>
-
-						<div class="flex items-start">
-							<div class="flex-shrink-0 bg-brand-primary/10 p-2 rounded-lg">
-								<span class="material-icons text-brand-primary text-lg">schedule</span>
-							</div>
-							<div class="ml-4">
-								<h4 class="font-semibold text-gray-800 dark:text-text-dark">Horario de Atención</h4>
-								<p class="text-gray-600 dark:text-text-dark">Lunes a Viernes: 7:00 AM - 4:00 PM</p>
-							</div>
-						</div>
-					</div>
-
-					<!-- Mapa de ubicación (placeholder) -->
-					<div class="mt-8 bg-white dark:bg-slate-800 rounded-xl shadow-lg overflow-hidden border-2"
-						style="border-color: hsl(var(--color-brand-primary) / 0.2);">
-						<div class="relative w-full h-80">
-							<div id="map" class="w-full h-full rounded-xl"></div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Formulario de contacto -->
-				<div class="lg:w-3/5 bg-white dark:bg-gray-800 rounded-xl p-6 border dark:border-border-dark shadow-lg">
-					<h3 class="mb-6 pl-8 text-xl font-bold text-brand-primary dark:text-text-dark">Envíanos un Mensaje
-					</h3>
-
-					<form class="space-y-4 px-8 flex flex-col gap-2">
-
-						<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-							<div>
-								<label class="block font-medium text-text-light dark:text-text-dark mb-1" for="name">
-									Nombre Completo*
-								</label>
-								<input
-									class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-brand-primary"
-									id="name" name="name" type="text" placeholder="Tu nombre completo" required />
-							</div>
-							<div>
-								<label class="block font-medium text-text-light dark:text-text-dark mb-1" for="email">
-									Correo Electrónico *
-								</label>
-								<input
-									class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-brand-primary"
-									id="email" name="email" type="email" placeholder="tu@email.com" required />
-							</div>
-						</div>
-
-						<div>
-							<label class="block font-medium text-text-light dark:text-text-dark mb-1"
-								for="subject">Asunto *</label>
-							<input
-								class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-brand-primary"
-								id="subject" name="subject" type="text" placeholder="Asunto de tu consulta" required />
-						</div>
-
-						<div>
-							<label class="block font-medium text-gray-700 dark:text-text-dark mb-1"
-								for="message">Mensaje *</label>
-							<textarea
-								class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-brand-primary"
-								id="message" name="message" rows="4" placeholder="Escribe tu mensaje aquí..."
-								required></textarea>
-							<p class="mt-1 text-xs text-gray-500 dark:text-text-dark">0/500 caracteres</p>
-						</div>
-
-						<button type="submit"
-							class="w-full bg-brand-primary hover:bg-brand-secondary text-white font-medium py-3 px-4 rounded-lg transition duration-300">
-							Enviar Mensaje
-						</button>
-					</form>
-				</div>
+	<!-- Llamado a la acción -->
+	<section class="py-16 bg-[hsl(var(--color-brand-primary))]">
+		<?php
+		$contact_page = get_page_by_path('contactanos');
+		$contact_url = $contact_page ? get_permalink($contact_page->ID) : '#';
+		?>
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center animate-fade-in-up">
+			<h2 class="text-3xl lg:text-4xl font-bold text-white mb-6">
+				Únete a Nuestra Comunidad Educativa
+			</h2>
+			<p class="text-xl text-white mb-8 max-w-2xl mx-auto">
+				Descubre todo lo que tenemos para ofrecer y forma parte de la familia institucional
+			</p>
+			<div class="flex flex-col sm:flex-row gap-4 justify-center">
+				<a href="<?php echo esc_url($contact_url); ?>"
+					class="bg-white text-[hsl(var(--color-brand-primary))] px-8 py-3 rounded-full font-semibold text-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105">
+					Contactanos
+				</a>
+				<a href="<?php echo get_post_type_archive_link('comunicado'); ?>"
+					class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full font-semibold text-lg hover:bg-white hover:text-[hsl(var(--color-brand-primary))] transition-all duration-300 transform hover:scale-105">
+					Ver Últimas Noticias
+				</a>
 			</div>
 		</div>
 	</section>

@@ -289,11 +289,30 @@ function edusiteco_default_menu()
             </ul>
         </li>
 
-        <li class="header-group">
-            <a class="<?= $link_class ?> text-sm font-semibold underline-link transition-all px-3 py-2 rounded-sm focus:outline-none focus:ring-2 focus:ring-offset-2"
-                href="/comunicados">
-                <span>Comunicados</span>
+        <li class="relative header-group group">
+            <?php
+            $comunicados_archive_url = get_post_type_archive_link('comunicado');
+            $convocatorias_category = get_category_by_slug('convocatorias');
+            $convocatorias_url = $convocatorias_category ? get_category_link($convocatorias_category->term_id) : '#';
+            ?>
+            <a href="#"
+                class=" inline-flex items-center text-sm font-semibold underline-link transition-all px-3 py-2 rounded-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-background-light dark:focus:ring-offset-background-dark">
+                <span>Noticias</span>
+                <span class="material-icons text-sm ml-1 <?= $icon_class ?> group-hover:rotate-180 transition-transform duration-200">expand_more</span>
             </a>
+
+            <ul class="submenu">
+                <li>
+                    <a class="submenu-item" href="<?php echo esc_url($comunicados_archive_url); ?>">
+                        Comunicados
+                    </a>
+                </li>
+                <li>
+                    <a class="submenu-item" href="<?php echo esc_url($convocatorias_url); ?>">
+                        Convocatorias
+                    </a>
+                </li>
+            </ul>
         </li>
 
         <li class="header-group">

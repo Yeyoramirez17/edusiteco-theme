@@ -1101,10 +1101,6 @@ select {
   --tw-space-y-reverse: 0;
   margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(1rem * var(--tw-space-y-reverse));
-}.space-y-5 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-y-reverse: 0;
-  margin-top: calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(1.25rem * var(--tw-space-y-reverse));
 }.space-y-6 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
@@ -1926,9 +1922,6 @@ select {
 }.focus\:border-blue-500:focus {
   --tw-border-opacity: 1;
   border-color: rgb(59 130 246 / var(--tw-border-opacity, 1));
-}.focus\:border-brand-primary:focus {
-  --tw-border-opacity: 1;
-  border-color: hsl(var(--color-brand-primary) / var(--tw-border-opacity, 1));
 }.focus\:border-primary:focus {
   --tw-border-opacity: 1;
   border-color: rgb(51 102 204 / var(--tw-border-opacity, 1));
@@ -1944,9 +1937,6 @@ select {
 }.focus\:ring-blue-500:focus {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(59 130 246 / var(--tw-ring-opacity, 1));
-}.focus\:ring-brand-primary:focus {
-  --tw-ring-opacity: 1;
-  --tw-ring-color: hsl(var(--color-brand-primary) / var(--tw-ring-opacity, 1));
 }.focus\:ring-brand-primary-500:focus {
   --tw-ring-opacity: 1;
   --tw-ring-color: hsl(var(--color-brand-primary) / var(--tw-ring-opacity, 1));
@@ -2307,11 +2297,6 @@ select {
 
   .md\:p-6 {
     padding: 1.5rem;
-  }
-
-  .md\:px-8 {
-    padding-left: 2rem;
-    padding-right: 2rem;
   }
 
   .md\:py-12 {
