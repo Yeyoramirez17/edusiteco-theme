@@ -24,18 +24,18 @@ $pdf         = $attributes['pdf']['url'] 	?? '';
 $pdf_filename = $attributes['pdf']['filename'] ?? '';
 
 ?>
-<div class="teacher-project border rounded-lg shadow-md p-6 my-4 bg-white">
+<div class="teacher-project border rounded-lg shadow-md p-6 my-4 bg-white dark:bg-gray-800">
 	
 	<!-- Título -->
 	<?php if ($title): ?>
-		<h3 class="text-2xl md:text-3xl font-bold !mt-0 mb-2 text-gray-900">
+		<h3 class="text-2xl md:text-3xl font-bold !mt-0 mb-2 text-text-light dark:text-text-dark">
 			<?php echo esc_html($title); ?>
 		</h3>
 	<?php endif; ?>
 
 	<!-- Autores -->
 	<?php if ($authors): ?>
-		<p class="italic text-sm md:text-base text-gray-600 mb-2">
+		<p class="italic text-sm md:text-base text-text-light dark:text-text-dark mb-2">
 			Por: <?php echo esc_html($authors); ?>
 		</p>
 	<?php endif; ?>
@@ -55,7 +55,7 @@ $pdf_filename = $attributes['pdf']['filename'] ?? '';
 
 		<?php if ($description): ?>
 			<!-- Descripción que fluye alrededor de la imagen -->
-			<div class="text-base text-gray-700 leading-relaxed" style="text-align: justify;">
+			<div class="text-base text-text-light dark:text-text-dark leading-relaxed" style="text-align: justify;">
 				<?php 
 				// Dividir en párrafos si hay saltos de línea
 				$paragraphs = explode("\n", $description);
@@ -76,7 +76,7 @@ $pdf_filename = $attributes['pdf']['filename'] ?? '';
 	<?php if (!empty($gallery)): ?>
 		<!-- Galería con Swiper -->
 		<div class="teacher-project-gallery mt-6 mb-6">
-			<h4 class="text-lg md:text-xl font-semibold text-gray-900 mb-3">
+			<h4 class="text-lg md:text-xl font-semibold text-text-light dark:text-text-dark mb-3">
 				📸 Galería del proyecto
 			</h4>
 			

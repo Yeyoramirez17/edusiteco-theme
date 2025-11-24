@@ -70,7 +70,7 @@ class Custom_Nav_Walker extends Walker_Nav_Menu
 
         // ========== LÓGICA MEJORADA DE COLORES ==========
         // Determina colores basados en: imagen de cabecera + modo oscuro
-        
+
         if ($has_header_image) {
             // CON IMAGEN - siempre usar blanco/claro para mejor contraste
             $text_color_class = 'text-white drop-shadow-md';
@@ -239,13 +239,13 @@ class Mobile_Nav_Walker extends Walker_Nav_Menu
 function edusiteco_default_menu()
 {
     $has_header_image = get_header_image() ? true : false;
-    
+
     // Clases dinámicas basadas en imagen
-    $link_class = $has_header_image 
+    $link_class = $has_header_image
         ? 'text-white drop-shadow-md hover:text-yellow-200 focus:ring-white/50'
         : 'text-text-light dark:text-text-dark hover:text-brand-primary dark:hover:text-brand-primary-300 focus:ring-brand-primary/50';
-    
-    $icon_class = $has_header_image 
+
+    $icon_class = $has_header_image
         ? 'text-white drop-shadow-sm'
         : 'text-text-light dark:text-text-dark';
     ?>
@@ -269,16 +269,20 @@ function edusiteco_default_menu()
 
             $contact_page = get_page_by_path('contactanos');
             $contact_url = $contact_page ? get_permalink($contact_page->ID) : '#';
+
+            $psico_page = get_page_by_path('psicoorientacion-escolar');
+            $psico_url = $psico_page ? get_permalink($psico_page->ID) : '#';
             ?>
 
             <a href="<?= $institution_url ?>"
                 class="<?= $link_class ?> inline-flex items-center text-sm font-semibold underline-link transition-all px-3 py-2 rounded-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-background-light dark:focus:ring-offset-background-dark">
                 <span>La Institución</span>
-                <span class="material-icons text-sm ml-1 <?= $icon_class ?> group-hover:rotate-180 transition-transform duration-200">expand_more</span>
+                <span
+                    class="material-icons text-sm ml-1 <?= $icon_class ?> group-hover:rotate-180 transition-transform duration-200">expand_more</span>
             </a>
 
             <ul class="submenu">
-                <li><a class="submenu-item" href="<?= $mision_url ?>">Misión y Visión</a></li>
+                <li><a class="submenu-item" href="<?= $mision_url ?>">Misión, Visión y Valores</a></li>
                 <li><a class="submenu-item" href="<?= $history_url ?>">Nuestra Historia</a></li>
                 <li><a class="submenu-item" href="<?= $directory_url ?>">Directorio</a></li>
                 <li><a class="submenu-item" href="<?= $symbols_url ?>">Símbolos Institucionales</a></li>
@@ -304,6 +308,12 @@ function edusiteco_default_menu()
                 <span>Contáctanos</span>
             </a>
         </li>
+        <li class="header-group">
+            <a class="<?= $link_class ?> text-sm font-semibold underline-link transition-all px-3 py-2 rounded-sm focus:outline-none focus:ring-2 focus:ring-offset-2"
+                href="<?= esc_url($psico_url) ?>">
+                <span>Psicoorientación</span>
+            </a>
+        </li>
     </ul>
     <?php
 }
@@ -312,7 +322,7 @@ function edusiteco_default_menu()
 function edusiteco_default_mobile_menu()
 {
     $has_header_image = get_header_image() ? true : false;
-    
+
     $institution_page = get_page_by_path('la-institucion');
     $institution_url = $institution_page ? get_permalink($institution_page->ID) : '#';
 
@@ -328,68 +338,61 @@ function edusiteco_default_mobile_menu()
     $symbols_page = get_page_by_path('simbolos-institucionales');
     $symbols_url = $symbols_page ? get_permalink($symbols_page->ID) : '#';
 
+    $psico_page = get_page_by_path('psicoorientacion-escolar');
+    $psico_url = $psico_page ? get_permalink($psico_page->ID) : '#';
+
     // Estilos dinámicos para móvil
-    $link_classes = $has_header_image 
-        ? 'text-white bg-white/15 hover:bg-white/25' 
+    $link_classes = $has_header_image
+        ? 'text-white bg-white/15 hover:bg-white/25'
         : 'text-text-light dark:text-text-dark hover:bg-gray-50 dark:hover:bg-gray-700';
-    
+
     $submenu_link_classes = $has_header_image
         ? 'text-white hover:bg-white/20'
         : 'text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-700';
     ?>
-        <div class="border-b border-border-light dark:border-border-dark last:border-b-0">
-            <div class="flex items-center">
-                <a href="<?= $institution_url ?>"
-                    class="flex-1 pl-4 pr-4 py-3.5 text-base font-medium <?= $link_classes ?> transition-all"
-                >
-                    La Institución
+    <div class="border-b border-border-light dark:border-border-dark last:border-b-0">
+        <div class="flex items-center">
+            <a href="<?= $institution_url ?>"
+                class="flex-1 pl-4 pr-4 py-3.5 text-base font-medium <?= $link_classes ?> transition-all">
+                La Institución
+            </a>
+            <button class="mobile-toggle flex-shrink-0 px-4 py-3.5 <?= $link_classes ?> transition-all"
+                aria-expanded="false" aria-controls="default-submenu-1">
+                <span class="material-icons text-sm transition-transform duration-200">expand_more</span>
+            </button>
+        </div>
+        <div id="default-submenu-1" class="hidden">
+            <div class="pl-6">
+                <a class="block pl-8 pr-4 py-3 text-base font-medium <?= $submenu_link_classes ?> transition-all"
+                    href="<?= $history_url ?>">
+                    Nuestra Historia
                 </a>
-                <button
-                    class="mobile-toggle flex-shrink-0 px-4 py-3.5 <?= $link_classes ?> transition-all"
-                    aria-expanded="false" aria-controls="default-submenu-1">
-                    <span class="material-icons text-sm transition-transform duration-200">expand_more</span>
-                </button>
-            </div>
-            <div id="default-submenu-1" class="hidden">
-                <div class="pl-6">
-                    <a 
-                        class="block pl-8 pr-4 py-3 text-base font-medium <?= $submenu_link_classes ?> transition-all"
-                        href="<?= $history_url ?>"
-                    >
-                        Nuestra Historia
-                    </a>
-                    <a 
-                        class="block pl-8 pr-4 py-3 text-base font-medium <?= $submenu_link_classes ?> transition-all"
-                        href="<?= $mision_url ?>"
-                    >
-                        Misión y Visión
-                    </a>
-                    <a 
-                        class="block pl-8 pr-4 py-3 text-base font-medium <?= $submenu_link_classes ?> transition-all"
-                        href="<?= $symbols_url ?>"
-                    >
-                        Símbolos Institucionales
-                    </a>
-                    <a 
-                        class="block pl-8 pr-4 py-3 text-base font-medium <?= $submenu_link_classes ?> transition-all"
-                        href="<?= $directory_url ?>"
-                    >
-                        Directorio
-                    </a>
-                </div>
+                <a class="block pl-8 pr-4 py-3 text-base font-medium <?= $submenu_link_classes ?> transition-all"
+                    href="<?= $mision_url ?>">
+                    Misión, Visión y Valores
+                </a>
+                <a class="block pl-8 pr-4 py-3 text-base font-medium <?= $submenu_link_classes ?> transition-all"
+                    href="<?= $symbols_url ?>">
+                    Símbolos Institucionales
+                </a>
+                <a class="block pl-8 pr-4 py-3 text-base font-medium <?= $submenu_link_classes ?> transition-all"
+                    href="<?= $directory_url ?>">
+                    Directorio
+                </a>
             </div>
         </div>
-        <a 
-            class="block pl-4 pr-4 py-3.5 text-base font-medium <?= $link_classes ?> border-b border-border-light dark:border-border-dark last:border-b-0 transition-all"
-            href="/comunicados/"
-        >
-            Comunicados
-        </a>
-        <a 
-            class="block pl-4 pr-4 py-3.5 text-base font-medium <?= $link_classes ?> border-b border-border-light dark:border-border-dark last:border-b-0 transition-all"
-            href="/profesores/"
-        >
-            Profesores
-        </a>
+    </div>
+    <a class="block pl-4 pr-4 py-3.5 text-base font-medium <?= $link_classes ?> border-b border-border-light dark:border-border-dark last:border-b-0 transition-all"
+        href="/comunicados/">
+        Comunicados
+    </a>
+    <a class="block pl-4 pr-4 py-3.5 text-base font-medium <?= $link_classes ?> border-b border-border-light dark:border-border-dark last:border-b-0 transition-all"
+        href="/profesores/">
+        Profesores
+    </a>
+    <a class="block pl-4 pr-4 py-3.5 text-base font-medium <?= $link_classes ?> border-b border-border-light dark:border-border-dark last:border-b-0 transition-all"
+        href="<?= esc_url($psico_url) ?>">
+        Psicoorientación
+    </a>
     <?php
 }

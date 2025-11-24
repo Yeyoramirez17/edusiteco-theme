@@ -239,10 +239,11 @@
 				<!-- Enlaces Legales -->
 				<div class="flex flex-wrap justify-center md:justify-end space-x-6 text-sm">
 					<p>
-						Desarrollado por estudiantes de la:
-						<a href="#"
+						Desarrollado por:
+						<a href="https://fup.edu.co/facultad/facultad-de-ingenieria-y-arquitectura/"
+							target="_blank"
 							class="text-brand-primary dark:text-text-dark hover:text-brand-primary transition-colors hover:underline">
-							FUP
+							Facultad de Ingeniería - FUP
 						</a>
 					</p>
 				</div>

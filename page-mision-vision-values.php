@@ -292,7 +292,7 @@
 
     <!-- Cita Institucional -->
     <section
-        class="py-16 md:py-20 bg-gradient-to-r from-blue-600 to-blue-700 dark:from-blue-800 dark:to-blue-900 text-white">
+        class="py-16 md:py-20 bg-gradient-custom dark:from-blue-800 dark:to-blue-900 text-white">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <span class="text-5xl text-yellow-300 mb-4 block">"</span>
             <blockquote class="text-2xl md:text-3xl italic mb-8 leading-relaxed">

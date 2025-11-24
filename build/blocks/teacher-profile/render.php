@@ -72,7 +72,7 @@ $flex_justify = 'justify-' . $alignment;
 
 // Clases del wrapper principal
 $wrapper_attributes = get_block_wrapper_attributes([
-    'class' => 'edusiteco-teacher-profile-block'
+    'class' => 'edusiteco-teacher-profile-block my-4'
 ]);
 ?>
 
