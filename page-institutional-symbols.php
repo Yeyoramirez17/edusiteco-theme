@@ -10,7 +10,7 @@
 <main id="primary" class="site-main">
     <!-- Hero Section -->
     <section class="relative h-[50vh] bg-cover bg-center flex items-center justify-center text-white"
-        style="background-image: linear-gradient(rgba(51, 102, 204, 0.85), rgba(51, 102, 204, 0.9)), url('<?php echo esc_url(get_theme_mod('simbolos_hero_image', get_template_directory_uri() . '/assets/images/hero-simbolos.jpg')); ?>');">
+        style="background-image: linear-gradient(rgba(51, 102, 204, 0.85), rgba(51, 102, 204, 0.9)), url('<?php echo esc_url(get_theme_mod('simbolos_hero_image', get_template_directory_uri() . '/assets/img/hero-simbolos.jpg')); ?>');">
         <div class="relative z-10 text-center px-4">
             <h1 class="text-4xl md:text-6xl font-bold mb-4"><?php the_title(); ?></h1>
             <p class="text-xl md:text-2xl opacity-90">
@@ -25,24 +25,21 @@
             <div class="flex flex-col lg:flex-row items-center gap-12">
                 <div class="lg:w-2/5 text-center">
                     <div class="bg-gray-50 dark:bg-gray-800 rounded-2xl p-4 shadow-lg">
-                        <!-- src="< ?php #echo esc_url(get_theme_mod('escudo_image', get_template_directory_uri() . '/assets/images/escudo.png')); ?>"  -->
                         <img 
-                            src="https://placehold.co/1200x600/CCCCCF/4F494B?text=Escudo+Institucional" 
+                            src="<?php echo esc_url(get_theme_mod('escudo_image', 'https://placehold.co/400x300/E2E8F0/4A5568?text=Escudo')); ?>" 
                             alt="<?php echo esc_attr(get_theme_mod('escudo_alt', 'Escudo del Colegio San Martín')); ?>"
-                            class="w-80 h-64 mx-auto object-cover"
+                            class="w-full h-64 mx-auto object-contain"
                         >
                     </div>
                 </div>
                 <div class="lg:w-3/5">
                     <div class="text-center lg:text-left">
-                        <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-6">
+                        <h2 id="escudo-title" class="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-6">
                             <?php echo esc_html(get_theme_mod('escudo_title', 'Escudo Institucional')); ?>
                         </h2>
                         <div class="prose dark:prose-invert max-w-none">
-                            <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                            <p id="escudo-description" class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
                                 <?php 
-                                // Usamos wp_kses_post para permitir HTML básico (negritas, cursivas, etc.)
-                                // El control en el Customizer debería ser de tipo 'textarea' con el sanitizador adecuado.
                                 echo wp_kses_post(get_theme_mod('escudo_description', 
                                     'Nuestro escudo representa la identidad y valores de la institución. Los colores azul y blanco simbolizan la sabiduría y la pureza. El libro abierto representa el conocimiento, la antorcha la luz del aprendizaje, y el laurel el éxito académico. Cada elemento refleja nuestro compromiso con la excelencia educativa y la formación integral de nuestros estudiantes.'
                                 )); 
@@ -60,24 +57,23 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col lg:flex-row-reverse items-center gap-12">
                 <div class="lg:w-2/5 text-center">
-                    <div class="bg-white dark:bg-gray-900 rounded-2xl p-4 shadow-lg">
+                    <div class="bg-background-light dark:bg-background-dark rounded-2xl p-4 shadow-lg">
                         <img 
-                            src="https://placehold.co/1200x600/cccccf/4f494b?text=Bandera+Institucional" 
+                            src="<?php echo esc_url(get_theme_mod('bandera_image', 'https://placehold.co/400x300/CBD5E1/1A202C?text=Bandera')); ?>"
                             alt="<?php echo esc_attr(get_theme_mod('bandera_alt', 'Bandera del Colegio San Martín')); ?>"
-                            class="w-80 h-64 mx-auto object-cover"
-                        >
+                            class="w-full h-64 mx-auto object-contain">
                     </div>
                 </div>
                 <div class="lg:w-3/5">
                     <div class="text-center lg:text-left">
-                        <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-6">
+                        <h2 class="text-3xl lg:text-4xl font-bold text-text-light dark:text-text-dark mb-6">
                             <?php echo esc_html(get_theme_mod('bandera_title', 'Bandera Institucional')); ?>
                         </h2>
                         <div class="prose dark:prose-invert max-w-none">
-                            <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                            <p class="text-lg text-text-light dark:text-text-dark leading-relaxed">
                                 <?php echo wp_kses_post(get_theme_mod('bandera_description',
                                     'La bandera de nuestro colegio está compuesta por tres franjas horizontales: azul, blanco y verde. El azul representa la justicia y la verdad, el blanco simboliza la paz y la pureza de ideales, y el verde refleja la esperanza y el crecimiento. En el centro lleva nuestro escudo institucional, uniendo todos los elementos que representan nuestra identidad educativa.'
-                                )); // Usar wp_kses_post para permitir HTML
+                                ));
                                 ?>
                             </p>
                         </div>
@@ -88,13 +84,13 @@
     </section>
 
     <!-- Himno Institucional -->
-    <section class="py-16 md:py-20 bg-white dark:bg-gray-900">
+    <section class="py-16 md:py-20 bg-background-light dark:bg-background-dark">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
-                <div class="w-20 h-20 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <span class="text-3xl text-blue-600 dark:text-blue-400">🎵</span>
+                <div class="w-20 h-20 bg-brand-primary-100 dark:bg-brand-primary-900 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <span class="text-3xl text-brand-primary-600 dark:text-brand-primary-400">🎵</span>
                 </div>
-                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                <h2 class="text-3xl lg:text-4xl font-bold text-text-light dark:text-text-dark mb-4">
                     <?php echo esc_html(get_theme_mod('himno_title', 'Nuestro Himno')); ?>
                 </h2>
             </div>
@@ -123,7 +119,7 @@
                         $himno_letra = get_theme_mod('himno_letra', 
                             "Coro:\n¡Oh Colegio San Martín, faro de saber!\nDonde la juventud aprende a crecer.\nCon honor y valor, siempre hacia el ideal,\nFormando carácter con ética y moral.\n\nEstrofa I:\nEn tus aulas de luz, donde el estudio reina,\nSe forjan los pilares de una patria buena.\nCon esfuerzo y tesón, con amor y afán,\nCumpliendo con deber, el futuro alcanzar.\n\nEstrofa II:\nTus colores al viento, bandera de honor,\nInspiran en nosotros noble y gran valor.\nTus profesores guían con sabia dirección,\nSiembran en nuestras almas sana educación."
                         );
-                        echo nl2br(wp_kses_post($himno_letra)); // Usar wp_kses_post para más flexibilidad
+                        echo nl2br(wp_kses_post($himno_letra));
                         ?>
                     </div>
                 </div>
@@ -132,7 +128,7 @@
     </section>
 
     <!-- Lema Institucional -->
-    <section class="py-16 md:py-20 bg-gradient-to-r from-blue-600 to-blue-700 dark:from-blue-800 dark:to-blue-900 text-white">
+    <section class="py-16 md:py-20 bg-gradient-to-r from-brand-primary-600 to-brand-primary-700 dark:from-brand-primary-800 dark:to-brand-primary-900 text-white">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-3xl lg:text-4xl font-bold mb-8">
                 <?php echo esc_html(get_theme_mod('lema_title', 'Nuestro Lema')); ?>

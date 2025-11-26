@@ -22,13 +22,6 @@ function edusiteco_create_default_pages() {
             'page_template' => 'page-mision-vision-values.php',
         ),
         array(
-            'page_title'    => 'La Institución', 
-            'page_slug'     => 'la-institucion',
-            'page_content'  => '',
-            'page_template' => 'page-institution.php',
-
-        ),
-        array(
             'page_title'    => 'Historia', 
             'page_slug'     => 'historia',
             'page_content'  => '<!-- wp:paragraph --> <p>Aquí puedes escribir la historia de tu colegio</p> <!-- /wp:paragraph -->',

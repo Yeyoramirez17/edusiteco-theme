@@ -252,9 +252,6 @@ function edusiteco_default_menu()
     <ul class="flex items-center space-x-1">
         <li class="relative header-group group">
             <?php
-            $institution_page = get_page_by_path('la-institucion');
-            $institution_url = $institution_page ? get_permalink($institution_page->ID) : '#';
-
             $mision_page = get_page_by_path('mision-vision-y-valores');
             $mision_url = $mision_page ? get_permalink($mision_page->ID) : '#';
 
@@ -274,7 +271,7 @@ function edusiteco_default_menu()
             $psico_url = $psico_page ? get_permalink($psico_page->ID) : '#';
             ?>
 
-            <a href="<?= $institution_url ?>"
+            <a href="#"
                 class="<?= $link_class ?> inline-flex items-center text-sm font-semibold underline-link transition-all px-3 py-2 rounded-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-background-light dark:focus:ring-offset-background-dark">
                 <span>La Institución</span>
                 <span

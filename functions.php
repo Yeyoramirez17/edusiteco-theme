@@ -245,6 +245,19 @@ function edusiteco_enqueue_google_icons() {
 add_action('wp_enqueue_scripts', 'edusiteco_enqueue_google_icons');
 
 /**
+ * Enqueue Customizer panel styles.
+ *
+ * @return void
+ */
+function edusiteco_customize_controls_styles() {
+    wp_enqueue_style( 
+        'edusiteco-customizer-panel-styles', 
+        get_template_directory_uri() . '/assets/css/customizer-panel.css'
+    );
+}
+add_action( 'customize_controls_enqueue_scripts', 'edusiteco_customize_controls_styles' );
+
+/**
  * Devuelve los datos de los hitos históricos.
  * En un proyecto real, estos datos vendrían de un Custom Post Type,
  * campos personalizados (ACF Repeater) o un bloque personalizado.
@@ -334,52 +347,10 @@ function edusiteco_get_valores_ficticios() {
 }
 
 
-// Funciones para personalizar los símbolos institucionales
-function edusiteco_simbolos_customize_register($wp_customize) {
-    // Sección para Símbolos Institucionales
-    $wp_customize->add_section('simbolos_institucionales', array(
-        'title' => __('Símbolos Institucionales', 'edusiteco'),
-        'priority' => 40,
-    ));
-
-    // Hero Section
-    $wp_customize->add_setting('simbolos_hero_image');
-    $wp_customize->add_setting('simbolos_subtitle', array(
-        'default' => 'Emblemas que nos identifican y nos unen como comunidad educativa'
-    ));
-
-    // Escudo
-    $wp_customize->add_setting('escudo_image');
-    $wp_customize->add_setting('escudo_alt', array('default' => 'Escudo del Colegio San Martín'));
-    $wp_customize->add_setting('escudo_title', array('default' => 'Escudo Institucional'));
-    $wp_customize->add_setting('escudo_description');
-
-    // Bandera
-    $wp_customize->add_setting('bandera_image');
-    $wp_customize->add_setting('bandera_alt', array('default' => 'Bandera del Colegio San Martín'));
-    $wp_customize->add_setting('bandera_title', array('default' => 'Bandera Institucional'));
-    $wp_customize->add_setting('bandera_description');
-
-    // Himno
-    $wp_customize->add_setting('himno_title', array('default' => 'Nuestro Himno'));
-    $wp_customize->add_setting('himno_audio_url');
-    $wp_customize->add_setting('himno_audio_label', array('default' => 'Audio del Himno del Colegio San Martín'));
-    $wp_customize->add_setting('himno_letra');
-
-    // Lema
-    $wp_customize->add_setting('lema_title', array('default' => 'Nuestro Lema'));
-    $wp_customize->add_setting('lema_text', array('default' => 'Saber, Honor y Disciplina'));
-    $wp_customize->add_setting('lema_explicacion');
-
-    // Frase Final
-    $wp_customize->add_setting('simbolos_frase_final', array(
-        'default' => 'Nuestros símbolos reflejan la historia, el orgullo y los valores que nos inspiran cada día.'
-    ));
-
-    // Controles para upload de imágenes...
-    // (Aquí irían los controles para cada setting)
-}
-add_action('customize_register', 'edusiteco_simbolos_customize_register');
+/********************************/
+/** EDUSITECO CUSTOMIZER PAGES **/
+/********************************/
+require_once get_template_directory() . '/inc/edusiteco-customizer-pages.php';
 
 /**************************/
 /** CPT PROJECT TEACHERS **/
@@ -395,7 +366,7 @@ require_once get_template_directory() . '/inc/edusiteco-cpt-communications.php';
 /**
  * Creación de páginas por defecto
  */
-require_once get_template_directory() . '/inc/default-pages.php';
+require_once get_template_directory() . '/inc/edusiteco-default-pages.php';
 
 /**
  * Filtro para eliminar los prefijos de los títulos de archivo (ej. "Categoría:", "Archivo:").
@@ -436,3 +407,20 @@ function edusiteco_block_editor_styles() {
 	}
 }
 add_action( 'enqueue_block_editor_assets', 'edusiteco_block_editor_styles' );
+
+/**
+ * Clase para crear un control de separador/título en el Personalizador.
+ */
+if ( class_exists( 'WP_Customize_Control' ) ) {
+    class Edusiteco_Separator_Control extends WP_Customize_Control {
+        public $type = 'separator';
+
+        public function render_content() {
+            ?>
+            <div style="margin-top: 15px; margin-bottom: 5px; border-top: 1px solid #ddd; padding-top: 15px;">
+                <h3 style="font-weight: 600; font-size: 14px; margin: 0;"><?php echo esc_html( $this->label ); ?></h3>
+            </div>
+            <?php
+        }
+    }
+}
