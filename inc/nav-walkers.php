@@ -289,8 +289,15 @@ function edusiteco_default_menu()
         <li class="relative header-group group">
             <?php
             $comunicados_archive_url = get_post_type_archive_link('comunicado');
+            
             $convocatorias_category = get_category_by_slug('convocatorias');
             $convocatorias_url = $convocatorias_category ? get_category_link($convocatorias_category->term_id) : '#';
+            
+            $eventos_category = get_category_by_slug('eventos');
+            $eventos_url       = $eventos_category ? get_category_link($eventos_category->term_id) : '#';
+            
+            $circulares_category = get_category_by_slug('circulares');
+            $circulares_url       = $circulares_category ? get_category_link($circulares_category->term_id) : '#';
             ?>
             <a href="#"
                 class=" inline-flex items-center text-sm font-semibold underline-link transition-all px-3 py-2 rounded-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-background-light dark:focus:ring-offset-background-dark">
@@ -307,6 +314,16 @@ function edusiteco_default_menu()
                 <li>
                     <a class="submenu-item" href="<?php echo esc_url($convocatorias_url); ?>">
                         Convocatorias
+                    </a>
+                </li>
+                <li>
+                    <a class="submenu-item" href="<?php echo esc_url($circulares_url); ?>">
+                        Circulares
+                    </a>
+                </li>
+                <li>
+                    <a class="submenu-item" href="<?php echo esc_url($eventos_url); ?>">
+                        Eventos
                     </a>
                 </li>
             </ul>

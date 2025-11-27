@@ -18,11 +18,6 @@ if (!$current_user->ID) {
     return;
 }
 
-// Verificar si tiene el rol de profesor
-if (!in_array('profesor_role', $current_user->roles)) {
-    return;
-}
-
 // Obtener los atributos con valores por defecto
 $gap = isset($attributes['gap']) ? (int) $attributes['gap'] : 4;
 $avatar_size = isset($attributes['avatarSize']) ? (int) $attributes['avatarSize'] : 128;
@@ -98,7 +93,7 @@ $wrapper_attributes = get_block_wrapper_attributes([
 
                 <div class="flex flex-col gap-1 text-sm text-gray-600 dark:text-gray-400">
                     <?php if ($show_email && $user_email): ?>
-                        <p style="margin: 0; font-size: 0.875rem;">
+                        <p style="margin: 0; font-size: 1rem;">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="lucide lucide-mail-icon lucide-mail inline-block mr-2">
@@ -114,7 +109,7 @@ $wrapper_attributes = get_block_wrapper_attributes([
                     <?php endif; ?>
 
                     <?php if ($show_subject && $user_subject): ?>
-                        <p style="margin: 0; font-size: 0.875rem;">
+                        <p style="margin: 0; font-size: 1rem;">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="lucide lucide-notebook-pen-icon lucide-notebook-pen inline-block mr-2">
@@ -132,7 +127,7 @@ $wrapper_attributes = get_block_wrapper_attributes([
                     <?php endif; ?>
 
                     <?php if ($show_title && $user_title): ?>
-                        <p style="margin: 0; font-size: 0.875rem;">
+                        <p style="margin: 0; font-size: 1.3rem;">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="lucide lucide-graduation-cap-icon lucide-graduation-cap inline-block mr-2">

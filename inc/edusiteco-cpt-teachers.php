@@ -28,6 +28,7 @@ function edusite_register_teachers_cpt()
         'show_in_rest'  => true,
         'capability_type' => ['profesor', 'profesores'], 
         'map_meta_cap'  => true,
+        'taxonomies'    => ['category', 'post_tag'],
     ];
 
     register_post_type('profesor', $args);

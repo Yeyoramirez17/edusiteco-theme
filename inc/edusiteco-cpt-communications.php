@@ -29,7 +29,7 @@ function edusite_register_comunicados_cpt()
         'menu_icon' => 'dashicons-megaphone',
         'supports' => ['title', 'editor', 'thumbnail', 'excerpt'],
         'show_in_rest' => true, // compatible con el editor de bloques
-        'taxonomies' => ['category'],
+        'taxonomies' => ['category', 'post_tag'],
     ];
 
     register_post_type('comunicado', $args);
@@ -41,46 +41,40 @@ add_action('init', 'edusite_register_comunicados_cpt');
  */
 function edusite_create_default_categories()
 {
-    # Check if the category exists
-    if (!term_exists('Comunicado', 'category')) {
-        wp_insert_term(
-            'Comunicado', # Name
-            'category',   # Taxonomy
-            [
-                'slug' => 'comunicado',
-                'description' => 'Publicaciones oficiales del colegio dirigidas a la comunidad educativa: avisos institucionales, convocatorias, eventos, circulares y documentos (PDF/archivos).'
-            ]
-        );
-    }
-    if (!term_exists('Convocatorias', 'category')) {
-        wp_insert_term(
-            'Convocatorias', # Name
-            'category',      # Taxonomy
-            [
-                'slug' => 'convocatorias',
-                'description' => 'Publicaciones relacionadas con convocatorias, concursos, inscripciones o procesos institucionales del colegio.'
-            ]
-        );
-    }
-    if (!term_exists('Eventos', 'category')) {
-        wp_insert_term(
-            'Eventos',  # Name
-            'category', # Taxonomy
-            [
-                'slug' => 'eventos',
-                'description' => 'Publicaciones relacionadas con eventos, actividades y celebraciones institucionales del colegio.'
-            ]
-        );
-    }
-    if (!term_exists('Circulares', 'category')) {
-        wp_insert_term(
-            'Circulares',  # Name
-            'category',    # Taxonomy
-            [
-                'slug' => 'circulares',
-                'description' => 'Publicaciones relacionadas con circulares y comunicados internos del colegio.'
-            ]
-        );
+    $categories = array(
+        array(
+            'name' => 'Comunicado',
+            'slug' => 'comunicado',
+            'description' => 'Publicaciones oficiales del colegio dirigidas a la comunidad educativa: avisos institucionales, convocatorias, eventos, circulares y documentos (PDF/archivos).'
+        ),
+        array(
+            'name' => 'Convocatorias',
+            'slug' => 'convocatorias',
+            'description' => 'Publicaciones relacionadas con convocatorias, concursos, inscripciones o procesos institucionales del colegio.'
+        ),
+        array(
+            'name' => 'Eventos',
+            'slug' => 'eventos',
+            'description' => 'Publicaciones relacionadas con eventos, actividades y celebraciones institucionales del colegio.'
+        ),
+        array(
+            'name' => 'Circulares',
+            'slug' => 'circulares',
+            'description' => 'Publicaciones relacionadas con circulares y comunicados internos del colegio.'
+        ),
+    );
+
+    foreach ($categories as $category) {
+        if (!term_exists($category['name'], 'category')) {
+            wp_insert_term(
+                $category['name'],  # Name
+                'category',     # Taxonomy
+                [
+                    'slug' => $category['slug'],
+                    'description' => $category['description']
+                ]
+            );
+        }
     }
 
 }
